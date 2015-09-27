@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/dev/Debian) (preloaded format=xelatex 2015.9.19)  22 SEP 2015 16:38
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/dev/Debian) (preloaded format=xelatex 2015.9.19)  28 SEP 2015 00:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2293,18 +2293,18 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 . and font adjustment code:
 . 
 .................................................
- (./template.toc
-[1])
+ (./template.toc)
+[1]
 \tf@toc=\write6
 \openout6 = `template.toc'.
 
- [2] (./src/hits/about.tex
+ (./src/hits/about.tex
 Overfull \hbox (12.06705pt too wide) in paragraph at lines 10--11
 []\EU1/LiberationSerif(1)/m/n/12 В связи с этим исследование философией человек
 а в информационно-технологической
  []
 
-[3
+[2
 
 ]) (./src/hits/tech_n_phylosophy.tex
 Overfull \hbox (12.41412pt too wide) in paragraph at lines 2--3
@@ -2318,147 +2318,40 @@ Overfull \hbox (16.35913pt too wide) in paragraph at lines 12--13
 льности по созданию этих устройств; 
  []
 
-[4] [5]
+[3] [4]
 Overfull \hbox (2.88885pt too wide) in paragraph at lines 26--27
 \EU1/LiberationSerif(1)/m/n/12 мер, системотехника, информатика, теория автомат
 ов и др.), для которых характерно вклю-
  []
 
-[6]) (./src/examples/sources.tex
-Overfull \hbox (6.70766pt too wide) in paragraph at lines 17--19
-[][][][][][][]\EU1/LiberationSerif(1)/m/n/12 . И я не нашел стандартного пути р
-ешения (в pdfL[]T[]Xи X[]T[]X —
+[5]) (./src/hits/problem_analysis.tex [6] [7]
+Overfull \hbox (26.39429pt too wide) in paragraph at lines 25--26
+\EU1/LiberationSerif(1)/m/n/12 как составной части гуманистического воспитания 
+в эпоху информационно-технического
  []
 
-[7] [8] [9]
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'LiberationMono(1)' created for font 'Liberation Mono' with
-. options
-. [Mapping=tex-text,WordSpace={1,0,0},PunctuationSpace=WordSpace,Script=Cyrilli
-c].
-. 
-. This font family consists of the following shapes:
-. 
-. * 'normal' with NFSS spec.:
-. <->"Liberation Mono/OT:script=cyrl;language=DFLT;mapping=tex-text;"
-. 
-. * 'small caps' with NFSS spec.:
-. 
-. and font adjustment code:
-. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
-. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
-. 
-. * 'bold' with NFSS spec.:
-. <->"Liberation Mono/B/OT:script=cyrl;language=DFLT;mapping=tex-text;"
-. 
-. * 'bold small caps' with NFSS spec.:
-. 
-. and font adjustment code:
-. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
-. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
-. 
-. * 'italic' with NFSS spec.:
-. <->"Liberation Mono/I/OT:script=cyrl;language=DFLT;mapping=tex-text;"
-. 
-. * 'small caps' with NFSS spec.:
-. 
-. and font adjustment code:
-. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
-. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
-. 
-. * 'bold italic' with NFSS spec.:
-. <->"Liberation Mono/BI/OT:script=cyrl;language=DFLT;mapping=tex-text;"
-. 
-. * 'bold small caps' with NFSS spec.:
-. 
-. and font adjustment code:
-. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
-. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
-.................................................
-) [10] (./src/examples/algs.tex
-Warning: Indentation ends at level 1 in codebox on page 11.
-
-LaTeX Font Warning: Font shape `EU1/LiberationSerif(1)/m/sc' undefined
-(Font)              using `EU1/LiberationSerif(1)/m/n' instead on input line 12
-.
-
-
-LaTeX Font Warning: Font shape `EU1/LiberationSerif(0)/m/sc' undefined
-(Font)              using `EU1/LiberationSerif(0)/m/n' instead on input line 12
-.
-
-
-LaTeX Font Warning: Font shape `EU1/LiberationMono(0)/m/sc' undefined
-(Font)              using `EU1/LiberationMono(0)/m/n' instead on input line 12.
-
-
-
-LaTeX Font Warning: Font shape `EU1/LiberationMono(1)/m/sc' undefined
-(Font)              using `EU1/LiberationMono(1)/m/n' instead on input line 12.
-
-
-[11]) [12] (./src/examples/pictures.tex
-File: img/math.jpg Graphic file (type QTm)
- <use  "img/math.jpg" > [13]
-File: img/theFutureofUsa.jpg Graphic file (type QTm)
-
-<use  "img/theFutureofUsa.jpg" >
-File: img/l2-1-1.png Graphic file (type QTm)
- <use  "img/l2-1-1.png" >) [14]
-(./src/examples/plot.tex (./src/examples/plot-tikz.tex
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 9.
-
-[15] [16]
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 145.
-
-Missing character: There is no 1 in font nullfont!
-Missing character: There is no 2 in font nullfont!
-) [17] (./src/examples/plot-pstricks.tex)) [18] (./src/examples/text.tex
-[19
-
-]
-Overfull \hbox (0.93466pt too wide) in paragraph at lines 26--41
-\EU1/LiberationSerif(1)/m/sc/12 Несомненно, форма политического сознания обрета
-ет идеологический политический про-
+[8]
+Overfull \hbox (2.68233pt too wide) in paragraph at lines 36--37
+[]\EU1/LiberationSerif(1)/m/n/12 Великолепное диагностическое оборудование, исп
+ользующее компьютерную вычис-
  []
 
-
-Overfull \hbox (2.81943pt too wide) in paragraph at lines 26--41
-\EU1/LiberationSerif(1)/bx/it/12 сический англо-американский тип политической к
-ультуры, если взять за основу толь-
- []
-
-
-Overfull \hbox (9.48555pt too wide) in paragraph at lines 26--41
-\EU1/LiberationSerif(1)/bx/it/12 бихевиоризм, отмечает Б. Рассел. Правовое госу
-дарство теоретически вызывает пост-
- []
-
-[20])
+[9]) [10]
 No file template.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 149.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 149.
-(./template.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 149.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 149.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
+[11]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
+ (./template.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 150.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 150.
  ) 
 Here is how much of TeX's memory you used:
- 44029 strings out of 494949
- 850460 string characters out of 6180217
- 1077378 words of memory out of 5000000
- 46300 multiletter control sequences out of 15000+600000
- 13796 words of font info for 162 fonts, out of 8000000 for 9000
+ 42274 strings out of 494949
+ 819940 string characters out of 6180217
+ 989699 words of memory out of 5000000
+ 44613 multiletter control sequences out of 15000+600000
+ 10025 words of font info for 105 fonts, out of 8000000 for 9000
  662 hyphenation exceptions out of 8191
- 73i,15n,126p,10447b,1526s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,6n,126p,10447b,529s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.pdf (21 pages).
+Output written on template.pdf (12 pages).
