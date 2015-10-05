@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/dev/Debian) (preloaded format=xelatex 2015.9.19)  28 SEP 2015 00:20
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/dev/Debian) (preloaded format=xelatex 2015.9.19)  5 OCT 2015 14:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2306,37 +2306,19 @@ Overfull \hbox (12.06705pt too wide) in paragraph at lines 10--11
 
 [2
 
-]) (./src/hits/tech_n_phylosophy.tex
-Overfull \hbox (12.41412pt too wide) in paragraph at lines 2--3
-\EU1/LiberationSerif(1)/m/n/12 дится к исключительно оптимистической оценке дос
-тижений и перспектив информационно-
- []
-
-
-Overfull \hbox (16.35913pt too wide) in paragraph at lines 12--13
-[]\EU1/LiberationSerif(1)/m/n/12 совокупность различных видов технической деяте
-льности по созданию этих устройств; 
- []
-
-[3] [4]
+]) (./src/hits/tech_n_phylosophy.tex [3] [4]
 Overfull \hbox (2.88885pt too wide) in paragraph at lines 26--27
 \EU1/LiberationSerif(1)/m/n/12 мер, системотехника, информатика, теория автомат
 ов и др.), для которых характерно вклю-
  []
 
-[5]) (./src/hits/problem_analysis.tex [6] [7]
-Overfull \hbox (26.39429pt too wide) in paragraph at lines 25--26
-\EU1/LiberationSerif(1)/m/n/12 как составной части гуманистического воспитания 
-в эпоху информационно-технического
- []
-
-[8]
+[5]) (./src/hits/problem_analysis.tex [6] [7] [8]
 Overfull \hbox (2.68233pt too wide) in paragraph at lines 36--37
 []\EU1/LiberationSerif(1)/m/n/12 Великолепное диагностическое оборудование, исп
 ользующее компьютерную вычис-
  []
 
-[9]) [10]
+[9] [10])
 No file template.ind.
 [11]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
@@ -2348,7 +2330,7 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 150.
 Here is how much of TeX's memory you used:
  42274 strings out of 494949
  819940 string characters out of 6180217
- 989699 words of memory out of 5000000
+ 993701 words of memory out of 5000000
  44613 multiletter control sequences out of 15000+600000
  10025 words of font info for 105 fonts, out of 8000000 for 9000
  662 hyphenation exceptions out of 8191
