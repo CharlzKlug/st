@@ -13,6 +13,11 @@ CONFIG   += console
 CONFIG   -= app_bundle
 
 TEMPLATE = app
+PRECOMPILED_HEADER  = myfunctions.h
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    myfunctions.cpp
+
+HEADERS += \
+    myfunctions.h
