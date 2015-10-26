@@ -3,4 +3,10 @@
 \contentsline {section}{\numberline {1}The History}{3}{section.1}
 \contentsline {subsection}{\numberline {1.1}Vision and mission}{3}{subsection.1.1}
 \contentsline {subsection}{\numberline {1.2}Boston Tech (1865–1916)}{3}{subsection.1.2}
+\contentsline {section}{\numberline {2}Перевод}{6}{section.2}
+\select@language {russian}
+\contentsline {subsection}{\numberline {2.1}Введение}{6}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}История}{7}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Видение и миссия}{7}{subsubsection.2.2.1}
+\select@language {english}
 \pagebreak 
