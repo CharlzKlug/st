@@ -44,7 +44,8 @@
 %%% если она поддерживает последние обновдения CTAN.
 
 
-\documentclass[unicode, 12pt, a4paper,oneside,fleqn]{article}
+%\documentclass[unicode, 12pt, a4paper,oneside,fleqn]{article}
+\documentclass[unicode, 14pt, a4paper,oneside,fleqn]{extarticle}
 	%% Варианты []:
 		% fleqn --- сдвигает формулы влево
 
@@ -54,7 +55,7 @@
 		% article
 		% letter
 		% minimal (???)
-
+\usepackage{extsizes}
 \usepackage{styles/init} 
 	% подключаем набор стилей 
 	% там были определены базовые настройки шрифтов
@@ -70,8 +71,8 @@
 		unicode=false,
 		% %	pdffitwindow=false,
 		% % pdfstartview={FitH}, % как отображать страницу {FitH}, {FitW}
-		pdftitle={Это шаблонный документ XeTeX v0.35}, 
-		pdfauthor={Илья w-495 Никитин},
+		pdftitle={MIT history}, 
+		pdfauthor={Ametov Imil},
 		pdfcreator={XeTeX + TexMaker + w-495}, 
 		pdfsubject={Тема}, 
 		pdfproducer={w-495}, 
@@ -85,7 +86,7 @@
 %%% бесполезное содержимое
 %%%
 
-	\input{src/work-titlepage} 	% титульный лист
+	\input{src/mithist/title_page} 	% титульный лист
 	\tableofcontents 		% оглавление
 	\pagebreak
 
