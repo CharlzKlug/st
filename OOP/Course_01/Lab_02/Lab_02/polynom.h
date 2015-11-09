@@ -4,6 +4,8 @@
 #include <QCoreApplication>
 #include <cmath>
 #include <iostream>
+#include <ctime>
+#include <fstream>
 
 using namespace std;
 
@@ -39,4 +41,13 @@ qreal polyD (TCoef, int, qreal);
 char menu(); // Прототип для выбора меню
 
 void outputCoefs(TCoef, int);   // Прототип печати коэффициентов полинома.
+
+void loadRandomCoefs (qreal *, int); // Сгенерировать случайные коэффициенты
+
+void loadCoefsFile(qreal *, int, char *);   // Считывание коэффициентов из файла
+
+qreal calcStep (qreal, qreal, int); // Вычисление шага на отрезке
+
+void calculateEdgePoly (TCoef, int, qreal *, qreal, qreal, int);  // Вычисление значений полинома на некотором отрезке и занесение значений
+// в массив.
 #endif // POLYNOM_H

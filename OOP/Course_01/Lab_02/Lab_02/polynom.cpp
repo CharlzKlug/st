@@ -8,9 +8,9 @@ char menu()
     cout<<"A - Вывести начальные значения"<<endl;
     cout<<"B - Сменить условия задачи"<<endl;
     cout<<"С - Загрузить значения коэффициентов с клавиатуры"<<endl;
-    cout<<"D - Найти ноль функции методом дихотомии"<<endl;
-    cout<<"E - Найти ноль функции методом Ньютона"<<endl;
-    cout<<"F - Найти точку пересечения двух функций методом дихотомии"<<endl;
+    cout<<"D - Сгенерировать случайные коэффициенты"<<endl;
+    cout<<"E - Прочитать коэффициенты из файла"<<endl;
+    cout<<"F - Вычисление значений полинома и его производной на отрезке"<<endl;
     cout<<"X - Выход из программы"<<endl;
     char select;    // Выбранный вариант
     cin>>select;
@@ -42,18 +42,19 @@ qreal poly (TCoef coefs, int polyLevel, qreal x)
     return result;
 }
 
-/*
-void calculateEdgePoly (TCoef coefs, int polyLevel,
-                        TPoly myPoly, qreal ax, qreal bx, int dotCount )
-{   // Вычисление значений полинома на отрезке [ax, bx] и занесение в массив myPoly.
-    qreal step = (bx - ax)/(dotCount - one);
 
-    for (int i = zero; i <= dotCount - one; i++)
+void calculateEdgePoly (TCoef coefs, int polyLevel,
+                        qreal *myPoly, qreal ax, qreal bx, int dotCount )
+{   // Вычисление значений полинома на отрезке [ax, bx] и занесение в массив myPoly.
+    qreal step = (bx - ax)/(dotCount + one);
+    int k = 0;
+    for (qreal i = ax; i <= bx; i += step)
     {
-        myPoly[i] = poly(coefs, polyLevel, ax + step * i);
+        myPoly[k] = poly(coefs, polyLevel, i);
+        k++;
     }
 }
-*/
+
 
 qreal polyD (TCoef coefs, int polyLevel, qreal x)
 {   // Вычисление значения производной полинома от аргумента x.
@@ -88,10 +89,40 @@ int someFunc (int x)
 }
 
 void loadCoefKeyboard(TCoef myCoefs, int order)
-{
+{   // Загрузка коэффициентов с клавиатуры.
     for (int i = 0; i<=order; i++)
     {
         cout<<"Коэффициент "<<i<<": ";
         cin>>myCoefs[i];
     }
 }
+
+void loadRandomCoefs (qreal *coefs, int order)
+{   // Загрузка случайных коэффициентов с генератора случайных чисел.
+    srand(time(0));
+    for (int i = 0; i <= order; i++)
+    {
+        coefs[i] = ((qreal) rand()) / RAND_MAX *10 - 5;
+    }
+}
+
+void loadCoefsFile(qreal *coefs, int order, char *fileName)
+{   // Загрузка коэффициентов из файла.
+    fstream F;
+    qreal b;
+
+    F.open(fileName, ios::in);
+    for (int i = 0; i <= order; i++)
+    {
+        F>>b;
+        coefs[i] = b;
+    }
+    F.close();
+
+}
+
+qreal calcStep (qreal b, qreal a, int dotCount)
+{   // Вычисление шага на отрезке
+    return (a - b) / (dotCount++);
+}
+
