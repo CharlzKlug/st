@@ -98,6 +98,19 @@ void coordCenterSystem(qreal *x, qreal *y, qreal *m, int n, qreal &xs, qreal &ys
     ys /= ms;
 }
 
+void insertSpace (char *s, char *t)
+{   // Вставка пробелов между элементами массива s.
+    int i = 0;
+    while (s[i] != '\0')
+    {
+        int k = 2 * i;
+        t[k] = s[i];
+        t[k + 1] = ' ';
+        ++i;
+    }
+}
+
+
 int main(int argc, char *argv[])
 {
     srand(time(0));
@@ -144,5 +157,10 @@ int main(int argc, char *argv[])
     coordCenterSystem(myArray, myNewArray, myWArray, N, xc, yc);
     cout << "xs = " << xc << endl;
     cout << "ys = " << yc << endl;
+    char cA[] = {"abcdef"};
+    char cB[11];
+    insertSpace (cA, cB);
+    for (int i = 0; i < 11; ++i)
+        cout<<cB[i]<<endl;
     return 0;
 }
