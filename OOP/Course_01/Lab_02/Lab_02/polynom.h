@@ -6,6 +6,7 @@
 #include <iostream>
 #include <ctime>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -48,6 +49,12 @@ void loadCoefsFile(qreal *, int, char *);   // Считывание коэффи
 
 qreal calcStep (qreal, qreal, int); // Вычисление шага на отрезке
 
-void calculateEdgePoly (TCoef, int, qreal *, qreal, qreal, int);  // Вычисление значений полинома на некотором отрезке и занесение значений
+void calculateEdgePoly (TCoef, int, qreal *, qreal *, qreal, qreal, int);  // Вычисление значений полинома на некотором отрезке и занесение значений
 // в массив.
+
+void swapElements (qreal *, qreal *);
+void selectionSort (qreal *, int);
+void bubbleSort(qreal *, int);
+void insertionSort (qreal *, int);
+void inverseArray(qreal *, int);
 #endif // POLYNOM_H

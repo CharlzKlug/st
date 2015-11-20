@@ -5,19 +5,21 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    TCoef myCoefs = {-2, -1.5, -0.9, 0, 1, 2, 3, -1.8, 3, 3.5, 4};
+    TCoef myCoefs = {1, 1, -1, 0, 1, 2, 3, -1.8, 3, 3.5, 4};
 
-    int order = 10;  // Степень полинома.
+    int order = 2;  // Степень полинома.
 
-    qreal ax = -5, bx = 5; // ax - начальная граница, bx - конечная граница.
+    qreal ax = -2, bx = 4; // ax - начальная граница, bx - конечная граница.
 
-    int dotCount = 3;   // Количество точек на прямой.
+    int dotCount = 5;   // Количество точек на прямой.
 
     TVect *polyValue = new qreal [dotCount + 2];
 
     //    TPoly myPoly;   // Массив с результатами полинома.
 
-    TDPoly myDPoly; // Массив с результатами производной полинома.
+    //TDPoly myDPoly; // Массив с результатами производной полинома.
+
+    TVect *polyDValue = new qreal [dotCount + 2];    // Массив, содержащий значения полинома.
 
     string fileName = "/home/ametovii/Temp/1.txt";    // Название файла из которого будет считываться коэффициенты
 
@@ -44,6 +46,8 @@ int main(int argc, char *argv[])
             cin>>dotCount;
             delete [] polyValue;
             polyValue = new qreal [dotCount + 2];
+            delete [] polyDValue;
+            polyDValue = new qreal [dotCount + 2];
             cout<<"Имя файла с коэффициентами: ";
             cin>>fileName;
             break;
@@ -78,14 +82,42 @@ int main(int argc, char *argv[])
             break;
         case 'F':   // Вычисление значений полинома на некотором отрезке, занесение их в массив и вывод значений массива на экран
             cout<<"Вычисление значений полинома на некотором отрезке, занесение их в массив и вывод значений массива на экран"<<endl;
-            calculateEdgePoly(myCoefs, order, polyValue, ax, bx, dotCount);
-            cout<<"Значения полинома (массив polyValue):"<<endl;
+            calculateEdgePoly(myCoefs, order, polyValue, polyDValue, ax, bx, dotCount);
+            break;
+        case 'G':   // Упорядочение массива значений полинома методом выбора
+            cout<< "До упорядочения:"<<endl;
+            outputCoefs(polyValue, dotCount + 1);
+            cout<< "После упорядочения:"<<endl;
+            selectionSort(polyValue, dotCount + 2);
+            outputCoefs(polyValue, dotCount + 1);
+            break;
+        case 'H':
+            cout<< "До упорядочения:"<<endl;
+            outputCoefs(polyValue, dotCount + 1);
+            cout<< "После упорядочения:"<<endl;
+            bubbleSort(polyValue, dotCount + 2);
+            outputCoefs(polyValue, dotCount + 1);
+            break;
+        case 'K':
+            cout<< "До упорядочения:"<<endl;
+            outputCoefs(polyValue, dotCount + 1);
+            cout<< "После упорядочения:"<<endl;
+            insertionSort(polyValue, dotCount + 2);
+            outputCoefs(polyValue, dotCount + 1);
+            break;
+        case 'L':
+            cout<< "До инвертирования:"<<endl;
+            outputCoefs(polyValue, dotCount + 1);
+            cout<< "После инвертирования:"<<endl;
+            inverseArray(polyValue, dotCount + 2);
             outputCoefs(polyValue, dotCount + 1);
             break;
         default:
             break;
         }
     }
-    delete [] polyValue;
+    delete [] polyValue;    // Очищаем место массива значений полинома
+    delete [] polyDValue;   // Очищаем место массива значений полинома
+
     return 0;
 }
