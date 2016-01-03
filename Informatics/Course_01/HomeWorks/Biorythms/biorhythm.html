@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <title>curveExample</title>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <canvas id='example'>Обновите браузер</canvas>
+    <script>
+      var str = prompt("Введите дату рождения [YYYY-MM-DD]:", "1985-04-27");
+      var birthDate = new Date(str);
+      str = prompt("Введите текущий год: ", "2016");
+      var currentYear = new Date(str);
+      var changingDate = currentYear;
+      var i = currentYear.getFullYear();
+      var example=document.getElementById("example"), ctx=example.getContext('2d');
+      example.height=480; example.width=20000;
+      var X=0, Y=0;
+      Y = -Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*23))*100+150;
+      ctx.strokeStyle="blue";
+      ctx.moveTo(0,Y);
+      ctx.font = "10px Arial";
+      while ((changingDate.getFullYear()) == i) {
+	  Y = -Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*23))*100+150;
+	  ctx.lineTo(X,Y);
+	  if (X%30 == 0)	  ctx.fillText(changingDate.getDate()+"."+(changingDate.getMonth()+1),X,260);
+	  changingDate.setDate(changingDate.getDate()+1);
+	  X = X+3;
+      }
+      ctx.stroke();
+
+      // Строим кривую эмоционального состояния
+      ctx.beginPath();
+      changingDate.setFullYear(i);
+      changingDate.setMonth(0);
+      changingDate.setDate(1);
+      X=0;
+      Y=0;
+      Y = -Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*28))*100+150;
+      var criticalState = Y+
+	  (-Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*23))*100+150) +
+	  (-Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*33))*100+150);
+      var criticalMonth = changingDate.getFullYear();
+      var criticalDay = changingDate.getDate();
+      ctx.moveTo(0,Y);
+      ctx.strokeStyle="red";
+      while ((changingDate.getFullYear()) == i) {
+	  Y = -Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*28))*100+150;
+	  if (criticalState < (Y+
+			       (-Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*23))*100+150) +
+			       (-Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*33))*100+150)))
+	  {
+	      criticalState = Y+
+		  (-Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*23))*100+150) +
+		  (-Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*33))*100+150);
+	      criticalMonth = changingDate.getMonth();
+	      criticalDay = changingDate.getDate();
+	  }
+	  ctx.lineTo(X,Y);
+	  changingDate.setDate(changingDate.getDate()+1);
+	  X = X+3;
+      }
+      document.write("Дата критического состояния: " + criticalDay + "." + (criticalMonth + 1) + "." + i + "<br>");
+      ctx.stroke();
+
+      // Строим кривую интеллектуального состояния
+      ctx.beginPath();
+      changingDate.setFullYear(i);
+      changingDate.setMonth(0);
+      changingDate.setDate(1);
+      X=0;
+      Y=0;
+      Y = -Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*33))*100+150;
+      ctx.moveTo(0,Y);
+      ctx.strokeStyle="green";
+      while ((changingDate.getFullYear()) == i) {
+	  Y = -Math.sin(2*3.14*(changingDate - birthDate)/(24*60*60*1000*33))*100+150;
+	  ctx.lineTo(X,Y);
+	  changingDate.setDate(changingDate.getDate()+1);
+	  X = X+3;
+      }
+      ctx.stroke();
+
+      // Рисуем оси координат
+      ctx.beginPath();
+      ctx.moveTo(0,150);
+      ctx.strokeStyle="black";
+      ctx.lineTo(1100,150);
+      ctx.font = "20px Arial";
+      ctx.fillText("0.00", 0, 150);
+      ctx.moveTo(0,50);
+      ctx.lineTo(1100,50);
+      ctx.fillText("1.00",0,50);
+      ctx.moveTo(0,100);
+      ctx.lineTo(1100,100);
+      ctx.fillText("0.50",0,100);
+      ctx.moveTo(0,200);
+      ctx.lineTo(1100,200);
+      ctx.fillText("-0.50", 0,200);
+      ctx.moveTo(0,250);
+      ctx.lineTo(1100,250);
+      ctx.fillText("-1.00", 0,250);
+      ctx.stroke();
+    </script>
+  </body>
+</html>
