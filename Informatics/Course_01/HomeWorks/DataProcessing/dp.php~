@@ -1,0 +1,6 @@
+<?php
+$n = 12334;
+$theVariable = array(1,2,3);
+echo $theVariable[2];
+echo "\n";
+?>
