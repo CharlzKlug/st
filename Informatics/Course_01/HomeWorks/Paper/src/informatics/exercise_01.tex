@@ -48,10 +48,7 @@
                      (24*60*60*1000*28));
       YIP = Math.sin(2*3.14*(changingDate - birthDate)/
                      (24*60*60*1000*33));
-      //Y = -Math.sin(2*3.14*(changingDate - birthDate)/
-      //(24*60*60*1000*23))*100+150;
-      //ctx.strokeStyle="blue";
-      //ctx.moveTo(0,Y);
+
       ctx.font = "10px Arial";
       var criticalState = YPP+YEP+YIP;
       var criticalMonth = changingDate.getFullYear();
