@@ -1,0 +1,15 @@
+\section{Задание 3 --- обмен информацией с Web-сервером}
+
+Создайте веб-приложение, которое формирует возрастающую последовательность из чисел, переданных через поля ввода формы.
+
+Ввод данных:
+
+\begin{center}
+  \includegraphics[width=15cm]{img/09.png}
+\end{center}
+
+Результат:
+
+\begin{center}
+  \includegraphics[width=15cm]{img/10.png}
+\end{center}

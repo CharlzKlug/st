@@ -1,0 +1,5 @@
+\select@language {russian}
+\contentsline {section}{\numberline {1}Задание 1 --- Анализ биоритмов в JavaScript}{2}{section.1}
+\contentsline {section}{\numberline {2}Задание 2 --- Вычисления в PHP}{6}{section.2}
+\contentsline {section}{\numberline {3}Задание 3 --- обмен информацией с Web-сервером}{8}{section.3}
+\pagebreak 
