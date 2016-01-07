@@ -11,5 +11,4 @@ for ($i = 3; $i <= $n; $i=$i+2)
     $minusDegree = $minusDegree * (-1);
 }
 echo $result;
-echo "\n";
 ?>
