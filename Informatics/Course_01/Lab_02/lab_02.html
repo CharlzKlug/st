@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function chet()
+      {
+          a = parseInt (prompt ("Введите первое число"))
+          b = parseInt (prompt ("Введите второе число"))
+          operation = prompt ("Введите знак")
+          switch (operation) {
+          case "*":
+              alert (a + operation + b + "="
+                     + (a * b))
+              break
+          case "+":
+              alert (a + operation + b + "="
+                     + (a + b))
+              break
+          case "-":
+              alert (a + operation + b + "="
+                     + (a - b))
+              break
+          case "/":
+	      if (b==0) {alert ("Ошибка! На ноль " +
+				"делить нельзя")}
+              else {alert (a + operation + b + "="
+                           + (a / b))}
+              break
+          default:
+	      alert ("Ошибка! Недопустимый "+
+		     "знак операции!")
+              break
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="button" value="Выполним вычисление"
+	   onClick="chet()">
+  </body>
+</html>
