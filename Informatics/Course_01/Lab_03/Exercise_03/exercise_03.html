@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Сколько дней до каникул?</title>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <font color="red" size="5">Площадь прямоугольника</font><br>
+    Длина: <input id="inputLength"></input>
+    Ширина: <input id="inputWidth"></input> <br>
+    <button onclick="calculateYardage()">Площадь</button>
+    <script>
+      function calculateYardage(){
+	  var length=document.getElementById("inputLength");
+	  var width=document.getElementById("inputWidth");
+	  alert(length.value*width.value);
+      }
+    </script>
+  </body>
+</html>

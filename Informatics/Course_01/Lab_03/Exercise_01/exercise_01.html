@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>День недели</title>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <script>
+      var birthYear=prompt("Введите год рождения:", "1985");
+      var birthMonth=prompt("Введите номер месяца рождения:", "4");
+      var birthDay=prompt("Введите день рождения:", "27");
+      var birthDate=new Date();
+      birthDate.setFullYear(birthYear);
+      birthDate.setMonth(birthMonth-1);
+      birthDate.setDate(birthDay);
+      var monthes = ["января", "февраля",
+                     "марта", "апреля",
+                     "мая", "июня",
+                     "июля", "августа",
+                     "сентября", "октября",
+                     "ноября", "декабря"];
+      var weekDays = ["воскресенье", "понедельник",
+		      "вторник", "среду",
+		      "четверг", "пятницу",
+		      "субботу"];
+      document.write("Я родился "+birthDate.getDate()+
+		     " "+monthes[birthDate.getMonth()]+
+		     " "+birthDate.getFullYear()+" года в "+
+		     weekDays[birthDate.getDay()]);
+    </script>
+  </body>
+</html>

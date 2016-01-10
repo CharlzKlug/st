@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Сколько дней до каникул?</title>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <script>
+      var todayDate=new Date();
+      var holidayDate=new Date();
+      holidayDate.setMonth(0);
+      holidayDate.setDate(25);
+      holidayDate.setFullYear(2016);
+      document.write("До каникул осталось "+(holidayDate-todayDate));
+    </script>
+  </body>
+</html>

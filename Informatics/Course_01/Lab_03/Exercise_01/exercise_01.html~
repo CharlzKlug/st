@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>День недели</title>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <canvas id='example'>Обновите браузер</canvas>
+    <script>
+      var birthYear=prompt("Введите год рождения:", "1985");
+      var birthMonth=prompt("Введите номер месяца рождения:", "4");
+      var birthDay=prompt("Введите день рождения:", "27");
+      var birthDate=new Date(birthYear+"-"+birthMonth+"-"+birthDay);
+      alert(birthDate.getFullYear()+"."+(birthDate.getMonth()+1)+"."+birthDate.getDate());
+    </script>
+  </body>
+</html>
