@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <style>
+      h1 {color:red; text-align:center;}
+      body {background-color:PaleGreen; font-weight:bold;}
+      input {font-weight:bold;}
+    </style>
+    <script>
+      function hello()
+      {
+	  var p=document.getElementById('t');
+	  r=p.value;
+	  var win=window.open("", "", "width=400, height=500");
+	  win.document.open();
+	  var str="<h1>"+r+"!!!<h1><hr><P>";
+	  win.document.write(str);
+	  str='<h2>Примите в подарок этот букет!</h2>';
+	  win.document.write(str);
+	  str='<input type="button" value="закрыть">'+'onClick="window.close();">';
+	  win.document.write(str);
+	  win.document.close();
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Приветствие</h1>
+    <hr>
+    <form>
+      <input type=text value="Горбунков Семён Семёнович" name="t" id='t' size="30">
+      <input type=button value="Приветствие" OnClick="hello()">
+      <hr>
+    </form>
+  </body>
+</html>
