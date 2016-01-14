@@ -1,0 +1,35 @@
+\section{Задание 3}
+
+Ввести длину и ширину в поля формы и определить площадь этого прямоугольника. Площадь должна вычисляться по нажатию кнопки.
+
+\begin{center}
+  \includegraphics{img/Exercise_03/01.png}
+  \includegraphics{img/Exercise_03/02.png}
+\end{center}
+
+Исходный код \verb|exercise_02.html|:
+
+\begin{verbatim}
+<!doctype html>
+<html>
+  <head>
+    <title>Сколько дней до каникул?</title>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    До каникул осталось
+    <input id='dayBeforeHoliday'></input>
+    дней.
+    <script>
+      var todayDate=new Date();
+      var holidayDate=new Date();
+      holidayDate.setMonth(0);
+      holidayDate.setDate(25);
+      holidayDate.setFullYear(2016);
+      var inputObject =
+	  document.getElementById("dayBeforeHoliday");
+      inputObject.value=(holidayDate-todayDate)/86400000;
+    </script>
+  </body>
+</html>
+\end{verbatim}
