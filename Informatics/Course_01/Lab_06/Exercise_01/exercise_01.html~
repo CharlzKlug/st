@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Таблица с животными</title>
+    <meta charset='utf-8' />
+     <style type="text/css">
+   .block1 { 
+    padding: 5px;
+    padding-right: 20px; 
+    border: solid 1px black; 
+    float: left;
+   }
+   .block2 { 
+    padding: 5px; 
+    border: solid 1px black; 
+    float: left; 
+      }
+
+      body {background-color:#dfd8c5;}
+     </style>
+     <script>
+
+     </script>
+     </head>
+    <body>
+      <h1>Наведи курсор на название животного</h1>
+    </body>
+</html>

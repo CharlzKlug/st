@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Слайд шоу с животными</title>
+    <meta charset='utf-8' />
+     <style type="text/css">
+      body {background-color:#dfd8c5; color:#0000ff;}
+      img {width:274; height:233}
+     </style>
+     <script>
+       currentImage=0;
+       function changeImage(imageType){
+	   var someImage=document.getElementById('pic');	   
+	   if (imageType=='begemot') someImage.src="Images/begemot.jpg";
+	   if (imageType=='shark') someImage.src="Images/shark.png";
+	   if (imageType=='mamont') someImage.src="Images/mamont.jpg";
+       }
+
+       function clearImage(){
+	   var someImage=document.getElementById('pic');
+	   someImage.src="Images/blank.png";
+       }
+
+       function nextImage(){
+	   currentImage=currentImage+1;
+	   alert(currentImage);
+       }
+     </script>
+     </head>
+  <body>
+    <h1>Слайд шоу с животными</h1>
+    <input type="button" value="Следующая картинка" onClick="nextImage()" />
+  </body>
+</html>
