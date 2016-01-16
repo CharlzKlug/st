@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Смена цвета</title>
+    <style type="text/css">
+      .block1 {
+      width: 250px;
+      height: 250px;
+//      background: red;
+//      padding: 5px;
+//      padding-right: 20px;
+      border: inset 1px #0b0b3b;
+      float: left;
+      }
+      
+      .block2 {
+          width: 100%;
+          height: auto;
+	  float: left;
+      }
+    </style>
+    <script>
+    </script>
+  </head>
+  <body>
+      <div class="block1" id='changedDiv'></div>
+  </body>
+</html>

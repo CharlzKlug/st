@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Смена цвета</title>
+    <style type="text/css">
+      .block1 {
+      width: 250px;
+      height: 250px;
+      background: red;
+      padding: 5px;
+      padding-right: 20px;
+      border: inset 10px #0b0b3b;
+      float: left;
+      }
+      
+      .block2 {
+          width: 100%;
+          height: auto;
+	  float: left;
+      }
+    </style>
+    <script>
+      function changeColorLabel(){
+	  var myButton=document.getElementById('button');
+	  var myDiv=document.getElementById('changedDiv');
+	  if (myButton.value=="изменить фон на синий"){
+	      myButton.value="изменить фон на красный";
+	      myDiv.style.background="blue";
+	  }
+	  else{
+	      myButton.value="изменить фон на синий";
+	      myDiv.style.background="red";}
+      }
+    </script>
+  </head>
+  <body>
+      <div class="block1" id='changedDiv'></div>
+      <div class="block2"><input type="button"
+				 id='button'
+				 onClick="changeColorLabel();"
+				 value="изменить фон на синий"/></div>
+  </body>
+</html>
