@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string>
+
+int main(){
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
+
+  // Количество чисел
+  int n;
+  scanf("%ld", n);
+  string odds="", evens="";
+  int fours=0, threes=0, currentNumber;
+  for (int i=1; i<=n; i++){
+    scanf("%ld", &currentNumber);
+    if ((current%2)==0){
+      evens=evens+current+" ";
+      fours++;
+    }
+    else{
+      odds=odds+current+" ";
+      threes++;
+    }
+  }
+  printf("%s\n", odds);
+  printf("%s\n", evens);
+  if (evens>=odds) printf("YES");
+  else printf("NO");
+  fclose(stdin);
+  fclose(stdout);
+  return 0;
+}

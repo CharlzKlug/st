@@ -1,0 +1,20 @@
+// Сумма целых чисел от 1 до N
+#include <stdio.h>
+
+// Для быстрого подсчёта используем сумму членов арифметической прогрессии
+int sumN (int n){
+  return ((1+n)*n)/2;
+}
+
+int main(){
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "r", stdout);
+
+  // В n будет храниться число N
+  long n;
+  scanf("%ld", &n);
+  printf("%ld", sumN(n));
+  fclose(stdin);
+  fclose(stdout);
+  return 0;
+}

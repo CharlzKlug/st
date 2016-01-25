@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <cmath>
+
+int shortSquare (int a){
+  a=(a-5)/10;
+  return a*(a+1)*100+25;
+}
+
+int main(){
+  freopen("input.txt", "r", stdin);
+  freopen("output.txt", "w", stdout);
+  long a;
+  scanf("%ld", &a);
+  printf("%ld", shortSquare(a));
+  fclose(stdin);
+  fclose(stdout);
+  return 0;
+}
