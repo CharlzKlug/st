@@ -1,0 +1,14 @@
+#include <iostream>
+#include <fstream>
+
+int main(){
+  ifstream infile("input.txt");
+  ifstream outfile("output.txt");
+  int a,b,c;
+  infile>>a;
+  infile>>b;
+  infile>>c;
+  if (a*b==c) outfile<<"YES";
+  else outfile<<"NO";
+  return 0;
+}
