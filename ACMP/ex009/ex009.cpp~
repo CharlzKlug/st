@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main(){
+  int N;// Количество элементов
+  int sum=0;// Сумма положительных элементов
+  int minIndex=0;// Индекс минимального элемента
+  int maxIndex=0;// Индекс максимального элемента
+  ifstream infile("input.txt");
+  ofstream outfile("output.txt");
+  infile>>N;
+  int *myArray=new int(N);// Создали массив для N элементов
+  int temp;// Временная переменная
+  for (int i=0; i<N; i++){
+    infile>>temp;
+    if (temp>0) sum=sum+temp;
+    if (myArray[minIndex]>temp) minIndex=i;
+    if (myArray[maxIndex]<temp) maxIndex=i;
+    myArray[i]=temp;
+  }
+  int mylResult=1;// Результат перемножений
+  for (int i=minBetween(minIndex, maxIndex)+1; i<maxBetween(minIndex, maxIndex); i++){
+    mulResult=mulResult*myArray[i];
+  }
+  outfile<<sum<<" "<<mulResult;
+  delete [] myArray;
+  return 0;
+}
