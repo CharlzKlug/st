@@ -17,7 +17,40 @@ string NumberToString ( int Number )
   return ss.str();
 }
 
-string addStringsIter(string a, string b, bool extraOne, int currentPosition, string result){
+string subtractStringsIter (string a, string b, bool extraOne, unsigned int currentPosition, string result){
+  //a must be greater then b!
+  if (currentPosition>a.size()){
+    if (result=="") return "0";
+    return result;}
+  int extraMinus=extraOne? one:zero;
+  extraOne=false;
+  int aValue=a[a.size()-currentPosition]-zeroASCII;
+  int bValue;
+  if (currentPosition>b.size()) bValue=0;
+  else bValue=b[b.size()-currentPosition]-zeroASCII;
+  bValue=bValue+extraMinus;
+  int resDigit;
+  if (aValue>=bValue){
+    resDigit=aValue-bValue;
+  }
+  else {
+    resDigit=ten+aValue-bValue;
+    extraOne=true;
+  }
+  if (resDigit==zero){
+    if (currentPosition!=a.size()) result="0"+result;
+  }
+  else result=NumberToString(resDigit)+result;
+  currentPosition=currentPosition+one;
+  return subtractStringsIter(a, b, extraOne, currentPosition, result);
+}
+
+string subtractStrings(string a, string b){
+  // a must be greater then b
+  return subtractStringsIter(a, b, false, one, "");
+}
+
+string addStringsIter(string a, string b, bool extraOne, unsigned int currentPosition, string result){
   int aPosition=a.size()-currentPosition;
   int bPosition=b.size()-currentPosition;
   int extraAdd=extraOne? one:zero;
@@ -53,16 +86,19 @@ string waysCount(int N, int K){
     for (int i=one; i<N; i++) temp=addStrings(temp, temp);
     return temp;
   }
+
   string *memoise=new string[K];
   memoise[zero]="1";
+  string workingSum=memoise[zero];
   for (int i=one; i<K; i++){
     memoise[i]=addStrings(memoise[i-one], memoise[i-one]);
+    if (i<K-one) workingSum=addStrings(workingSum, memoise[i]);
   }
   for (int i=K; i<N; i++){
-    temp="0";
-    for (int j=zero; j<K; j++){
-      temp=addStrings(memoise[j], temp);
-      if (j!=K-one) memoise[j]=memoise[j+one];
+    temp=addStrings(memoise[K-one], workingSum);
+    workingSum=addStrings(subtractStrings(workingSum, memoise[zero]), memoise[K-one]);
+    for (int j=zero; j<K-one; j++){
+      memoise[j]=memoise[j+one];
     }
     memoise[K-one]=temp;
   }
