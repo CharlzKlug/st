@@ -1,0 +1,5 @@
+#ifndef COMPFUNCTIONS_H
+#define COMPFUNCTIONS_H
+
+
+#endif // COMPFUNCTIONS_H
