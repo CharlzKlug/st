@@ -13,7 +13,9 @@ private:
     static int subtraction (int, int); // вычитание двух чисел
 
     // высокоуровневая линейная операция
-    void lOperation (int (int, int), const Fraction&);
+    Fraction & lOperation (int (int, int), const Fraction&);
+    // высокоуровневая для неразрушающих *, /, -, +
+    //Fraction& aOper (void (Fraction&, Fraction&), Fraction&, Fraction&);
 
 
 public:
@@ -23,24 +25,35 @@ public:
     int getNumerator(); // возврат числителя
     int getDenominator(); // возврат знаменателя
     void setValue(int, int); // присваивание новых значений
-    void operator = (const Fraction&); // перегрузка оператора =
-    void operator *= (const int); /* перегрузка оператора *= (деструктивная!)*/
-    void operator /= (const int); // перегрузка /= (деструктивная!)
-    void operator += (const Fraction&); // перегрузка += (деструктивная!)
-    void operator -= (const Fraction&); // перегрузка -= (деструктивная!)
-    void operator *=(const Fraction&); // перегрузка *= для аргумента дроби!
-    void operator /= (const Fraction&); // перегрузка /= для аргумента-дроби!
+    Fraction& operator = (const Fraction&); // перегрузка оператора =
+
+    Fraction& operator += (const Fraction&); // перегрузка += (деструктивная!)
+    Fraction& operator -= (const Fraction&); // перегрузка -= (деструктивная!)
+    Fraction& operator *= (const Fraction&); // перегрузка *= для аргумента дроби!
+    Fraction& operator /= (const Fraction&); // перегрузка /= для аргумента-дроби!
+
+    Fraction& operator += (const int&); // прибавление числа!
+    Fraction& operator -= (const int&); // отнимание числа!
+    Fraction& operator *= (const int&); // умножение на число!
+    Fraction& operator /= (const int&); // деление на число!
+
+    // недеструктивные операции с дробями
+    friend Fraction operator + (const Fraction&, const Fraction&);
+    friend Fraction operator - (const Fraction&, const Fraction&);
+    friend Fraction operator * (const Fraction&, const Fraction&);
+    friend Fraction operator / (const Fraction&, const Fraction&);
+
+    // недеструктивные операции с дробью и целым числом
+    friend Fraction operator + (const Fraction&, const int&);
+    friend Fraction operator - (const Fraction&, const int&);
+    friend Fraction operator * (const Fraction&, const int&);
+    friend Fraction operator / (const Fraction&, const int&);
+
+    friend Fraction operator + (const int&, const Fraction&);
+    friend Fraction operator - (const int&, const Fraction&);
+    friend Fraction operator * (const int&, const Fraction&);
+    friend Fraction operator / (const int&, const Fraction&);
 };
 
-int foo();
-Fraction operator + (Fraction, Fraction);
-Fraction operator - (Fraction, Fraction);
-Fraction operator * (const Fraction&, const Fraction&);
-Fraction operator / (Fraction, Fraction);
 
-// высокоуровневая для неразрушающих *, /, -, +
-Fraction aOper (void (Fraction&, const Fraction&), const Fraction&, const Fraction&);
-
-// действия над дробями
-void multiple (Fraction&, const Fraction&);
 #endif // FRACTION_H

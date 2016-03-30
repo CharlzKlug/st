@@ -14,6 +14,12 @@ Fraction :: Fraction (){
     denominator = 1;
 }
 
+Fraction :: Fraction (const Fraction & q ){
+    // конструктор на основе конструктора
+    numerator = q.numerator;
+    denominator = q.denominator;
+}
+
 int Fraction :: gcd (int a, int b) {
     // нахождение Наибольшего Общего Делителя алгоритмом Евклида
 
@@ -55,58 +61,151 @@ void Fraction :: setValue(int n, int d){
     simplify();
 }
 
-void Fraction :: operator = (const Fraction& q){
+Fraction& Fraction :: operator = (const Fraction& q){
     // перегрузка оператора =
+    if (this != &q){
     numerator = q.numerator;
-    denominator = q.denominator;
+    denominator = q.denominator;}
+
+    return * this;
 }
 
-Fraction :: Fraction (const Fraction & q ){
-    // конструктор на основе конструктора
-    numerator = q.numerator;
-    denominator = q.denominator;
+Fraction& Fraction :: operator += (const Fraction& q){
+    // перегрузка += (деструктивная!)
+    return lOperation(addition, q);
 }
 
-void Fraction :: operator *= (const int c){
+Fraction& Fraction :: operator -= (const Fraction& q){
+    // перегрузка -= (деструктивная!)
+    return lOperation(subtraction, q);
+}
+
+Fraction& Fraction :: operator *= (const Fraction& q){
+    // перегрузка *= для аргумента-дроби
+    numerator *= q.numerator;
+    denominator *= q.denominator;
+    simplify();
+    return * this;
+}
+
+Fraction& Fraction :: operator /= (const Fraction& q){
+    // перегрузка /= для аргумента-дроби
+
+    // для корректного обрабатывания деления самого на себя
+    int tn = q.numerator;
+    int td = q.denominator;
+
+    this->numerator *= td;
+    this->denominator *= tn;
+    simplify();
+    return * this;
+}
+
+Fraction& Fraction :: operator += (const int& a){
+    // сложение дроби с числом
+    Fraction temp (a, 1);
+    return *this += temp;
+}
+
+Fraction& Fraction :: operator -= (const int& a){
+    // вычитание числа от дроби
+    Fraction temp (a, 1);
+    return *this -= temp;
+}
+
+Fraction& Fraction :: operator *= (const int& a){
+    // вычитание числа от дроби
+    numerator *= a;
+    simplify();
+    return * this;
+}
+
+Fraction& Fraction :: operator /= (const int& a){
+    // вычитание числа от дроби
+    denominator *= a;
+    simplify();
+    return *this;
+}
+
+Fraction operator + (const Fraction& a, const Fraction& b){
+    return (Fraction)a += b;
+}
+
+Fraction operator - (const Fraction& a, const Fraction& b){
+    return (Fraction)a -= b;
+}
+
+Fraction operator * (const Fraction& a, const Fraction& b){
+    return (Fraction)a *= b;
+}
+
+Fraction operator / (const Fraction& a, const Fraction& b){
+    return (Fraction)a /= b;
+}
+
+// недеструктивные операции с дробью и числом
+
+Fraction operator + (const Fraction& a, const int& b){
+    Fraction temp (b, 1);
+    return (Fraction)a += temp;
+}
+
+Fraction operator - (const Fraction& a, const int& b){
+    Fraction temp (b, 1);
+    return (Fraction)a -= temp;
+}
+
+Fraction operator * (const Fraction& a, const int& b){
+    Fraction temp (b, 1);
+    return (Fraction)a *= temp;
+}
+
+Fraction operator / (const Fraction& a, const int& b){
+    Fraction temp (b, 1);
+    return (Fraction)a /= temp;
+}
+
+Fraction operator + (const int& a, const Fraction& b){
+    return b + a;
+}
+
+Fraction operator - (const int& a, const Fraction& b){
+    return b - a;
+}
+
+Fraction operator * (const int& a, const Fraction& b){
+    return b * a;
+}
+
+Fraction operator / (const int& a, const Fraction& b){
+    Fraction temp (a, 1);
+    return temp / b;
+}
+
+/*
+Fraction& Fraction :: operator /= (const int c){
+    // перегрузка /= (деструктивная!)
+    denominator *= c;
+    simplify();
+}
+*/
+/*void Fraction :: operator *= (const int c){
     // перегрузка оператора * (деструктивная операция!)
     numerator *= c;
     simplify();
 }
 
-void Fraction :: operator *= (const Fraction& q){
-    // перегрузка *= для аргумента-дроби
-    numerator *= q.numerator;
-    denominator *= q.denominator;
-    simplify();
-}
 
-void Fraction :: operator /= (const int c){
-    // перегрузка /= (деструктивная!)
-    denominator *= c;
-    simplify();
-}
 
-void Fraction :: operator /= (const Fraction& q){
-    // перегрузка /= для аргумента-дроби
-    numerator *= q.denominator;
-    denominator *= q.numerator;
-    simplify();
-}
+*/
 
 int Fraction :: lcm (int a, int b){
     // наибольшее общее кратное
     return a * b / gcd(a, b);
 }
 
-void Fraction :: operator += (const Fraction& q){
-    // перегрузка += (деструктивная!)
-    lOperation(addition, q);
-}
+/*
 
-void Fraction :: operator -= (const Fraction& q){
-    // перегрузка -= (деструктивная!)
-    lOperation(subtraction, q);
-}
 
 int foo (){return 3;}
 
@@ -126,9 +225,10 @@ Fraction operator -(Fraction fa, Fraction fb){
     return temp;
 }
 
-Fraction operator *(const Fraction& fa, const Fraction& fb){
+Fraction& operator *(Fraction& fa, Fraction & fb){
     // перегрузка *
-    return aOper(multiple, fa, fb);
+    return fa.aOper(multiple, fa, fb);
+    //return aOper(multiple, fa, fb);
 }
 
 Fraction operator /(Fraction fa, Fraction fb){
@@ -139,7 +239,9 @@ Fraction operator /(Fraction fa, Fraction fb){
     return temp;
 }
 
-Fraction aOper(void f (Fraction &, const Fraction &), const Fraction & fa, const Fraction& fb){
+Fraction& Fraction :: aOper(void f (Fraction &, Fraction &),
+                           Fraction & fa,
+                           Fraction& fb){
     // высокоуровневая для неразрушающих *, /, -, +
     Fraction temp;
     temp = fa;
@@ -147,10 +249,10 @@ Fraction aOper(void f (Fraction &, const Fraction &), const Fraction & fa, const
     return temp;
 }
 
-void multiple(Fraction & fa, const Fraction & fb){
+void multiple(Fraction & fa, Fraction & fb){
     // разрушающее умножение
     fa *= fb;
-}
+}*/
 
 int Fraction :: addition(int a, int b){
     // сложение двух чисел
@@ -162,7 +264,7 @@ int Fraction :: subtraction(int a, int b){
     return a - b;
 }
 
-void Fraction :: lOperation(int func (int, int), const Fraction & q){
+Fraction & Fraction :: lOperation(int func (int, int), const Fraction & q){
     // высокоуровневая операция (для сложения и вычитания)
     int c_lcm = lcm (denominator, q.denominator);
     numerator *= (c_lcm / denominator);
@@ -170,5 +272,5 @@ void Fraction :: lOperation(int func (int, int), const Fraction & q){
     int tempNumerator = q.numerator * (c_lcm / q.denominator);
     numerator = func(numerator, tempNumerator);
     simplify();
-
+    return * this;
 }
