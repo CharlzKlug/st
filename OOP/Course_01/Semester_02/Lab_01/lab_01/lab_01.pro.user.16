@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 3.2.1, 2016-03-31T19:47:09. -->
+<!-- Written by QtCreator 3.2.1, 2016-03-30T23:04:43. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -235,8 +235,8 @@
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">lab_01</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">lab_012</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/ametovii/Projects/st/OOP/Course_01/Semester_02/Lab_01/lab_01/lab_01.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/ametovii/Projects/st/OOP/Course_01/Semestr_02/Lab_01/lab_01/lab_01.pro</value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.CommandLineArguments"></value>
     <value type="QString" key="Qt4ProjectManager.Qt4RunConfiguration.ProFile">lab_01.pro</value>
     <value type="bool" key="Qt4ProjectManager.Qt4RunConfiguration.UseDyldImageSuffix">false</value>

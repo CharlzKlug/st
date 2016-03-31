@@ -16,7 +16,9 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    fraction.cpp
+    fraction.cpp \
+    menu.cpp
 
 HEADERS += \
-    fraction.h
+    fraction.h \
+    menu.h

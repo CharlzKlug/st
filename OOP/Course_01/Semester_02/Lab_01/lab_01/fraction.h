@@ -14,9 +14,6 @@ private:
 
     // высокоуровневая линейная операция
     Fraction & lOperation (int (int, int), const Fraction&);
-    // высокоуровневая для неразрушающих *, /, -, +
-    //Fraction& aOper (void (Fraction&, Fraction&), Fraction&, Fraction&);
-
 
 public:
     Fraction(); // конструктор
@@ -53,6 +50,10 @@ public:
     friend Fraction operator - (const int&, const Fraction&);
     friend Fraction operator * (const int&, const Fraction&);
     friend Fraction operator / (const int&, const Fraction&);
+
+    // недеструктивные операции со степенью
+    friend Fraction operator ^ (const Fraction&, const int&);
+    friend Fraction operator ^ (const Fraction&, const double&);
 };
 
 

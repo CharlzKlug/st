@@ -1,7 +1,19 @@
 #include "fraction.h"
+#include <stdexcept>
+
+// Генерация исключения
+class zeroDenominator
+{
+  virtual const char* what() const throw()
+  {
+    return "The denominator can not be equal zero!";
+  }
+} zeroDenom;
+
 
 Fraction :: Fraction (int an, int ad){
     // конструктор с аргументами
+    if (ad == 0) throw zeroDenom;
     numerator = an;
     denominator = ad;
     simplify();
@@ -56,6 +68,7 @@ int Fraction :: getDenominator(){
 
 void Fraction :: setValue(int n, int d){
     // присваивание новых значений
+    if (d == 0) throw zeroDenom;
     numerator = n;
     denominator = d;
     simplify();
@@ -144,7 +157,6 @@ Fraction operator / (const Fraction& a, const Fraction& b){
 }
 
 // недеструктивные операции с дробью и числом
-
 Fraction operator + (const Fraction& a, const int& b){
     Fraction temp (b, 1);
     return (Fraction)a += temp;
@@ -182,77 +194,25 @@ Fraction operator / (const int& a, const Fraction& b){
     return temp / b;
 }
 
-/*
-Fraction& Fraction :: operator /= (const int c){
-    // перегрузка /= (деструктивная!)
-    denominator *= c;
-    simplify();
-}
-*/
-/*void Fraction :: operator *= (const int c){
-    // перегрузка оператора * (деструктивная операция!)
-    numerator *= c;
-    simplify();
+// недеструктивные операции с возведением в степень
+Fraction operator ^ (const Fraction& anyFrac, const int& m){
+    int num = anyFrac.numerator;
+    int denom = anyFrac.denominator;
+    Fraction tempFrac(pow(num, m), pow(denom, m));
+    return tempFrac;
 }
 
-
-
-*/
+Fraction operator ^ (const Fraction& anyFrac, const double& m){
+    int num = anyFrac.numerator;
+    int denom = anyFrac.denominator;
+    Fraction temp((int)exp(log(num)*m), (int)exp(log(denom)*m));
+    return temp;
+}
 
 int Fraction :: lcm (int a, int b){
     // наибольшее общее кратное
     return a * b / gcd(a, b);
 }
-
-/*
-
-
-int foo (){return 3;}
-
-Fraction operator + (Fraction fa, Fraction fb){
-    // перегрузка оператора +
-    Fraction temp;
-    temp = fa;
-    temp += fb;
-    return temp;
-}
-
-Fraction operator -(Fraction fa, Fraction fb){
-    // перегрузка оператора -
-    Fraction temp;
-    temp = fa;
-    temp -= fb;
-    return temp;
-}
-
-Fraction& operator *(Fraction& fa, Fraction & fb){
-    // перегрузка *
-    return fa.aOper(multiple, fa, fb);
-    //return aOper(multiple, fa, fb);
-}
-
-Fraction operator /(Fraction fa, Fraction fb){
-    // перегрузка /
-    Fraction temp;
-    temp = fa;
-    temp /= fb;
-    return temp;
-}
-
-Fraction& Fraction :: aOper(void f (Fraction &, Fraction &),
-                           Fraction & fa,
-                           Fraction& fb){
-    // высокоуровневая для неразрушающих *, /, -, +
-    Fraction temp;
-    temp = fa;
-    f (temp, fb);
-    return temp;
-}
-
-void multiple(Fraction & fa, Fraction & fb){
-    // разрушающее умножение
-    fa *= fb;
-}*/
 
 int Fraction :: addition(int a, int b){
     // сложение двух чисел
