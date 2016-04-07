@@ -1,0 +1,28 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{index}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{upquote}
+\usepackage{textcomp}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}
+\usepackage{color}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\begin{document}
+
+Задача:
+
+Дана карта Карно (смотрите ниже). Найдите минимизированную дизъюнктивную нормальную форму.
+
+\begin{tabular}{ccccc}
+  \multicolumn{1}{c|}{} & \multicolumn{4}{c|}{$x_1x_2$} \\ \hline
+  \multicolumn{1}{c|}{$x_3x_4$} & 00 & 01 & 11 & \multicolumn{1}{c|}{10} \\ \hline
+  \multicolumn{1}{c|}{00} & && \multicolumn{1}{|c}{1} & \multicolumn{1}{c|}{1} \\ \cline{5-5} \cline{2-2}
+  \multicolumn{1}{c|}{01} & \multicolumn{1}{|c|}{1} && \multicolumn{1}{|c}{1} &\multicolumn{1}{|c|}{1} \\ \cline{2-5} 
+  \multicolumn{1}{c|}{11} && \multicolumn{1}{|c|}{1} & & \multicolumn{1}{c|}{}\\ \cline{3-3}
+  \multicolumn{1}{c|}{10} &&&& \multicolumn{1}{c|}{}\\ \hline
+\end{tabular}
+
+На карте уже выделены участки объединения. Из них мы получаем следующее: $y(x_1, x_2, x_3, x_4) = x_1 \cdot \overline{x_3} \vee \overline{x_2} \cdot \overline{x_3} \cdot x_4 \vee \overline{x_1} \cdot x_2 \cdot x_3 \cdot x_4$
+\end{document}

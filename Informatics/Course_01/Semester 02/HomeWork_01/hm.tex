@@ -1,0 +1,68 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{index}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{upquote}
+\usepackage{textcomp}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}
+\usepackage{color}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\begin{document}
+Домашняя работа по информатике. Выполнил студент группы ТМБО-01-15 Аметов Имиль.
+
+\emph{Задача:}
+
+Дана карта Карно (смотрите ниже). Найдите минимизированную дизъюнктивную нормальную форму.
+
+\begin{tabular}{ccccc}
+  \multicolumn{1}{c|}{} & \multicolumn{4}{c|}{$x_1x_2$} \\ \hline
+  \multicolumn{1}{c|}{$x_3x_4$} & 00 & 01 & 11 & \multicolumn{1}{c|}{10} \\ \hline
+  \multicolumn{1}{c|}{00} & && \multicolumn{1}{|c}{1} & \multicolumn{1}{c|}{1} \\ \cline{5-5} \cline{2-2}
+  \multicolumn{1}{c|}{01} & \multicolumn{1}{|c|}{1} && \multicolumn{1}{|c}{1} &\multicolumn{1}{|c|}{1} \\ \cline{2-5} 
+  \multicolumn{1}{c|}{11} && \multicolumn{1}{|c|}{1} & & \multicolumn{1}{c|}{}\\ \cline{3-3}
+  \multicolumn{1}{c|}{10} &&&& \multicolumn{1}{c|}{}\\ \hline
+\end{tabular}
+
+На карте уже выделены участки объединения. Из них мы получаем следующее: $y(x_1, x_2, x_3, x_4) = x_1 \cdot \overline{x_3} \vee \overline{x_2} \cdot \overline{x_3} \cdot x_4 \vee \overline{x_1} \cdot x_2 \cdot x_3 \cdot x_4$.
+
+Минимизируем заданный набор данных методом Куайна. Из таблицы получаем следующую совершенную дизъюнктивную нормальную форму:
+
+\begin{eqnarray}\label{start_equation}
+  y = x_1 \cdot x_2 \cdot \overline{x_3} \cdot \overline{x_4} \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \cdot \overline{x_4} \vee \nonumber \\
+  \overline{x_1} \cdot \overline{x_2} \cdot  \overline{x_3} \cdot x_4 \vee x_1 \cdot x_2 \cdot \overline{x_3} \cdot x_4 \vee \nonumber \\
+  x_1 \cdot \overline{x_2} \cdot \overline{x_3} \cdot x_4 \vee \overline{x_1} \cdot x_2 \cdot x_3 \cdot x_4
+\end{eqnarray}
+
+Из этого уравнения получаем следующие комбинации, где применим закон склеивания:
+
+$$x_1 \cdot x_2 \cdot \overline{x_3} \cdot \overline{x_4} \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \cdot \overline{x_4} = x_1 \cdot \overline{x_3} \cdot \overline{x_4}$$
+$$x_1 \cdot x_2 \cdot \overline{x_3} \cdot \overline{x_4} \vee x_1 \cdot x_2 \cdot \overline{x_3} \cdot x_4 = x_1 \cdot x_2 \cdot \overline{x_3}$$
+$$x_1 \cdot \overline{x_2} \cdot \overline{x_3} \cdot \overline{x_4} \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \cdot x_4 = x_1 \cdot \overline{x_2} \cdot \overline{x_3}$$
+$$\overline{x_1} \cdot \overline{x_2} \cdot \overline{x_3} \cdot x_4 \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \cdot x_4 = \overline{x_2} \cdot \overline{x_3} \cdot x_4$$
+$$x_1 \cdot x_2 \cdot \overline{x_3} \cdot x_4 \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \cdot x_4 = x_1 \cdot \overline{x_3} \cdot x_4$$
+
+Подставляем полученные значения в формулу \ref{start_equation}:
+
+\begin{eqnarray}\label{second_eq}
+  y = x_1 \cdot x_2 \cdot \overline{x_3} \cdot \overline{x_4} \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \cdot \overline{x_4} \vee \overline{x_1} \cdot \overline{x_2} \cdot  \overline{x_3} \cdot x_4 \vee \nonumber \nonumber \\
+  x_1 \cdot x_2 \cdot \overline{x_3} \cdot x_4 \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \cdot x_4 \vee \overline{x_1} \cdot x_2 \cdot x_3 \cdot x_4 \vee \nonumber \\
+  x_1 \cdot \overline{x_3} \cdot \overline{x_4} \vee x_1 \cdot x_2 \cdot \overline{x_3} \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \vee \overline{x_2} \cdot \overline{x_3} \cdot x_4 \vee x_1 \cdot \overline{x_3} \cdot x_4 = \nonumber \\
+  \overline{x_1} \cdot x_2 \cdot x_3 \cdot x_4 \vee x_1 \cdot \overline{x_3} \cdot \overline{x_4} \vee x_1 \cdot x_2 \cdot \overline{x_3} \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \vee \overline{x_2} \cdot \overline{x_3} \cdot x_4 \vee x_1 \cdot \overline{x_3} \cdot x_4 
+\end{eqnarray}
+
+Снова применяем склеивание:
+
+$$x_1 \cdot \overline{x_3} \cdot \overline{x_4} \vee x_1 \cdot \overline{x_3} \cdot x_4 = x_1 \cdot \overline{x_3}$$
+$$x_1 \cdot x_2 \cdot \overline{x_3} \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} = x_1 \cdot \overline{x_3}$$
+
+Подставляем полученные значения в формулу \ref{second_eq}:
+
+\begin{eqnarray}\label{third_eq}
+  y = \overline{x_1} \cdot x_2 \cdot x_3 \cdot x_4 \vee x_1 \cdot \overline{x_3} \cdot \overline{x_4} \vee x_1 \cdot x_2 \cdot \overline{x_3} \vee x_1 \cdot \overline{x_2} \cdot \overline{x_3} \vee \overline{x_2} \cdot \overline{x_3} \cdot x_4 \vee x_1 \cdot \overline{x_3} \cdot x_4 \vee \nonumber \\
+  x_1 \cdot \overline{x_3} = x_1 \cdot \overline{x_3} \vee \overline{x_2} \cdot \overline{x_3} \cdot x_4 \vee \overline{x_1} \cdot x_2 \cdot x_3 \cdot x_4
+\end{eqnarray}
+
+Формула \ref{third_eq} та же, что и формула, полученная по методу Карно. Следовательно, решение найдено верно.
+\end{document}
