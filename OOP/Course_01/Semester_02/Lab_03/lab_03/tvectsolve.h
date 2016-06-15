@@ -18,6 +18,7 @@ public:
     qreal midAr();
     TVectSolve & operator = (TVectSolve *);
     void swapItems(int, int);
+    qreal averGeom();
 };
 
 #endif // TVECTSOLVE_H

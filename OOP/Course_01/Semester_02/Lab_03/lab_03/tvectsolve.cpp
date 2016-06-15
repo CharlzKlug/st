@@ -108,3 +108,14 @@ TVectSolve & TVectSolve::operator = (TVectSolve *q){
 }
 
 TVectSolve::TVectSolve():TVector(){}
+
+qreal TVectSolve::averGeom(){
+    T mul=1;
+    int mySize=getSize(), posCount=0;
+    for (int i=0; i<mySize; i++)
+        if (getItem(i)>0){
+            mul *= getItem(i);
+            posCount++;
+        }
+    return pow((qreal)mul, 1/((qreal)posCount));
+}

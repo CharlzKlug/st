@@ -26,18 +26,9 @@ int main(int argc, char *argv[])
                         "H - инвертирование элементов массива",
                         "I - наибольший элемент массива",
                         "J - среднее арифметическое значение элементов вектора",
-                        "K - умножение с присваиванием",
-                        "L - операция присваивания",
-                        "M - доступ по индексу",
-                        "N - умножение на число",
-                        "O - модуль вектора",
-                        "P - длина вектора",
-                        "Q - установить длину вектора",
-                        "R - установить отдельный элемент",
-                        "S - установить отдельный элемент",
-                        "T - сгенерировать случайные значения (друг)",
+                        "K - среднее геометрическое положительных элементов",
                         "X - Выход из программы"};
-    Menu myMenu(21, bb);
+    Menu myMenu(12, bb);
     char selectedItem;
     while ((selectedItem = myMenu.getKey()) != 'X') {
         switch (selectedItem) {
@@ -94,6 +85,11 @@ int main(int argc, char *argv[])
         case 'J':
             myVectorSolve->printVector();
             std::cout<<"Среднее арифметическое равно "<<myVectorSolve->midAr()<<
+                       std::endl;
+            break;
+        case 'K':
+            myVectorSolve->printVector();
+            std::cout<<"Среднее геометрическое положительных чисел: "<<myVectorSolve->averGeom()<<
                        std::endl;
             break;
 
