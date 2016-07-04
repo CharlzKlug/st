@@ -1,0 +1,8 @@
+int main(){
+  int * A = new int[n];
+  feelArray(A, n);
+  sortArray(A, n);
+  findSum(A, n, x, i1, i2);
+  if (i1 != -one || i2 != -one) cout << "I1 = " << i1 << "I2 = " << i2 << endl;
+  return zero;
+}

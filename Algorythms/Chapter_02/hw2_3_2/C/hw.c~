@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+
+const int zero=0, one=1;
+
+void merge (int * A, int p, int q, int r){
+  // Слияние двух частей массива
+  int n1 = q-p+1; // Количество элементов в первой половине [p,q]
+  int n2 = r-q; // Количество элементов во второй половине ]q,r]
+  int i, j, k;
+  int * L = (int *) malloc (n1 * sizeof (int)); // Левый массив
+  int * R = (int *) malloc (n2 * sizeof (int)); // Правый массив
+  for (i=0; i<n1; ++i) L[i]=A[p+i];
+  for (j=0; j<n2; ++j) R[j]=A[q+j+one];
+  i=0;
+  j=0;
+  for (k=p; k<=r; ++k){
+    if (i==n1) {A[k]=R[j]; ++j;}
+    else if (j==n2) {A[k]=L[i]; ++i;}
+    if (i!=n1 && j!=n2){
+      if (L[i]<=R[j]){
+	A[k]=L[i];
+	++i;
+      }
+      else {
+	A[k]=R[j];
+	++j;
+      }
+    }
+  }
+  free (L);
+  free (R);
+}
+
+int main(){
+  int * a;
+  a = (int *) malloc (3 * sizeof (int));
+  int i;
+  for (i=0; i<3; i++) a[i] = i;
+  a[2]=10;
+  for (i=0; i<3; i++) printf("a[%d] = %d\n", i, a[i]);
+  merge(a,0,1,2);
+  for (i=0; i<3; i++) printf("a[%d] = %d\n", i, a[i]);
+  free (a);
+  return zero;
+}

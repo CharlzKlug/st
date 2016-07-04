@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+const int zero=0, one=1;
+const n=4; // Количество элементов в массиве
+
+void feelArray (int * someArray, int count){
+  // Заполнение элементов массива
+  int i;
+  for (i=0; i<count; ++i){
+    someArray[i]=rand();
+  }
+}
+
+void printArray(int * someArray, int count){
+  int i;
+  for (i=0; i<count; ++i)
+    printf("[%d]: %d\n", i, someArray[i]);
+}
+
+
+int main(){
+  srand(time(NULL));
+  int A[n];
+  feelArray(A, n);
+  printf("Array A:\n");
+  printArray(A, n);
+  return 0;
+}

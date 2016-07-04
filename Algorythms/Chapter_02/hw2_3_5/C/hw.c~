@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+
+const int zero=0, one=1, two=2;
+
+int binarySearch(int * A, int l, int r, int v){
+  if (abs(l-r) == one) return notFound;
+  int mid=(l+r)/two;
+  if (v == A[mid]) return mid;
+  if (v < A[mid]) return binarySearch(A, l, mid, v);
+  return binarySearch(A, mid, r, v);
+}
+
+int main(){
+  return 
+}
