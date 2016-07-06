@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+  </head>
+  <body onload="fillTable()">
+    
+    <div class="center">
+      <div class="multiplier1">
+	<div class="number" onclick="inputNumber(this);" id="11"><p id="letter11"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="12"><p id="letter12"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="13"><p id="letter13"></p></div>
+	<div class="number2" onclick="inputNumber(this);" id="21"><p id="letter21"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="22"><p id="letter22"></p></div>
+      </div>
+      
+      <div class="multiplier1">
+	<div class="multiplesign">*</div>
+      </div>
+      
+      <div class="newblock">
+	<div class="number" onclick="inputNumber(this);" id="31"><p id="letter31"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="32"><p id="letter32"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="33"><p id="letter33"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="34"><p id="letter34"></p></div>
+	<div class="number2"></div>
+	<div class="number" onclick="inputNumber(this);" id="41"><p id="letter41"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="42"><p id="letter42"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="43"><p id="letter43"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="44"><p id="letter44"></p></div>
+      </div>
+      
+      <div class="multiplier1">
+	<div class="multiplesign">+</div>
+      </div>
+
+      <div class="newblock">
+	<div class="number" onclick="inputNumber(this);" id="51"><p id="letter51"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="52"><p id="letter52"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="53"><p id="letter53"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="54"><p id="letter54"></p></div>
+	<div class="number" onclick="inputNumber(this);" id="55"><p id="letter55"></p></div>
+      </div>
+    </div>
+    <script src="myScript.js"></script>
+  </body>
+</html>

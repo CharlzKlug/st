@@ -1,0 +1,5 @@
+var someLetter = 'A';
+
+function showLetter() {
+    document.getElementById('letter11').innerHTML = someLetter;
+}
