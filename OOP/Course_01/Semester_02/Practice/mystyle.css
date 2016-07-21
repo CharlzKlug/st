@@ -44,8 +44,20 @@
 
       .center {
       margin: auto;
-      width: 50%;
-      height: 200px;
+      width: 316px;
+      height: 266px;
       border: 3px solid blue;
-      padding: 10px 0;
+      
+      }
+
+      p {
+	  text-align: center;
+      }
+
+      h1 {
+	  text-align: center;
+      }
+
+      .operation {
+	  padding-top: 25px;
       }

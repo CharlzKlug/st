@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <title>Математическая головоломка</title>
   </head>
   <body onload="fillTable()">
-    
+    <h1>Математическая головоломка</h1>
     <div class="center">
       <div class="multiplier1">
 	<div class="number" onclick="inputNumber(this);" id="11"><p id="letter11"></p></div>
@@ -15,7 +17,7 @@
       </div>
       
       <div class="multiplier1">
-	<div class="multiplesign">*</div>
+	<div class="multiplesign"><p class="operation">x</p></div>
       </div>
       
       <div class="newblock">
@@ -31,7 +33,7 @@
       </div>
       
       <div class="multiplier1">
-	<div class="multiplesign">+</div>
+	<div class="multiplesign"><p class="operation">+</p></div>
       </div>
 
       <div class="newblock">
@@ -40,7 +42,6 @@
 	<div class="number" onclick="inputNumber(this);" id="53"><p id="letter53"></p></div>
 	<div class="number" onclick="inputNumber(this);" id="54"><p id="letter54"></p></div>
 	<div class="number" onclick="inputNumber(this);" id="55"><p id="letter55"></p></div>
-	
       </div>
     </div>
     <script src="myScript.js"></script>
