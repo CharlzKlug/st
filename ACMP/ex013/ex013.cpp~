@@ -1,0 +1,16 @@
+#include <iostream>
+
+int getBulls ( int a, int b ) {
+  int bulls = 0 ;
+  while ( a > 0 ) {
+    if ( a % 10 == b % 10 ) ++bulls ;
+    a = a / 10 ;
+    b = b / 10 ;
+  }
+  return bulls ;
+}
+
+int main () {
+  std::cout << getBulls ( 1234 , 1234 ) << std::endl;
+  return 0 ;
+}

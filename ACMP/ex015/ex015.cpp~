@@ -1,0 +1,24 @@
+#include <iostream>
+#include <fstream>
+
+int main ( ) {
+  int towns, ways = 0, temp ;
+  std::ifstream inputFile ( "input.txt" ) ;
+  if ( !inputFile.bad ( ) ) {
+    inputFile >> towns ;
+    for ( int i = 0; i < towns - 1; ++i ) {
+      for ( int j = 0; j <= i; ++j ) inputFile >> temp ;
+      for ( int j = 0; j < towns - 1; ++j ) {
+	inputFile >> temp ;
+	if ( temp == 1 ) ++ways ;
+      }
+    }
+    inputFile.close ( ) ;
+    std::ofstream outputFile ( "output.txt" );
+    if ( !outputFile.bad ( ) ) {
+      outputFile << ways ;
+      outputFile.close ( ) ;
+    }
+  }
+  return 0 ;
+}
