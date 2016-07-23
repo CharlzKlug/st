@@ -1,0 +1,11 @@
+#include <iostream>
+
+int someFunc ( ) {
+  std::cout << "Some text." << std::endl;
+  return 3;
+}
+
+int main ( ) {
+  for ( int i = 0; i < someFunc ( ); ++i ) std::cout << "Another text." << std::endl;
+  return 0;
+}
