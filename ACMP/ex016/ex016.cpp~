@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+
+int pyrRecur (int start, int base, int blocks, int count)
+{
+  if (start + base == blocks) ++count;
+  if (start + base >= blocks) return count;
+  int current = start + 1;
+  while (start + current + base <= blocks)
+    {
+      count = pyrRecur (current, base+start, blocks, count);
+      ++current;
+    }
+  return count;
+}
+
+int main ( ) {
+  std::cout << pyrRecur(0, 0, 100, 0) << std::endl;
+  std::cout << pyrRecur(0, 0, 12, 0) << std::endl;
+  std::cout << pyrRecur(0, 0, 11, 0) << std::endl;
+  std::cout << pyrRecur(0, 0, 10, 0) << std::endl;
+  std::cout << pyrRecur(0, 0, 9, 0) << std::endl;
+  std::cout << pyrRecur(0, 0, 8, 0) << std::endl;
+  std::cout << pyrRecur(0, 0, 7, 0) << std::endl;
+  std::cout << pyrRecur(0, 0, 6, 0) << std::endl;
+  std::cout << pyrRecur(0, 0, 5, 0) << std::endl;
+  std::cout << pyrRecur(0, 0, 4, 0) << std::endl;
+
+  std::ifstream inputFile ( "input.txt" ) ;
+  if ( !inputFile.bad ( ) ) {
+    int a, counts ;
+    inputFile >> a ;
+    if ( a == 1 ) counts = 0 ;
+    if ( a == 2 ) counts = 0 ;
+    if ( a == 3 ) counts = 2 ;
+    if ( a > 3 ) counts = a - 2 ;
+    std::ofstream outputFile ( "output.txt" ) ;
+    if ( !outputFile.bad ( ) ) {
+      outputFile << counts ;
+      outputFile.close ( ) ;
+    }
+    inputFile.close ( ) ;
+  }
+  return 0;
+}
