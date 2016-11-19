@@ -4,6 +4,10 @@
 #include <QWidget>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QFrame>
+#include <QGroupBox>
+#include <QTextEdit>
+#include <QPixmap>
 
 class Page : public QWidget
 {
