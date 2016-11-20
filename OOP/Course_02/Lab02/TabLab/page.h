@@ -8,12 +8,16 @@
 #include <QGroupBox>
 #include <QTextEdit>
 #include <QPixmap>
+#include <QString>
 
 class Page : public QWidget
 {
     Q_OBJECT
 public:
-    explicit Page(QWidget *parent = 0);
+
+    //Расшифровка для mode: 0 - ручная компоновка,
+    // 1 - QHBoxLayout, 2 - QVBoxLayout, 3 - QGridLayout.
+    explicit Page(QString str, int mode, QWidget *parent = 0);
 
 signals:
 
