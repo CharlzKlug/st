@@ -14,7 +14,9 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    page.cpp
+    page.cpp \
+    singleimagepage.cpp
 
 HEADERS  += widget.h \
-    page.h
+    page.h \
+    singleimagepage.h

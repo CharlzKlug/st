@@ -3,10 +3,8 @@
 
 #include <QWidget>
 #include <QTabWidget>
-#include <QLabel>
 #include <page.h>
 #include <QVBoxLayout>
-#include <QTextCodec>
 
 class Widget : public QWidget
 {
