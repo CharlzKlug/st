@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8")); //изменения
 
     Widget w;
+    QObject::connect(&w, SIGNAL(tabCloseRequest()), &a, SLOT(quit()));
+
     w.show();
 
     return a.exec();

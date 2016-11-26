@@ -18,9 +18,6 @@ Page::Page(QString str, int mode, QWidget *parent) :
     label1->setPalette(pal);
     label1->setAutoFillBackground(true);
     label1->setFixedSize(pix.width(), pix.height());
-    //label1->setStyleSheet("border-style: outset; border-width: 2px; border-color: beige;");
-    //label1->setStyleSheet("border-style: outset;");
-    //label1->setGeometry(50, 50, label1->width(), label1->height());
 
     QPixmap pix2("Images/Seasons/Spring.jpg");
     QPalette pal2;
@@ -29,24 +26,19 @@ Page::Page(QString str, int mode, QWidget *parent) :
     label2->setPalette(pal2);
     label2->setAutoFillBackground(true);
     label2->setFixedSize(pix2.width(), pix2.height());
-    //    label2->setGeometry(400, 50, label2->width(), label2->height());
 
     QLabel * label3 = new QLabel(
                 "<IMG BORDER=\"0\" SRC=\"Images/Seasons/Summer.jpg\">",
                 groupBox);
     label3->setFixedSize(151, 93);
-    //label3->setStyleSheet("border-style: outset; border-width: 2px; border-color: beige;");
-//    label3->setGeometry(50, 400, 251, 154);
 
     QTextEdit * textEdit = new QTextEdit(groupBox);
-//    textEdit->setGeometry(400, 400, 300, 150);
     textEdit->setText("<IMG BORDER=\"0\" SRC=\"Images/Seasons/Autumn.jpg\">");
     textEdit->setFixedSize(192,94);
 
     switch (mode) {
     case 0:
         label1->setGeometry(50, 50, label1->width(), label1->height());
-        //label1->setGeometry(50, 50, label1->width(), label1->height());
         label2->setGeometry(400, 50, label2->width(), label2->height());
         label3->setGeometry(50, 300, 151, 93);
         textEdit->setGeometry(400, 325, 300, 150);

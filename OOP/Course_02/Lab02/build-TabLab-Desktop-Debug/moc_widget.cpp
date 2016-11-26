@@ -22,25 +22,38 @@ static const uint qt_meta_data_Widget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+       8,    7,    7,    7, 0x05,
+
+ // slots: signature, parameters, type, tag, flags
+      26,    7,    7,    7, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_Widget[] = {
-    "Widget\0"
+    "Widget\0\0tabCloseRequest()\0"
+    "onTabCloseRequested()\0"
 };
 
 void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    Q_UNUSED(_o);
-    Q_UNUSED(_id);
-    Q_UNUSED(_c);
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        Q_ASSERT(staticMetaObject.cast(_o));
+        Widget *_t = static_cast<Widget *>(_o);
+        switch (_id) {
+        case 0: _t->tabCloseRequest(); break;
+        case 1: _t->onTabCloseRequested(); break;
+        default: ;
+        }
+    }
     Q_UNUSED(_a);
 }
 
@@ -75,6 +88,17 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QWidget::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 2)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 2;
+    }
     return _id;
+}
+
+// SIGNAL 0
+void Widget::tabCloseRequest()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

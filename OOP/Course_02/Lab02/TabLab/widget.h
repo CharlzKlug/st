@@ -15,6 +15,14 @@ private:
 public:
     Widget(QWidget *parent = 0);
     ~Widget();
+
+public slots:
+    void onTabCloseRequested();
+
+signals:
+    void tabCloseRequest();
+
+
 };
 
 #endif // WIDGET_H
