@@ -9,11 +9,7 @@ int main(int argc, char *argv[])
     int myLink[] = {1, 2};
     //qreal * temp = &dots[0][0];
     Object3D myObject(&dots[0][0], 2, &myLink[0], 2);
-/*    for (int i = 0; i < 6; i++)
-        std::cout << temp[i] << "\n";
-        */
-    //Object3D myObject(&dots[0], 2, &myLink[0], 2);
-    //qreal
-    //Object3D myObject
+    std::cout << "Dots count: " << myObject.getDotsCount() << "\n";
+    std::cout << "Links count: " << myObject.getLinksCount() << "\n";
     return 0;
 }
