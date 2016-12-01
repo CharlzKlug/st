@@ -1,6 +1,8 @@
 #ifndef OBJECT3D_H
 #define OBJECT3D_H
 #include <QtGlobal>
+#include <cmath>
+
 const int three = 3, two = 2, zero = 0;
 class Object3D{
 private:
@@ -8,6 +10,9 @@ private:
     int dotsCount; // Количество точек
     int *dotsLinks; // Взаимосвязи точек (1 соединяется с 2 и т.д.)
     int linksCount; // Количество связей
+    qreal angleZ; // Поворот вокруг оси Z (радианы)
+    qreal angleX; // Поворот вокруг оси X (радианы)
+    qreal angleY; // Поворот вокруг оси Y (радианы)
 public:
     // Конструктор, dots - массив точек, r - количество точек
     // links - связи между точками, linksCount - количество связей
@@ -33,6 +38,16 @@ public:
 
     // Вернуть номер второй точки из связи
     int getLinkSecondDot(int linkNumber);
+
+    // Установить поворот вокруг оси Z
+    void setZAngle(qreal angle);
+
+    // Установить поворот вокруг оси X
+    void setXAngle(qreal angle);
+
+    // Установить поворот вокруг оси Y
+    void setYAngle(qreal angle);
+
 };
 
 #endif // OBJECT3D_H
