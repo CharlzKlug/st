@@ -9,6 +9,7 @@
 #include <QGroupBox>
 #include <QSlider>
 #include <QLabel>
+#include "Object3D.h"
 
 class Widget : public QWidget
 {
@@ -21,6 +22,7 @@ private:
     QLabel * xAngleLabel;
     QSlider * aroundYSlider;
     QLabel * yAngleLabel;
+    Object3D * object3d;
 
 public:
     Widget(QWidget *parent = 0);

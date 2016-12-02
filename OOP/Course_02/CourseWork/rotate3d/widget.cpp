@@ -33,6 +33,9 @@ Widget::Widget(QWidget *parent)
                              controlPanel);
     connect(aroundYSlider, SIGNAL(valueChanged(int)), this, SLOT(sliderYchanged(int)));
 
+    qreal dots[2][3]={{0, 0, 0}, {100, 0, 0}};
+    int myLink[] = {0, 1};
+    object3d = new Object3D(&dots[0][0], 2, &myLink[0], 2);
 
     controlPanelLayout->addWidget(zAngleLabel);
     controlPanelLayout->addWidget(aroundZSlider);
@@ -54,11 +57,30 @@ void Widget::butPress(){
 }
 
 void Widget::paintEvent(QPaintEvent *){
+    //this->setWindowTitle("1111");
+    this->setWindowTitle("Width: " + QString::number(this->width()) +
+                         " Height: " + QString::number(this->height()));
     QPainter painter(this);
     painter.setPen(Qt::blue);
-    painter.setFont(QFont("Arial", 30));
-    painter.drawText(rect(), Qt::AlignCenter, "Qt");
-    painter.drawLine(QPoint(0, 0), QPoint(x, y));
+    //painter.setFont(QFont("Arial", 30));
+    //painter.drawText(rect(), Qt::AlignCenter, "Qt");
+    //painter.drawLine(QPoint(0, 0), QPoint(x, y));
+    qreal windowHalfHeight = this->height()/2,
+            windowHalfWidth = this->width()/2;
+    for (int i = 0; i < object3d->getLinksCount(); i++){
+        painter.drawLine(QPoint(object3d->getY(object3d->getLinkFirstDot(i)) *
+                                windowHalfWidth / object3d->getMaxDistance() +
+                                windowHalfWidth,
+                                object3d->getX(object3d->getLinkFirstDot(i)) *
+                                windowHalfHeight / object3d->getMaxDistance() +
+                                windowHalfHeight),
+                         QPoint(object3d->getY(object3d->getLinkSecondDot(i)) *
+                                windowHalfWidth / object3d->getMaxDistance()+
+                                windowHalfWidth,
+                                object3d->getX(object3d->getLinkSecondDot(i)) *
+                                windowHalfHeight / object3d->getMaxDistance() +
+                                windowHalfHeight));
+    }
 }
 
 Widget::~Widget()
@@ -68,12 +90,18 @@ Widget::~Widget()
 
 void Widget::sliderZchanged(int value){
     zAngleLabel->setText("Z angle: " + QString::number(value));
+    object3d->setZAngle(value*3.14/180);
+    update();
 }
 
 void Widget::sliderXchanged(int value){
     xAngleLabel->setText("X angle: " + QString::number(value));
+    object3d->setXAngle(value*3.14/180);
+    update();
 }
 
 void Widget::sliderYchanged(int value){
     yAngleLabel->setText("Y angle: " + QString::number(value));
+    object3d->setYAngle(value*3.14/180);
+    update();
 }
