@@ -17,24 +17,27 @@ Object3D::Object3D(qreal *dots, int r, int * links, int totalLinksCount){
         dotsLinks[j] = links[j];
     }
 
+    maxD = maxDistance();
 }
 
 qreal Object3D::getX(int dotNumber){
     // Возврат координаты X какой-либо точки
     if (dotNumber <= dotsCount - 1)
-        return (objectDots[dotNumber][0] * cos (angleZ) +
-                objectDots[dotNumber][1] * sin(angleZ)) * cos (angleY) -
-                objectDots[dotNumber][2] * sin(angleY);
-    else
+        return objectDots[dotNumber][0] * cos (angleZ) +
+                objectDots[dotNumber][1] * sin(angleZ);
+
+        //return objectDots[dotNumber][0];
+  else
         return zero;
 }
 
 qreal Object3D::getY(int dotNumber){
     // Возврат координаты Y какой-либо точки
     if (dotNumber <= dotsCount - 1)
-        return (objectDots[dotNumber][1] * cos(angleZ) -
-                objectDots[dotNumber][0] * sin(angleZ)) * cos(angleX) +
-                objectDots[dotNumber][2] * sin(angleX);
+//        return objectDots[dotNumber][1];
+        return objectDots[dotNumber][1] * cos(angleZ) -
+                objectDots[dotNumber][0] * sin(angleZ);
+
     else
         return zero;
 }
@@ -45,7 +48,9 @@ qreal Object3D::getZ(int dotNumber){
         return (objectDots[dotNumber][2] * cos(angleX) -
                 objectDots[dotNumber][1] * sin(angleX)) * cos(angleY) +
                 objectDots[dotNumber][0] * sin(angleY);
-    else
+
+        //return objectDots[dotNumber][2];
+  else
         return zero;
 }
 
@@ -77,15 +82,31 @@ int Object3D::getLinkSecondDot(int linkNumber){
 
 void Object3D::setZAngle(qreal angle){
     // Установка угла поворота вокруг оси Z
-    angleZ += angle;
+    angleZ = angle;
 }
 
 void Object3D::setXAngle(qreal angle){
     // Установка угла поворота вокруг оси X
-    angleX += angle;
+    angleX = angle;
 }
 
 void Object3D::setYAngle(qreal angle){
     // Установка угла поворота вокруг оси Y
-    angleY += angle;
+    angleY = angle;
+}
+
+qreal Object3D::maxDistance()
+{
+    qreal distance = 0, temp;
+
+    for (int i = 0; i < dotsCount; i++){
+        temp = sqrt(getX(i)*getX(i) + getY(i)*getY(i) + getZ(i)*getZ(i));
+        if (temp > distance) distance = temp;
+    }
+    return distance;
+}
+
+qreal Object3D::getMaxDistance()
+{
+    return maxD;
 }
