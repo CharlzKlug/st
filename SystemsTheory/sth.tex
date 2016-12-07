@@ -1,0 +1,36 @@
+\documentclass[a4paper, 12pt]{book}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{fancyvrb}
+\usepackage{upquote}
+\usepackage{textcomp}
+\usepackage[pdftex, dvips]{graphicx}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{pdfpages}
+\usepackage[pdfborder={0 0 0}, pdftex]{hyperref}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{epigraph}
+\usepackage{tikz}
+\usepackage{longtable}
+\usepackage{diagbox} % Таблица
+\usetikzlibrary{graphs}
+\usetikzlibrary{calc, positioning, decorations, decorations.pathmorphing, decorations.pathreplacing}
+\title{Теория систем}
+\date{01.09.2016}
+\author{Аметов Имиль \\ Московский Технологический университет}
+\begin{document}
+\renewcommand {\contentsname} {Оглавление}
+\renewcommand {\chaptername} {Глава}
+{\let\newpage\relax\maketitle}
+\maketitle
+\newpage
+\tableofcontents
+\input{Lections/lection_01.tex}
+%\input{Chapters/preface}
+%\input{Chapters/01_introduction}
+%\input{Chapters/02_functions_and_numbers}
+%\input{Chapters/literature}
+\end{document}
