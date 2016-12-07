@@ -22,7 +22,7 @@ static const uint qt_meta_data_Widget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -30,17 +30,20 @@ static const uint qt_meta_data_Widget[] = {
        0,       // signalCount
 
  // slots: signature, parameters, type, tag, flags
-       8,    7,    7,    7, 0x0a,
-      25,   19,    7,    7, 0x0a,
-      45,   19,    7,    7, 0x0a,
-      65,   19,    7,    7, 0x0a,
+      14,    8,    7,    7, 0x0a,
+      34,    8,    7,    7, 0x0a,
+      54,    8,    7,    7, 0x0a,
+      74,    7,    7,    7, 0x0a,
+     120,   99,    7,    7, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_Widget[] = {
-    "Widget\0\0butPress()\0value\0sliderZchanged(int)\0"
+    "Widget\0\0value\0sliderZchanged(int)\0"
     "sliderXchanged(int)\0sliderYchanged(int)\0"
+    "buttonAutopilotPressed()\0XAngle,YAngle,ZAngle\0"
+    "autopilotDatas(qreal,qreal,qreal)\0"
 };
 
 void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -49,10 +52,11 @@ void Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         Q_ASSERT(staticMetaObject.cast(_o));
         Widget *_t = static_cast<Widget *>(_o);
         switch (_id) {
-        case 0: _t->butPress(); break;
-        case 1: _t->sliderZchanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->sliderXchanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 3: _t->sliderYchanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 0: _t->sliderZchanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->sliderXchanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->sliderYchanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->buttonAutopilotPressed(); break;
+        case 4: _t->autopilotDatas((*reinterpret_cast< qreal(*)>(_a[1])),(*reinterpret_cast< qreal(*)>(_a[2])),(*reinterpret_cast< qreal(*)>(_a[3]))); break;
         default: ;
         }
     }
@@ -90,9 +94,9 @@ int Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

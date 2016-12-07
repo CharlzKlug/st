@@ -53,6 +53,9 @@ public:
     // Установить поворот вокруг оси Y (в радианах)
     void setYAngle(qreal angle);
 
+    qreal getAngleZ();
+    qreal getAngleX();
+    qreal getAngleY();
     // Возвращает максимальную дистанцию
     qreal getMaxDistance();
 };

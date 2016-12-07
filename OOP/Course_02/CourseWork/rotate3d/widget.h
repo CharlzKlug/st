@@ -10,12 +10,12 @@
 #include <QSlider>
 #include <QLabel>
 #include "Object3D.h"
+#include "Autopilot.h"
 
 class Widget : public QWidget
 {
     Q_OBJECT
 private:
-    int x, y;
     QSlider * aroundZSlider;
     QLabel * zAngleLabel;
     QSlider * aroundXSlider;
@@ -23,16 +23,22 @@ private:
     QSlider * aroundYSlider;
     QLabel * yAngleLabel;
     Object3D * object3d;
-
+    QPushButton * autoPilotButton;
+    Autopilot * myAutopilot;
+    QThread * myThread;
+    bool autopilotIsEnabled;
 public:
     Widget(QWidget *parent = 0);
     void paintEvent(QPaintEvent *);
     ~Widget();
 public  slots:
-    void butPress();
     void sliderZchanged(int value);
     void sliderXchanged(int value);
     void sliderYchanged(int value);
+    void buttonAutopilotPressed();
+    void autopilotDatas(qreal XAngle,
+                        qreal YAngle,
+                        qreal ZAngle);
 };
 
 #endif // WIDGET_H

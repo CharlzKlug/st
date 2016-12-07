@@ -14,7 +14,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    Object3D.cpp
+    Object3D.cpp \
+    Autopilot.cpp
 
 HEADERS  += widget.h \
-    Object3D.h
+    Object3D.h \
+    Autopilot.h \
+    Sleeper.h

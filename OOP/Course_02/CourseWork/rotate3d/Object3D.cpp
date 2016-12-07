@@ -17,14 +17,18 @@ Object3D::Object3D(qreal *dots, int r, int * links, int totalLinksCount){
         dotsLinks[j] = links[j];
     }
 
+    setXAngle(0);
+    setYAngle(0);
+    setZAngle(0);
+
     maxD = maxDistance();
 }
 
 qreal Object3D::getX(int dotNumber){
     // Возврат координаты X какой-либо точки
     if (dotNumber <= dotsCount - 1)
-        return (objectDots[dotNumber][0] * cos (angleZ) +
-                objectDots[dotNumber][1] * sin(angleZ)) * cos (angleY) -
+        return (objectDots[dotNumber][0] * cos (angleZ) -
+                objectDots[dotNumber][1] * sin(angleZ)) * cos (angleY) +
                 objectDots[dotNumber][2] * sin(angleY);
     else
         return zero;
@@ -33,8 +37,8 @@ qreal Object3D::getX(int dotNumber){
 qreal Object3D::getY(int dotNumber){
     // Возврат координаты Y какой-либо точки
     if (dotNumber <= dotsCount - 1)
-        return (objectDots[dotNumber][1] * cos(angleZ) -
-                objectDots[dotNumber][0] * sin(angleZ)) * cos(angleX) +
+        return (objectDots[dotNumber][1] * cos(angleZ) +
+                objectDots[dotNumber][0] * sin(angleZ)) * cos(angleX) -
                 objectDots[dotNumber][2] * sin(angleX);
     else
         return zero;
@@ -43,8 +47,8 @@ qreal Object3D::getY(int dotNumber){
 qreal Object3D::getZ(int dotNumber){
     // Возврат координаты Z какой-либо точки
     if (dotNumber <= dotsCount - 1)
-        return (objectDots[dotNumber][2] * cos(angleX) -
-                objectDots[dotNumber][1] * sin(angleX)) * cos(angleY) +
+        return (objectDots[dotNumber][2] * cos(angleX) +
+                objectDots[dotNumber][1] * sin(angleX)) * cos(angleY) -
                 objectDots[dotNumber][0] * sin(angleY);
     else
         return zero;
@@ -106,3 +110,9 @@ qreal Object3D::getMaxDistance()
 {
     return maxD;
 }
+
+qreal Object3D::getAngleX(){return angleX;}
+
+qreal Object3D::getAngleY(){return angleY;}
+
+qreal Object3D::getAngleZ(){return angleZ;}
