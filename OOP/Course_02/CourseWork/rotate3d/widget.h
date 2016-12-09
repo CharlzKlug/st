@@ -18,10 +18,13 @@ class Widget : public QWidget
 private:
     QSlider * aroundZSlider;
     QLabel * zAngleLabel;
+
     QSlider * aroundXSlider;
     QLabel * xAngleLabel;
+
     QSlider * aroundYSlider;
     QLabel * yAngleLabel;
+
     Object3D * object3d;
     QPushButton * autoPilotButton;
     Autopilot * myAutopilot;
@@ -39,6 +42,7 @@ public  slots:
     void autopilotDatas(qreal XAngle,
                         qreal YAngle,
                         qreal ZAngle);
+    void anglesChanged(qreal, qreal, qreal);
 };
 
 #endif // WIDGET_H

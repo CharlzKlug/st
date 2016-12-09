@@ -63,7 +63,29 @@ Widget::Widget(QWidget *parent)
                         3, 0,
                         3, 1,
                         3, 2};
-    object3d = new Object3D(&tetraDots[0][0], 4, &tetraLinks[0], 24);
+    //object3d = new Object3D(&tetraDots[0][0], 4, &tetraLinks[0], 24);
+
+    qreal cubeDots[8][3] = {{50, -50, -50},
+                        {50, -50, 50},
+                        {50, 50, 50},
+                        {50, 50, -50},
+                        {-50, -50, -50},
+                        {-50, -50, 50},
+                        {-50, 50, 50},
+                        {-50, 50, -50}};
+    int cubeLinks[] = {0, 1,
+                      0, 4,
+                      0, 3,
+                      1, 2,
+                      1, 5,
+                      2, 6,
+                      2, 3,
+                      3, 7,
+                      5, 6,
+                      5, 4,
+                      6, 7,
+                      4, 7};
+    object3d = new Object3D(&cubeDots[0][0], 8, &cubeLinks[0], 24);
 
     controlPanelLayout->addWidget(zAngleLabel);
     controlPanelLayout->addWidget(aroundZSlider);
@@ -99,6 +121,8 @@ void Widget::buttonAutopilotPressed(){
         myAutopilot->moveToThread(myThread);
         connect(myAutopilot, SIGNAL(newAngles(qreal,qreal,qreal)),
                 SLOT(autopilotDatas(qreal,qreal,qreal)));
+        connect(myAutopilot, SIGNAL(newAngles(qreal,qreal,qreal)),
+                SLOT(anglesChanged(qreal,qreal,qreal)));
         connect(myThread, SIGNAL(started()), myAutopilot, SLOT(start()));
         connect(myAutopilot, SIGNAL(finished()), myThread, SLOT(quit()));
         connect(myAutopilot, SIGNAL(finished()), myAutopilot, SLOT(deleteLater()));
@@ -107,8 +131,10 @@ void Widget::buttonAutopilotPressed(){
         aroundYSlider->setEnabled(false);
         aroundZSlider->setEnabled(false);
         QPalette disablePalette = aroundXSlider->palette();
-        disablePalette.setCurrentColorGroup(QPalette::Active);
+        disablePalette.setColor(QPalette::Disabled, QPalette::Light, QColor(128, 128, 128));
         aroundXSlider->setPalette(disablePalette);
+        aroundYSlider->setPalette(disablePalette);
+        aroundZSlider->setPalette(disablePalette);
         autoPilotButton->setText("Disable autopilot");
         myThread->start();
         autopilotIsEnabled=true;
@@ -154,13 +180,13 @@ void Widget::paintEvent(QPaintEvent *){
         secondDot = object3d->getLinkSecondDot(i);
         stretchX = windowHalfWidth / object3d->getMaxDistance();
         stretchY = windowHalfHeight / object3d->getMaxDistance();
-        painter.drawLine(QPoint(object3d->getY(firstDot) * stretchX +
+        painter.drawLine(QPoint(object3d->getY(firstDot) +
                                 windowHalfWidth,
-                                object3d->getX(firstDot) * stretchY +
+                                object3d->getX(firstDot) +
                                 windowHalfHeight),
-                         QPoint(object3d->getY(secondDot) * stretchX +
+                         QPoint(object3d->getY(secondDot) +
                                 windowHalfWidth,
-                                object3d->getX(secondDot) * stretchY +
+                                object3d->getX(secondDot) +
                                 windowHalfHeight));
     }
 }
@@ -193,4 +219,10 @@ void Widget::autopilotDatas(qreal XAngle, qreal YAngle, qreal ZAngle){
     object3d->setYAngle(YAngle);
     object3d->setZAngle(ZAngle);
     update();
+}
+
+void Widget::anglesChanged(qreal XAngle, qreal YAngle, qreal ZAngle){
+    aroundXSlider->setValue((((int)(XAngle * 180 / 3.14) % 360)+360)%360);
+    aroundYSlider->setValue((((int)(YAngle * 180 / 3.14) % 360)+360)%360);
+    aroundZSlider->setValue((((int)(ZAngle * 180 / 3.14) % 360)+360)%360);
 }
