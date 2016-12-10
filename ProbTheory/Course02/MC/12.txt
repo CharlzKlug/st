@@ -1,0 +1,63 @@
+#include <QCoreApplication>
+#include <iostream>
+#include <cmath>
+#include <ctime>
+
+
+qreal findMin (qreal (* f) (qreal), qreal a,
+               qreal b, int count){
+    // Поиск максимума
+    qreal min = f(a), step = (b-a)/count;
+    for (int i = 1; i < count; i++){
+        if (f(a + step*i) < min)
+            min = f(a+step*i);
+    }
+    return min;
+}
+
+qreal findMax (qreal (* f) (qreal), qreal a,
+               qreal b, int count){
+    // Поиск минимума
+    qreal max = f(a), step = (b-a)/count;
+    for (int i = 1; i < count; i++)
+        if (f(a + step * i) > max)
+            max = f(a + step * i);
+    return max;
+}
+
+qreal mmc (qreal (* f)(qreal), qreal a, qreal b,
+           int counts){
+    qreal max, min, y, x;
+    int ni=0, n=0;
+    max = findMax(f, a, b, counts);
+    min = findMin(f, a, b, counts);
+    for (int i = 0; i < counts; i++){
+        x = (b-a)*rand()/RAND_MAX + a;
+        y = (max - min) * rand() / RAND_MAX;
+        n++;
+        if (f(x) - min >= y) ni++;
+    }
+    return (b-a)*(ni* (max-min)/n  + min);
+}
+
+qreal test (qreal x){
+    return x * x -3;
+}
+
+int main(int argc, char *argv[])
+{
+    QCoreApplication a(argc, argv);
+    srand(time(0));
+    std::cout << "Enter a: ";
+    qreal a1;
+    std::cin >> a1;
+    std::cout << "Enter b: ";
+    qreal b;
+    std::cin >> b;
+    std::cout << "Enter counts: ";
+    int N;
+    std::cin >> N;
+
+    std::cout << "Integral value: " << mmc(sin, a1, b, N);
+    return a.exec();
+}
