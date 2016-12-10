@@ -2,6 +2,7 @@
 #define SLEEPER_H
 #include <QThread>
 
+// Объект паузы в процессе работы треда
 class Sleeper : public QThread
 {
 public:

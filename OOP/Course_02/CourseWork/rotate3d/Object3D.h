@@ -4,6 +4,8 @@
 #include <cmath>
 
 const int three = 3, two = 2, zero = 0;
+
+// Класс трёхмерного объекта
 class Object3D{
 private:
     qreal ** objectDots; // Координаты (x, y, z)
@@ -17,6 +19,8 @@ private:
 
     // Расстояние от центра до самой удалённой точки 3Д объекта
     qreal maxDistance();
+    // Сброс данных (при смене фигуры), углы сохраняются
+    void resetObject();
 
 public:
     // Конструктор, dots - массив точек, r - количество точек
@@ -53,11 +57,16 @@ public:
     // Установить поворот вокруг оси Y (в радианах)
     void setYAngle(qreal angle);
 
+    // Возращение углов поворота вокруг осей
     qreal getAngleZ();
     qreal getAngleX();
     qreal getAngleY();
+
     // Возвращает максимальную дистанцию
     qreal getMaxDistance();
+
+    // Установка нового объекта
+    void setObject(qreal *, int, int *, int);
 };
 
 #endif // OBJECT3D_H
