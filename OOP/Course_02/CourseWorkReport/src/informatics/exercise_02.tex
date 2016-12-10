@@ -1,0 +1,60 @@
+\section{Задание 2}
+
+Дано два числа x, y и знак арифметической операции (+, -, *, /). Найти x+y, x-y, x*y, x/y, в зависимости от введённого знака. В случае ошибки в знаке или деления на 0 вывести сообщение об ошибке.
+
+\begin{center} 
+  \includegraphics[width=9cm]{img/0201.png}
+  \includegraphics[width=9cm]{img/0202.png}
+  \includegraphics[width=9cm]{img/0203.png}
+  \includegraphics[width=9cm]{img/0204.png}
+  \includegraphics[width=9cm]{img/0205.png}
+  \includegraphics[width=9cm]{img/0206.png}
+  \includegraphics[width=9cm]{img/0207.png}
+  \includegraphics[width=9cm]{img/0208.png}
+  \includegraphics[width=9cm]{img/0209.png}
+  \includegraphics[width=9cm]{img/0210.png}
+  \includegraphics[width=9cm]{img/0211.png}
+\end{center}
+
+В случае, когда введена некорректный знак операции:
+
+\begin{center}
+  \includegraphics[width=9cm]{img/08.png}
+  \includegraphics[width=9cm]{img/09.png}
+\end{center}
+
+Исходный код \verb|exercise_02.html|:
+\begin{verbatim}
+<body>
+  <head>
+    <meta charset = "utf-8">
+  </head>
+  <script>
+    a = parseInt (prompt ("Введите первое число"))
+    b = parseInt (prompt ("Введите второе число"))
+    operation = prompt ("Введите знак")
+    switch (operation) {
+    case "*":
+    alert (a + operation + b + "="
+    + (a * b))
+    break
+    case "+":
+    alert (a + operation + b + "="
+    + (a + b))
+    break
+    case "-":
+    alert (a + operation + b + "="
+    + (a - b))
+    break
+    case "/":
+    if (b==0) {alert ("Ошибка! На ноль делить нельзя")}
+    else {alert (a + operation + b + "="
+    + (a / b))}
+    break
+    default:
+    alert ("Ошибка! Недопустимый знак операции!")
+    break
+    }
+  </script>
+</body>
+\end{verbatim}
