@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/dev/Debian) (preloaded format=xelatex 2016.2.23)  10 DEC 2016 23:18
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/dev/Debian) (preloaded format=xelatex 2016.2.23)  23 DEC 2016 07:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1636,6 +1636,10 @@ e.tex
 \tikz@lib@dec@box=\box84
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2008/10/06 v3.0.0 (rcs-revision 1.7)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarydecorations.pathmorphing.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
 decorations.pathmorphing.code.tex))
@@ -2298,27 +2302,117 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 . 
 .................................................
  (./template.toc)
+[1]
 \tf@toc=\write6
 \openout6 = `template.toc'.
 
+ (./src/OOP/about.tex [2
 
-[1] (./src/OOP/about.tex [2
+]) (./src/OOP/mathmodel.tex
+Overfull \hbox (6.96292pt too wide) in paragraph at lines 37--38
+[]\EU1/LiberationSerif(1)/m/n/12 Связи между точками образуются следующими пара
+ми: $[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; B\OT1/cmr/m/n/12 )[]$\EU1/Liberatio
+nSerif(1)/m/n/12 , $[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; E\OT1/cmr/m/n/12 )[]
+$\EU1/LiberationSerif(1)/m/n/12 , $[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; D\OT1
+/cmr/m/n/12 )[]$\EU1/LiberationSerif(1)/m/n/12 , $[]\OT1/cmr/m/n/12 (\OML/cmm/m
+/it/12 B; F\OT1/cmr/m/n/12 )[]$\EU1/LiberationSerif(1)/m/n/12 ,
+ []
 
-])
+[3
+
+]) (./src/OOP/algorythm.tex [4]
+Overfull \hbox (2.01384pt too wide) in paragraph at lines 20--21
+\EU1/LiberationSerif(1)/m/n/12 Основной виджет графического интерфейса пользова
+теля. Рабочая графическая часть про-
+ []
+
+[5
+
+]
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'LiberationMono(1)' created for font 'Liberation Mono' with
+. options
+. [Mapping=tex-text,WordSpace={1,0,0},PunctuationSpace=WordSpace,Script=Cyrilli
+c].
+. 
+. This font family consists of the following shapes:
+. 
+. * 'normal' with NFSS spec.:
+. <->"Liberation Mono/OT:script=cyrl;language=DFLT;mapping=tex-text;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
+. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
+. 
+. * 'bold' with NFSS spec.:
+. <->"Liberation Mono/B/OT:script=cyrl;language=DFLT;mapping=tex-text;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
+. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
+. 
+. * 'italic' with NFSS spec.:
+. <->"Liberation Mono/I/OT:script=cyrl;language=DFLT;mapping=tex-text;"
+. 
+. * 'small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
+. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
+. 
+. * 'bold italic' with NFSS spec.:
+. <->"Liberation Mono/BI/OT:script=cyrl;language=DFLT;mapping=tex-text;"
+. 
+. * 'bold small caps' with NFSS spec.:
+. 
+. and font adjustment code:
+. \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
+. \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
+.................................................
+) (./src/OOP/listing.tex
+Overfull \hbox (8.57138pt too wide) in paragraph at lines 51--1
+\EU1/LiberationSerif(1)/m/n/12 Весь функционал этого объекта заключён в паузе, 
+формируемой с помощью класса QThread.
+ []
+
+[6] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/09/06 1.5e listings language file
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2014/09/06 1.5e listings language file
+) [7
+
+] [8]
+[9] [10] [11] [12] [13] [14] [15]) (./src/OOP/literature.tex [16]
+Overfull \hbox (1.70505pt too wide) in paragraph at lines 6--7
+[]\EU1/LiberationSerif(1)/m/n/12 Qt 4.8 Профессиональное программирование на C+
++. Макс Шлее. “БХВ-Петербург”.
+ []
+
+)
 No file template.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
-(./template.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 150.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 150.
+[17
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 154.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 154.
+ (./template.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 154.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 154.
  ) 
 Here is how much of TeX's memory you used:
- 42259 strings out of 493727
- 819762 string characters out of 6147890
- 977823 words of memory out of 5000000
- 44726 multiletter control sequences out of 15000+600000
- 10033 words of font info for 106 fonts, out of 8000000 for 9000
+ 43763 strings out of 493727
+ 842139 string characters out of 6147890
+ 1234452 words of memory out of 5000000
+ 46184 multiletter control sequences out of 15000+600000
+ 11130 words of font info for 132 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 73i,6n,126p,10447b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,7n,126p,10447b,1426s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.pdf (3 pages).
+Output written on template.pdf (18 pages).

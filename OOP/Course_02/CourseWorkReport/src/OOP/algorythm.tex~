@@ -1,0 +1,10 @@
+\Csection{Алгоритм программы}
+
+Всего в программе определено 4 новых класса:
+
+\begin{itemize}
+\item{Object3D}
+\item{widget}
+\item{Autopilot}
+\item{Sleeper}
+\end{itemize}

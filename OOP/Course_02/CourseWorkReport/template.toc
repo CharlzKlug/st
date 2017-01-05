@@ -1,2 +1,7 @@
 \select@language {russian}
 \contentsline {section}{Введение}{2}{section*.1}
+\contentsline {section}{Постановка задачи}{3}{section*.2}
+\contentsline {section}{Алгоритм программы}{5}{section*.3}
+\contentsline {section}{Текст программы}{7}{section*.4}
+\contentsline {section}{Литература}{17}{section*.5}
+\pagebreak 
