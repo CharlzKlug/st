@@ -1,0 +1,30 @@
+#lang racket
+
+(require math/array)
+
+(define costs
+  (array #[5 3 6 2 4]))
+
+(define weights
+  (array #[3 2 4 1 2]))
+
+
+
+(define (backpack costs weights maxweight item)
+    (cond
+      [(= item 0) (if (>= maxweight (array-ref weights (vector item)))
+                      (cons (array-ref costs (vector item)) (list item))
+                      (list 0))]
+      [(= maxweight 0) (list 0)]
+      [else (let ([old-cost (backpack costs weights maxweight (- item 1))]
+                  [new-cost (if (>= maxweight (array-ref weights (vector item)))
+                                (cons (+ (array-ref costs (vector item))
+                                         (car (backpack costs weights (- maxweight (array-ref weights (vector item))) (- item 1))))
+                                      (cons item (cdr (backpack costs weights (- maxweight (array-ref weights (vector item))) 
+                                                                (- item 1))))
+                                      
+                                      )
+                                (list 0))])
+              (if (> (car old-cost) (car new-cost))
+                  old-cost
+                  new-cost))]))
