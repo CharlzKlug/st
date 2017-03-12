@@ -1,7 +1,7 @@
 #include <QCoreApplication>
 #include "mathlib.h"
 #include <iostream>
-const double p = 0.3;
+const double p = 0.3, threshold = 0.1;
 const int totalMembers=15;
 
 double getNewMember(double A, double B){
@@ -13,10 +13,12 @@ double getNewMember(double A, double B){
 }
 
 double testFun(double x, double y){
-    return (x-1)*(x-1)+(y+2)*(y+2);
+    //return (x-1)*(x-1)+(y+2)*(y+2);
+    return sin(x)*cos(2*y)+sqrt(abs(x*y))/20;
 }
 
-int selectMember(double arr[][2], int count, bool compare(double, double, double, double)){
+int selectMember(double arr[][2], int count,
+bool compare(double, double, double, double)){
     int chosenID=0;
     for (int i = 1; i<count; i++){
         if (compare(arr[i][0], arr[i][1], arr[chosenID][0], arr[chosenID][1]))
@@ -42,25 +44,6 @@ int getStrongest(double arr[][2], int count){
 }
 
 
-//int getWeakest(double arr[][2], int count, double fun(double, double) ){
-//    int weakID=0;
-//    for (int i = 1; i<count; i++){
-//        if (fun(arr[i][0],arr[i][1]) > fun(arr[weakID][0],arr[weakID][1]))
-//            weakID = i;
-//    }
-//    return weakID;
-//}
-
-
-//int getStrongest(double arr[][2], int count, double fun(double, double)){
-//    int strongID=0;
-//    for (int i = 1; i<count; i++){
-//        if (fun(arr[i][0],arr[i][1]) < fun(arr[strongID][0],arr[strongID][1]))
-//            strongID = i;
-//    }
-//    return strongID;
-//}
-
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
@@ -77,18 +60,28 @@ int main(int argc, char *argv[])
         //std::cout << rnd(-2,2) << "\n";
     }
     int parentA, parentB, weakestMember, x, y;
-    for (int j = 1; j < 1000; j++){
+    for (int j = 1; j < 10; j++){
         for (int i = 1; i <= 5; i++){
-            parentA = static_cast <int> (rnd(0, 14));
-            parentB = static_cast <int> (rnd(0, 14));
+            parentA = static_cast <int> (rnd(0, totalMembers-1));
+            parentB = static_cast <int> (rnd(0, totalMembers-1));
             x = getNewMember(members [parentA][0], members [parentB][0]);
             y = getNewMember(members [parentA][1], members [parentB][1]);
-            weakestMember = getWeakest(members, 15);
+            weakestMember = getWeakest(members, totalMembers);
             members[weakestMember][0] = x;
             members[weakestMember][1] = y;
         }}
-    int strongID = getStrongest(members, 15);
-    std::cout << "X = " << members[strongID][0] << "\n";
-    std::cout << "Y = " << members[strongID][1] << "\n";
+    int strongID = getStrongest(members, totalMembers);
+
+    // Определение решений подпадающих под порог
+    for (int i=0; i<totalMembers; i++){
+        if (fabs(testFun(members[strongID][0], members[strongID][1])-
+                 testFun(members[i][0], members[i][1])) <= threshold){
+            std::cout << "Index: " << i << "\n";
+            std::cout << " X = " << members[i][0] << "\n";
+            std::cout << " Y = " << members[i][1] << "\n";
+            std::cout << " Value = " << testFun(members[i][0], members[i][1]) << "\n";
+
+        }
+    }
     return a.exec();
 }

@@ -2,6 +2,7 @@
 #define MATHLIB_H
 #include <cstdlib>
 #include <ctime>
+#include <cmath>
 
 double rnd();
 void initGen();
