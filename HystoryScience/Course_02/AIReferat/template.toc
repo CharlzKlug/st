@@ -1,0 +1,24 @@
+\select@language {russian}
+\contentsline {section}{Введение}{2}{section*.1}
+\contentsline {section}{\numberline {1}История развития искусственного интеллекта}{3}{section.1}
+\contentsline {section}{\numberline {2}Перспективы и тенденции развития искусственного интеллекта}{7}{section.2}
+\contentsline {subsection}{\numberline {2.1}Нейронные сети}{8}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Эволюционные вычисления}{8}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Нечёткая логика}{9}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Обработка изображений}{9}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Экспертные системы}{9}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Интеллектуальные приложения}{9}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Распределённые вычисления}{9}{subsection.2.7}
+\contentsline {subsection}{\numberline {2.8}Операционные системы реального времени}{9}{subsection.2.8}
+\contentsline {subsection}{\numberline {2.9}Интеллектуальная инженерия}{10}{subsection.2.9}
+\contentsline {subsection}{\numberline {2.10}Самоорганизующиеся системы управления базами данных}{10}{subsection.2.10}
+\contentsline {subsection}{\numberline {2.11}Искусственный интеллект для анализаторских функций}{10}{subsection.2.11}
+\contentsline {subsection}{\numberline {2.12}Военные технологии}{10}{subsection.2.12}
+\contentsline {section}{\numberline {3}Искусственный интеллект, как направление исследований}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Некоторые подходы к решению проблемы ИИ}{15}{subsection.3.1}
+\contentsline {paragraph}{Механистический подход}{15}{section*.2}
+\contentsline {paragraph}{Электронный подход}{16}{section*.2}
+\contentsline {paragraph}{Кибернетический подход}{16}{section*.2}
+\contentsline {section}{\numberline {4}Заключение}{17}{section.4}
+\contentsline {section}{Литература}{19}{section*.3}
+\pagebreak 
