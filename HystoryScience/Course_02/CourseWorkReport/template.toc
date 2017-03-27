@@ -1,8 +1,0 @@
-\select@language {russian}
-\contentsline {section}{Введение}{2}{section*.1}
-\contentsline {section}{\numberline {1}Философские взгляды на интеллект}{3}{section.1}
-\contentsline {section}{Постановка задачи}{4}{section*.2}
-\contentsline {section}{Алгоритм программы}{9}{section*.3}
-\contentsline {section}{Текст программы}{11}{section*.4}
-\contentsline {section}{Литература}{13}{section*.5}
-\pagebreak 
