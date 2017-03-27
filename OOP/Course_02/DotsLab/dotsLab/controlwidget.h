@@ -2,6 +2,8 @@
 #define CONTROLWIDGET_H
 
 #include <QWidget>
+#include <QLabel>
+#include <QVBoxLayout>
 
 class ControlWidget : public QWidget
 {
