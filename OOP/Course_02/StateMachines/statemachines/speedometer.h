@@ -1,0 +1,4 @@
+#ifndef SPEEDOMETER_H
+#define SPEEDOMETER_H
+
+#endif // SPEEDOMETER_H
