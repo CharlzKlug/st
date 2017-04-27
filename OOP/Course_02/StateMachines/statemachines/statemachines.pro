@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    trafficTimer.cpp
+    trafficTimer.cpp \
+    speedometer.cpp
 
 HEADERS  += widget.h \
     lightwidget.h \
     Sleeper.h \
-    trafficTimer.h
+    trafficTimer.h \
+    speedometer.h
