@@ -13,6 +13,7 @@
 #include "trafficTimer.h"
 #include <QSignalMapper>
 #include <QTime>
+#include <speedometer.h>
 
 class Widget : public QWidget
 {
@@ -32,6 +33,7 @@ private:
     QSignalMapper* signalMapper;
     int longPeriod;
     int shortPeriod;
+    Speedometer* speedometer;
 public:
     Widget(QWidget *parent = 0);
     ~Widget();

@@ -28,7 +28,10 @@ Widget::Widget(QWidget *parent)
     timeLabel->setStyleSheet("QLabel { background-color : gray; color : blue; }");
 
     vbox->addWidget(timeLabel);
-
+    speedometer = new Speedometer();
+    //QThread* speedometerThread = new QThread;
+    //speedometer->moveToThread(speedometerThread);
+    vbox->addWidget(speedometer);
 
     TrafficTimer* trafficTimer = new TrafficTimer();
     QThread* TTThread = new QThread;
@@ -62,6 +65,7 @@ Widget::Widget(QWidget *parent)
     QObject::connect(sred, SIGNAL(entered()), m_yellow, SLOT(turnOff()));
     QObject::connect(sred, SIGNAL(entered()), m_green, SLOT(turnOff()));
     QObject::connect(sred, SIGNAL(entered()), signalMapper, SLOT(map()));
+    QObject::connect(sred, SIGNAL(entered()), speedometer, SLOT(stopCar()));
 
     QObject::connect(sredyellow, SIGNAL(entered()), m_yellow, SLOT(turnOn()));
     QObject::connect(sredyellow, SIGNAL(entered()), signalMapper, SLOT(map()));
@@ -70,13 +74,15 @@ Widget::Widget(QWidget *parent)
     QObject::connect(sgreen, SIGNAL(entered()), m_red, SLOT(turnOff()));
     QObject::connect(sgreen, SIGNAL(entered()), m_yellow, SLOT(turnOff()));
     QObject::connect(sgreen, SIGNAL(entered()), signalMapper, SLOT(map()));
+    QObject::connect(sgreen, SIGNAL(entered()), speedometer, SLOT(startCar()));
 
     QObject::connect(sgreenyellow, SIGNAL(entered()), m_yellow, SLOT(turnOn()));
+    QObject::connect(sgreenyellow, SIGNAL(entered()), speedometer, SLOT(startCar()));
     QObject::connect(this, SIGNAL(launchTraffikTimer()), signalMapper, SLOT(map()));
     QObject::connect(signalMapper, SIGNAL(mapped(const int &)), trafficTimer,
                      SLOT(launchCountdown(const int &)));
 
-
+    QObject::connect(dayTimer, SIGNAL(timeUp()), speedometer, SLOT(changeSpeed()));
     machine->setInitialState(sred);
     TTThread->start();
     dayThread->start();
