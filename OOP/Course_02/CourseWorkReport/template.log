@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/dev/Debian) (preloaded format=xelatex 2016.2.23)  23 DEC 2016 07:58
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/dev/Debian) (preloaded format=xelatex 2016.2.23)  7 JUN 2017 08:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2309,26 +2309,15 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
  (./src/OOP/about.tex [2
 
 ]) (./src/OOP/mathmodel.tex
-Overfull \hbox (6.96292pt too wide) in paragraph at lines 37--38
-[]\EU1/LiberationSerif(1)/m/n/12 Связи между точками образуются следующими пара
-ми: $[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; B\OT1/cmr/m/n/12 )[]$\EU1/Liberatio
-nSerif(1)/m/n/12 , $[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; E\OT1/cmr/m/n/12 )[]
-$\EU1/LiberationSerif(1)/m/n/12 , $[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 A; D\OT1
-/cmr/m/n/12 )[]$\EU1/LiberationSerif(1)/m/n/12 , $[]\OT1/cmr/m/n/12 (\OML/cmm/m
-/it/12 B; F\OT1/cmr/m/n/12 )[]$\EU1/LiberationSerif(1)/m/n/12 ,
+Overfull \hbox (1.26973pt too wide) in paragraph at lines 28--29
+[]\EU1/LiberationSerif(1)/m/n/12 Требуется реализовать вращение круга с окружно
+стью $[]\OML/cmm/m/it/12 r[]$ \EU1/LiberationSerif(1)/m/n/12 вокруг правильного
+ $[]\OML/cmm/m/it/12 n[]$ \EU1/LiberationSerif(1)/m/n/12 уголь-
  []
 
 [3
 
 ]) (./src/OOP/algorythm.tex [4]
-Overfull \hbox (2.01384pt too wide) in paragraph at lines 20--21
-\EU1/LiberationSerif(1)/m/n/12 Основной виджет графического интерфейса пользова
-теля. Рабочая графическая часть про-
- []
-
-[5
-
-]
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2375,21 +2364,32 @@ c].
 . \fontdimen 2\font =1\fontdimen 2\font \fontdimen 3\font =0\fontdimen 3\font
 . \fontdimen 4\font =0\fontdimen 4\font \fontdimen 7\font =0\fontdimen 2\font 
 .................................................
-) (./src/OOP/listing.tex
-Overfull \hbox (8.57138pt too wide) in paragraph at lines 51--1
-\EU1/LiberationSerif(1)/m/n/12 Весь функционал этого объекта заключён в паузе, 
-формируемой с помощью класса QThread.
+
+Overfull \hbox (1.28502pt too wide) in paragraph at lines 10--11
+[][]\EU1/LiberationMono(1)/m/n/12 Widget(QWidget *parent) \EU1/LiberationSerif(
+1)/m/n/12 — конструктор класса. Задаёт следующие перемен-
  []
 
-[6] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+
+Overfull \hbox (1.8726pt too wide) in paragraph at lines 18--19
+[][]\EU1/LiberationMono(1)/m/n/12 around() \EU1/LiberationSerif(1)/m/n/12 — про
+цедура вычисления координат $[]\OML/cmm/m/it/12 x[]$ \EU1/LiberationSerif(1)/m/
+n/12 и $[]\OML/cmm/m/it/12 y[]$ \EU1/LiberationSerif(1)/m/n/12 центра окружност
+и, осуществ-
+ []
+
+) (./src/OOP/listing.tex [5
+
+]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2014/09/06 1.5e listings language file
-) [7
+) [6
 
-] [8]
-[9] [10] [11] [12] [13] [14] [15]) (./src/OOP/literature.tex [16]
+] [7]
+[8]) (./src/OOP/literature.tex [9]
 Overfull \hbox (1.70505pt too wide) in paragraph at lines 6--7
 []\EU1/LiberationSerif(1)/m/n/12 Qt 4.8 Профессиональное программирование на C+
 +. Макс Шлее. “БХВ-Петербург”.
@@ -2397,7 +2397,7 @@ Overfull \hbox (1.70505pt too wide) in paragraph at lines 6--7
 
 )
 No file template.ind.
-[17
+[10
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 154.
@@ -2407,12 +2407,12 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 154.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 154.
  ) 
 Here is how much of TeX's memory you used:
- 43763 strings out of 493727
- 842139 string characters out of 6147890
- 1234452 words of memory out of 5000000
- 46184 multiletter control sequences out of 15000+600000
- 11130 words of font info for 132 fonts, out of 8000000 for 9000
+ 42768 strings out of 493727
+ 828724 string characters out of 6147890
+ 1172514 words of memory out of 5000000
+ 45193 multiletter control sequences out of 15000+600000
+ 11098 words of font info for 128 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 73i,7n,126p,10447b,1426s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 73i,11n,126p,10447b,1321s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on template.pdf (18 pages).
+Output written on template.pdf (11 pages).
