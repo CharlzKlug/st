@@ -1,0 +1,248 @@
+\Csection{Текст программы}
+
+\begin{lstlisting}[style=customoz, caption=widget.h]
+#ifndef WIDGET_H
+#define WIDGET_H
+
+#include <QWidget>
+#include <QPainter>
+#include <cmath>
+#include "Sleeper.h"
+#include <QTimer>
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QLineEdit>
+#include <QPushButton>
+
+class Widget : public QWidget
+{
+    Q_OBJECT
+private:
+    int R, r, n, x, y;
+    QPolygon* polygon;
+    int angle;
+    int angleStep; // Шаг приращения угла шатуна
+    int circleAngle; // Угол поворота колеса
+    QLineEdit* REdit;
+    QLineEdit* NEdit;
+    QLineEdit* rEdit;
+    double DegreeToRadian(int);
+    double RadianToDegree(double);
+    bool isRotateArea(int);
+    void around();
+    void straightLine();
+    int getRotateArea(int);
+    int getTreshold(); // Пороговое значение поворота вокруг угла
+    int circleRotate(int);
+public:
+    Widget(QWidget *parent = 0);
+    ~Widget();
+    void calcPolygon();
+    void drawScene(int x, int y);
+protected:
+    void paintEvent(QPaintEvent *);
+public slots:
+    void onTimer();
+    void newValues(); // Смена радиусов и углов
+};
+
+#endif // WIDGET_H
+\end{lstlisting}
+
+\begin{lstlisting}[style=customoz, caption=widget.cpp]
+#include "widget.h"
+
+void Widget::calcPolygon()
+{
+    polygon->clear();
+    for (int i = 0; i < n; i++)
+    {
+        polygon->append(QPoint(cos(6.28*i/n)*R+width()/2, sin(6.28*i/n)*R+height()/2));
+    }
+}
+
+Widget::Widget(QWidget *parent)
+    : QWidget(parent)
+{
+    R = 50;
+    r = 50;
+    n = 3;
+    polygon = new QPolygon();
+    x = 0; y=0;
+    angle = 0;
+    circleAngle = 180;
+    angleStep = 1;
+
+    QTimer * myTimer = new QTimer(this);
+    connect(myTimer, SIGNAL(timeout()), this, SLOT(onTimer()));
+    myTimer->start(62);
+    QWidget* controlWindow;
+    controlWindow = new QWidget;
+    QVBoxLayout* verticalLayout = new QVBoxLayout;
+
+    // Радиус многоугольника
+    QHBoxLayout* RHorLayout = new QHBoxLayout;
+    QLabel* RLabel = new QLabel("Polygon radius:");
+    RHorLayout->addWidget(RLabel);
+
+    REdit = new QLineEdit(QString::number(R));
+    RHorLayout->addWidget(REdit);
+    verticalLayout->addLayout(RHorLayout);
+
+    // Количество углов многоугольника
+    QHBoxLayout* NHorLayout = new QHBoxLayout;
+    QLabel* NLabel = new QLabel("Polygon angle count:");
+    NHorLayout->addWidget(NLabel);
+
+    NEdit = new QLineEdit(QString::number(n));
+    NHorLayout->addWidget(NEdit);
+    verticalLayout->addLayout(NHorLayout);
+
+    // Радиус катящегося круга
+    QHBoxLayout* rHorLayout = new QHBoxLayout;
+    QLabel* rLabel = new QLabel("Polygon angle count:");
+    rHorLayout->addWidget(rLabel);
+
+    rEdit = new QLineEdit(QString::number(r));
+    rHorLayout->addWidget(rEdit);
+    verticalLayout->addLayout(rHorLayout);
+
+    // Кнопка отправки значений
+    QPushButton* ChangeValueButton = new QPushButton("Change values");
+    verticalLayout->addWidget(ChangeValueButton);
+    connect(ChangeValueButton, SIGNAL(clicked()), this, SLOT(newValues()));
+    controlWindow->setLayout(verticalLayout);
+    //RLabel.show();
+    controlWindow->show();
+}
+
+Widget::~Widget()
+{
+
+}
+
+void Widget::drawScene(int x, int y)
+{
+    QPainter painter(this);
+    calcPolygon();
+    painter.drawPolygon(*polygon);
+    painter.setPen(Qt::blue);
+    painter.drawText(width()/2, 50, "Degree: "+QString::number(angle));
+    if (isRotateArea(angle))
+    {
+        painter.drawText(width()/2, 60, "Rotate area");
+        painter.drawLine(x, y,
+                         r*cos(DegreeToRadian(circleAngle - circleRotate(angle))) + x,
+                         -r*sin(DegreeToRadian(circleAngle - circleRotate(angle)))+ y);
+
+    }
+    painter.drawEllipse(QPoint(x, y), r, r);
+    painter.drawLine(width()/2, height()/2, x, y);
+}
+
+void Widget::paintEvent(QPaintEvent *)
+{
+    drawScene(x, y);
+}
+
+void Widget::onTimer()
+{
+    if (isRotateArea(angle))
+        around();
+    else straightLine();
+    this->repaint();
+    angle += angleStep;
+    angle %= 360;
+}
+
+void Widget::around()
+{
+    int k = getRotateArea(angle);
+    int rotateAngle = k*360/n;
+    int sA = angle - rotateAngle;
+    double drA = -DegreeToRadian(rotateAngle);
+    double mA = DegreeToRadian(abs(sA));
+    double asn = asin(R*sin(mA)/r);
+    double oX = R + r*cos(mA + asn);
+    double oY = r*sin(mA + asn);
+    if (sA < 0) oY *= -1;
+    x = oX*cos(drA) + oY*sin(drA) + width()/2;
+    y = oY*cos(drA) - oX*sin(drA) + height()/2;
+}
+
+void Widget::straightLine()
+{
+    double partAngle = DegreeToRadian(180.0/n);
+    double Rm = R + r/cos(partAngle);
+    double remainderAngle = DegreeToRadian(angle%(360/n));
+    int fullAngle = angle*n/360;
+    double circlePart = 2*partAngle;
+    double oldX = Rm*cos(partAngle)*cos(remainderAngle)/cos(partAngle - remainderAngle);
+    double oldY = Rm*cos(partAngle)*sin(remainderAngle)/cos(partAngle - remainderAngle);
+    double rotateConst = -fullAngle*circlePart;
+    x = oldX*cos(rotateConst) + oldY*sin(rotateConst) + width()/2;
+    y = oldY*cos(rotateConst) - oldX*sin(rotateConst) + height()/2;
+}
+
+double Widget::DegreeToRadian(int degree)
+{
+    return (3.141592653589793*degree)/180;
+}
+
+double Widget::RadianToDegree(double radian)
+{
+    return 180*radian/3.141592653589793;
+}
+
+bool Widget::isRotateArea(int angle)
+{
+    if (getRotateArea(angle) <= n) return true;
+    return false;
+}
+
+int Widget::getRotateArea(int angle)
+{
+    int threshold = getTreshold();
+    bool inRotateArea = false;
+    int areaNumber = n+1;
+    for (int k = 0; k <= n && !inRotateArea; k++)
+        if (angle < (k*360/n + threshold) && angle > (k*360/n - threshold))
+        {
+            inRotateArea = true;
+            areaNumber = k;
+        }
+    return areaNumber;
+}
+
+int Widget::getTreshold()
+{
+    double halfCirclePart = DegreeToRadian(180/n);
+    return RadianToDegree(atan(r*sin(halfCirclePart)/(R + r*cos(halfCirclePart))));
+}
+
+int Widget::circleRotate(int phi)
+{
+    return phi + RadianToDegree(asin(R*sin(DegreeToRadian(phi))/r));
+}
+
+void Widget::newValues()
+{
+    R = REdit->text().toInt();
+    r = rEdit->text().toInt();
+    n = NEdit->text().toInt();
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=customoz, caption=main.cpp]
+#include "widget.h"
+#include <QApplication>
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    Widget w;
+    w.show();
+
+    return a.exec();
+}
+\end{lstlisting}
