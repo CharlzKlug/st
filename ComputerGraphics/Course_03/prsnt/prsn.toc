@@ -1,0 +1,11 @@
+\select@language {english}
+\beamer@sectionintoc {1}{\IeC {\CYRI }\IeC {\cyrs }\IeC {\cyrt }\IeC {\cyro }\IeC {\cyrr }\IeC {\cyri }\IeC {\cyrya } \IeC {\cyrr }\IeC {\cyra }\IeC {\cyrz }\IeC {\cyrv }\IeC {\cyri }\IeC {\cyrt }\IeC {\cyri }\IeC {\cyrya } \IeC {\cyrv }\IeC {\cyri }\IeC {\cyrd }\IeC {\cyre }\IeC {\cyro }\IeC {\cyrk }\IeC {\cyra }\IeC {\cyrr }\IeC {\cyrt }}{2}{0}{1}
+\beamer@sectionintoc {2}{\IeC {\CYRU }\IeC {\cyrs }\IeC {\cyrt }\IeC {\cyrr }\IeC {\cyro }\IeC {\cyrishrt }\IeC {\cyrs }\IeC {\cyrt }\IeC {\cyrv }\IeC {\cyro } \IeC {\cyrs }\IeC {\cyro }\IeC {\cyrv }\IeC {\cyrr }\IeC {\cyre }\IeC {\cyrm }\IeC {\cyre }\IeC {\cyrn }\IeC {\cyrn }\IeC {\cyro }\IeC {\cyrishrt } \IeC {\cyrv }\IeC {\cyri }\IeC {\cyrd }\IeC {\cyre }\IeC {\cyro }\IeC {\cyrk }\IeC {\cyra }\IeC {\cyrr }\IeC {\cyrt }\IeC {\cyrery }}{7}{0}{2}
+\beamer@sectionintoc {3}{\IeC {\CYRS }\IeC {\cyrr }\IeC {\cyra }\IeC {\cyrv }\IeC {\cyrn }\IeC {\cyre }\IeC {\cyrn }\IeC {\cyri }\IeC {\cyre } CPU \IeC {\cyri } GPU}{8}{0}{3}
+\beamer@sectionintoc {4}{Nvidia CUDA}{9}{0}{4}
+\beamer@sectionintoc {5}{AMD FireStream}{10}{0}{5}
+\beamer@sectionintoc {6}{\IeC {\CYRS }\IeC {\cyrr }\IeC {\cyra }\IeC {\cyrv }\IeC {\cyrn }\IeC {\cyri }\IeC {\cyrt }\IeC {\cyre }\IeC {\cyrl }\IeC {\cyrsftsn }\IeC {\cyrn }\IeC {\cyra }\IeC {\cyrya } \IeC {\cyrt }\IeC {\cyra }\IeC {\cyrb }\IeC {\cyrl }\IeC {\cyri }\IeC {\cyrc }\IeC {\cyra } GPU: AMD \IeC {\cyri } Nvidia}{11}{0}{6}
+\beamer@sectionintoc {7}{\IeC {\CYRP }\IeC {\cyrr }\IeC {\cyri }\IeC {\cyrm }\IeC {\cyre }\IeC {\cyrn }\IeC {\cyre }\IeC {\cyrn }\IeC {\cyri }\IeC {\cyre } GPU}{12}{0}{7}
+\beamer@subsectionintoc {7}{1}{\IeC {\CYRM }\IeC {\cyre }\IeC {\cyrd }\IeC {\cyri }\IeC {\cyrc }\IeC {\cyri }\IeC {\cyrn }\IeC {\cyra }}{12}{0}{7}
+\beamer@subsectionintoc {7}{2}{\IeC {\CYREREV }\IeC {\cyrn }\IeC {\cyre }\IeC {\cyrr }\IeC {\cyrg }\IeC {\cyre }\IeC {\cyrt }\IeC {\cyri }\IeC {\cyrk }\IeC {\cyra }}{14}{0}{7}
+\beamer@subsectionintoc {7}{3}{\IeC {\CYRM }\IeC {\cyra }\IeC {\cyrishrt }\IeC {\cyrn }\IeC {\cyri }\IeC {\cyrn }\IeC {\cyrg } \IeC {\cyrk }\IeC {\cyrr }\IeC {\cyri }\IeC {\cyrp }\IeC {\cyrt }\IeC {\cyro }\IeC {\cyrv }\IeC {\cyra }\IeC {\cyrl }\IeC {\cyryu }\IeC {\cyrt }}{15}{0}{7}
