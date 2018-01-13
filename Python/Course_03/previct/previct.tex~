@@ -1,0 +1,9 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T2A]{fontenc}
+\usepackage[russian,english]{babel}
+\usepackage[cp1251]{inputenc}
+\usepackage{izvuz6}
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{graphicx}
+\begin{document}
+\end{document}

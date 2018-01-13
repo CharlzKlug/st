@@ -1,0 +1,37 @@
+https://repl.it/repls/SpotlessStripedAfricanparadiseflycatcher
+
+a = 5
+b = 0.5
+c = 2
+d = 0.25
+
+def evalQ(x, y):
+  #Вычисление коэффициента q
+  return y * (d * x - c)
+
+def evalK(x, y):
+  #Вычисление коэффициента k
+  return x * (a - b * y)
+
+def solve(x0, y0, h, t):
+  #Вычисление уравнения
+  # x0 - начальное значение x
+  # y0 - начальное значение y
+  # h - шаг
+  # t - значение аргумента
+  tmp = 0
+  while tmp < t:
+    tmp = tmp + h
+    k1 = evalK(x0, y0)
+    q1 = evalQ(x0, y0)
+    k2 = evalK(x0+0.5*h*k1, y0+0.5*h*q1)
+    q2 = evalQ(x0+0.5*h*k1, y0+0.5*h*q1)
+    k3 = evalK(x0+0.5*h*k2, y0+0.5*h*q2)
+    q3 = evalQ(x0+0.5*h*k2, y0+0.5*h*q2)
+    k4 = evalK(x0+0.5*h*k3, y0+0.5*h*q3)
+    q4 = evalQ(x0+0.5*h*k3, y0+0.5*h*q3)
+    x0 = x0 + h*(k1 + 2*k2 + 2*k3 + k4)/6
+    y0 = y0 + h*(q1 + 2*q2 + 2*q3 + q4)/6
+    print(x0)
+    print(y0)
+  return [x0, y0]

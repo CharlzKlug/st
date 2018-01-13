@@ -1,0 +1,85 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+a = 6
+print (a)
+This is a temporary script file.
+"""
+
+import math
+
+from scipy.integrate import ode
+
+alpha = 0.1
+beta = 0.1
+c = 0.1
+d = 0.1
+
+t0 = 0
+x0 = 100
+y0 = 10
+
+def f(t,y):
+    return [ alpha*y[0]-c*y[0]*y[1], -beta*y[1]+d*y[0]*y[1] ]
+
+r = ode(f)
+r.set_initial_value([x0,y0])
+r.set_integrator('dori5')
+
+dt = 0.1
+t_end = 5
+
+for k in range(1, math.floor(t_end-t0)/dt):
+    r.integrate(t0+dt*k)
+    
+print( [r.t, r.y] )
+
+
+
+
+
+
+'''
+def C(n, k):
+    return math.factorial(n)/(math.factorial(k) * math.factorial(n - k))
+
+def dx(n, x, y, alpha, beta, c, d) :
+    if n == 0 :
+        return x
+    elif n == 1 :
+        return alpha * x - c * x * y
+    else :
+        return (alpha * dx(n-1, x, y, alpha, beta, c, d) - 
+        c * dxy(n-1, x, y, alpha, beta, c, d))
+
+def dxy(n, x, y, alpha, beta, c, d) :
+    result = 0
+    for k in range(n+1):
+        result = (result + C(n,k) * dx(k, x, y, alpha, beta, c, d) * 
+        dy(n-k, x, y, alpha, beta, c, d))
+    return result
+
+def dy(n, x, y, alpha, beta, c, d) :
+    if n == 0 :
+        return y
+    elif n == 1 :
+        return - beta * y + d * x * y
+    else :
+        return (- beta * dy(n-1, x, y, alpha, beta, c ,d) +
+        d * dxy(n-1, x, y, alpha, beta, c, d))
+
+def taylor(n, x, y, alpha, beta, c, d, t, func) :
+    result = 0
+    for k in range (n+1) :
+        result = (result + 
+        func(k, x, y, alpha, beta, c, d)* (t ** k) / math.factorial(k))
+    return result
+
+def funX(t) :
+    return taylor(10, 100, 10, 0.1, 0.1, 0.1, 0.1, t, dx)
+
+def funY(t) :
+    return taylor(10, 100, 10, 0.1, 0.1, 0.1, 0.1, t, dy)
+print(12312321312)
+print(funX(10))
+'''

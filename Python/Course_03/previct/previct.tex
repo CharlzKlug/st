@@ -1,0 +1,71 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T2A]{fontenc}
+\usepackage[russian,english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\begin{document}
+Про модель <<хищник-жертва>>.
+
+Взял систему уравнений такого вида:
+
+\begin{equation}\label{eq1}
+  \begin{cases}
+    \dot x = 5x - 0.5 x y \\
+    \dot y = -2y+0.25xy
+  \end{cases}
+\end{equation}
+
+При $x(0) = 100$ и $y(0) = 10$.
+
+По формуле Маклорена имеем:
+ $$x(t) = x(0) + \frac {\dot x(0)} {1!} t + \frac {\ddot x(0)} {2!} t^2 + \frac {x^{(3)}(0)} {3!}t^3 + \ldots + \frac {x^{(n)}(0)} {n!} x^n$$
+и
+$$y(t) = y(0) + \frac {\dot y(0)} {1!} t + \frac {\ddot y(0)} {2!} t^2 + \frac {y^{(3)}(0)} {3!}t^3 + \ldots + \frac {y^{(n)}(0)} {n!} x^n$$
+
+По этим формулам вычислил значения производных $x$ и $y$ вплоть до третьей степени:
+
+\begin{table}[h]
+  \begin{tabular}{|c|c|}
+    \hline
+    $x(0)$ & 100 \\ \hline
+    $\dot x(0)$ & 0 \\ \hline
+    $\ddot x(0)$ & -11500 \\ \hline
+    $\dddot x(0)$ & -264500 \\ \hline
+  \end{tabular}
+\caption{Значения для производной по $x$}
+\end{table}
+
+\begin{table}[h]
+  \begin{tabular}{|c|c|}
+    \hline
+    $y(0)$ & 10 \\ \hline
+    $\dot y(0)$ & 230 \\ \hline
+    $\ddot y(0)$ & 5290 \\ \hline
+    $\dddot y(0)$ & 92920 \\ \hline
+  \end{tabular}
+\caption{Значения для производной по $y$}
+\end{table}
+
+Тогда для случая до третьей производной и $t = 1$ имеем:
+
+\begin{equation}
+\begin{gathered}
+x(t) = 100 + \frac {0}{1!}t + \frac {-11500} {2!} t^2 + \frac {-264500} {3!}t^3 \approx 100-5750t^2-44083.33t^3 = \\
+= 100-5750-44083.33 = -49733.33
+\end{gathered}
+\end{equation}
+
+\begin{equation}
+\begin{gathered}
+y(t) = 10 + \frac {230}{1!}t + \frac {5290} {2!} t^2 + \frac {92920} {3!}t^3 \approx 10+230t + 2645 t^2 + 15486.66t^3 = \\
+= 10 + 230 + 2645 + 15486.66 = 18371.66
+\end{gathered}
+\end{equation}
+
+По ссылке \url{https://ideone.com/pbuGGg} можно посмотреть работающую программу. Для поддержки больших степеней производных использована так называемая <<мемоизация>> --- сохранение в памяти промежуточных данных.
+
+Значения получаются странноватые (получаются и меньшие нуля), подозреваю что такие значения сильно зависят от альф, бетт.
+\end{document}
