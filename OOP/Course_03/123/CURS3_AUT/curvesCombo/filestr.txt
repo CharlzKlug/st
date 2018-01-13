@@ -1,0 +1,13 @@
+ 0. x^2*sin(x)-1.4*x+2.1
+ 1. x^2*cos(x)+2*x*sin(x)-1.4
+ 2. (2-x*x)*sin(x)+4*x*cos(x)
+ 3. (6-x*x)*cos(x) -6*x*sin(x)
+ 4. pow(x, 2)*sin(x)
+ 5. pow(x, 2)*cos(x)
+ 6. sin(2*x)*cos(x)
+ 7. cos(2*x)*sin(x)
+ 8. x*sin(3*x)
+ 9. x*cos(3*x)
+10. pow(cos(x), 2)*x
+11. x
+12. x*x
