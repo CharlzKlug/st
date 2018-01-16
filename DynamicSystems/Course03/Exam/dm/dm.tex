@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[russian,english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\title{Про силу притяжения}
+\author{Аметов И.И.}
+\begin{document}
+\maketitle
+У меня получилась следующая система
+
+\begin{equation*}
+\begin{cases}
+\ddot {\boldsymbol r}_1 = \dfrac {G m_2(\boldsymbol r_2 - \boldsymbol r_1)} {|\boldsymbol r_2 - \boldsymbol r_1|^3} \\
+\ddot {\boldsymbol r}_2 = \dfrac {G m_1(\boldsymbol r_1 - \boldsymbol r_2)} {|\boldsymbol r_1 - \boldsymbol r_2|^3} \\
+\end{cases}
+\end{equation*}
+
+Преобразовал в такую систему
+
+\begin{equation*}
+\begin{cases}
+\dot {\boldsymbol r}_1 = \boldsymbol a \\
+\dot {\boldsymbol r}_2 = \boldsymbol b \\
+\dot {\boldsymbol a} = \dfrac {G m_2(\boldsymbol r_2 - \boldsymbol r_1)} {|\boldsymbol r_2 - \boldsymbol r_1|^3} \\
+\dot {\boldsymbol b} = \dfrac {G m_1(\boldsymbol r_1 - \boldsymbol r_2)} {|\boldsymbol r_1 - \boldsymbol r_2|^3}
+\end{cases}
+\end{equation*}
+
+Ввёл такие обозначения:
+
+$$\boldsymbol c \approx \boldsymbol r_1$$
+$$\boldsymbol d \approx \boldsymbol r_2$$
+$$\boldsymbol e \approx \boldsymbol a$$
+$$\boldsymbol f \approx \boldsymbol b$$
+
+По методу Рунге-Кутта:
+
+$$\boldsymbol c_{n+1} = \boldsymbol c_n + \dfrac {1}{6} h ( \boldsymbol g_1 + 2 \boldsymbol g_2 + 2 \boldsymbol g_3 + \boldsymbol g_4)$$
+$$\boldsymbol d_{n+1} = \boldsymbol d_n + \dfrac {1}{6} h ( \boldsymbol h_1 + 2 \boldsymbol h_2 + 2 \boldsymbol h_3 + \boldsymbol h_4)$$
+$$\boldsymbol e_{n+1} = \boldsymbol e_n + \dfrac {1}{6} h ( \boldsymbol e_1 + 2 \boldsymbol e_2 + 2 \boldsymbol e_3 + \boldsymbol e_4)$$
+$$\boldsymbol f_{n+1} = \boldsymbol f_n + \dfrac {1}{6} h ( \boldsymbol f_1 + 2 \boldsymbol f_2 + 2 \boldsymbol f_3 + \boldsymbol f_4)$$
+
+Для коэффициентов $\boldsymbol g_1, .., \boldsymbol g_4$:
+
+$$\boldsymbol g_1 = \boldsymbol a_n$$
+$$\boldsymbol g_2 = \boldsymbol a_n + \dfrac {1} {2} h \boldsymbol g_1$$
+$$\boldsymbol g_3 = \boldsymbol a_n + \dfrac {1} {2} h \boldsymbol g_2$$
+$$\boldsymbol g_4 = \boldsymbol a_n + h \boldsymbol g_3$$
+
+Для коэффициентов $\boldsymbol h_1, .., \boldsymbol h_4$:
+
+$$\boldsymbol h_1 = \boldsymbol b_n$$
+$$\boldsymbol h_2 = \boldsymbol b_n + \dfrac {1} {2} h \boldsymbol h_1$$
+$$\boldsymbol h_3 = \boldsymbol b_n + \dfrac {1} {2} h \boldsymbol h_2$$
+$$\boldsymbol h_4 = \boldsymbol b_n + h \boldsymbol h_3$$
+
+Для коэффициентов $\boldsymbol k_1, .., \boldsymbol k_4$:
+
+$$\boldsymbol k_1 = \dfrac {G m_2(\boldsymbol d_n - \boldsymbol c_n)} {|\boldsymbol d_n - \boldsymbol c_n|^3}$$
+$$\boldsymbol k_2 = \dfrac {G m_2 \left ( \left ( \boldsymbol d_n + \dfrac {1} {2} h \boldsymbol h_1 \right ) - \left ( \boldsymbol c_n + \dfrac {1}{2} h \boldsymbol g_1 \right ) \right )} {\left | \left ( \boldsymbol d_n + \dfrac {1} {2} h \boldsymbol h_1 \right ) - \left ( \boldsymbol c_n + \dfrac {1}{2} h \boldsymbol g_1 \right ) \right |^3}$$
+$$\boldsymbol k_3 = \dfrac {G m_2 \left ( \left ( \boldsymbol d_n + \dfrac {1} {2} h \boldsymbol h_2 \right ) - \left ( \boldsymbol c_n + \dfrac {1}{2} h \boldsymbol g_2 \right ) \right )} {\left | \left ( \boldsymbol d_n + \dfrac {1} {2} h \boldsymbol h_2 \right ) - \left ( \boldsymbol c_n + \dfrac {1}{2} h \boldsymbol g_2 \right ) \right |^3}$$
+$$\boldsymbol k_4 = \dfrac {G m_2 \left ( \left ( \boldsymbol d_n + h \boldsymbol h_3 \right ) - \left ( \boldsymbol c_n + h \boldsymbol g_3 \right ) \right )} {\left | \left ( \boldsymbol d_n + h \boldsymbol h_3 \right ) - \left ( \boldsymbol c_n + h \boldsymbol g_3 \right ) \right |^3}$$
+
+Для коэффициентов $\boldsymbol l_1, ..., \boldsymbol l_4$:
+
+$$\boldsymbol l_1 = \dfrac {G m_1(\boldsymbol c_n - \boldsymbol d_n)} {|\boldsymbol c_n - \boldsymbol d_n|^3}$$
+$$\boldsymbol l_2 = \dfrac {G m_1 \left ( \left ( \boldsymbol c_n + \dfrac {1} {2} h \boldsymbol g_1 \right ) - \left ( \boldsymbol d_n + \dfrac {1}{2} h \boldsymbol h_1 \right ) \right )} {\left | \left ( \boldsymbol c_n + \dfrac {1} {2} h \boldsymbol g_1 \right ) - \left ( \boldsymbol d_n + \dfrac {1}{2} h \boldsymbol h_1 \right ) \right |^3}$$
+$$\boldsymbol l_3 = \dfrac {G m_1 \left ( \left ( \boldsymbol c_n + \dfrac {1} {2} h \boldsymbol g_2 \right ) - \left ( \boldsymbol d_n + \dfrac {1}{2} h \boldsymbol h_2 \right ) \right )} {\left | \left ( \boldsymbol c_n + \dfrac {1} {2} h \boldsymbol g_2 \right ) - \left ( \boldsymbol d_n + \dfrac {1}{2} h \boldsymbol h_2 \right ) \right |^3}$$
+$$\boldsymbol l_4 = \dfrac {G m_1 \left ( \left ( \boldsymbol c_n + h \boldsymbol g_3 \right ) - \left ( \boldsymbol d_n + h \boldsymbol h_3 \right ) \right )} {\left | \left ( \boldsymbol c_n + h \boldsymbol g_3 \right ) - \left ( \boldsymbol d_n + h \boldsymbol h_3 \right ) \right |^3}$$
+\end{document}

@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[russian,english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amssymb,amsmath,amsthm,amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\title{Приведение к каноническому виду уравнения в частных производных}
+\author{Аметов И.И.}
+\begin{document}
+\maketitle
+Задача:
+
+Найти область эллиптичности и привести к каноническому виду в данной области.
+\begin{equation}\label{1}
+y^2 u_{xx} + x^2 u_{yy} = 0
+\end{equation}
+
+Решение:
+
+Определение области эллиптичности: $B^2 - A C = 0 - y^2 x^2 = -x^2 y^2$. Эллиптичность возникает при $-x^2 y^2<0 \Rightarrow x^2 y^2 >0$. То есть,
+
+\begin{equation*}
+\begin{cases}
+y \in (-\infty; 0) \cup (0; \infty) \\
+x \in (-\infty; 0) \cup (0; \infty)
+\end{cases}
+\end{equation*}
+
+Находим замены:
+$$\dfrac {dy} {dx} = \dfrac {0 \pm \sqrt {-x^2 y^2}} {y^2} = \pm i \dfrac {x} {y} \Rightarrow y dy = \pm i x dx$$
+
+Из последнего равенства следует $\dfrac {y^2} {2} \pm i \dfrac {x^2} {2} = C$. Выбираем замены
+$$\xi = \dfrac {y^2} {2}, \quad \eta = \dfrac {x^2} {2}$$
+
+Вычисляем частные производные
+$$\xi_x = 0, \quad \eta_x = x;$$
+$$\xi_{xx} = 0, \quad \eta_{xx} = 1;$$
+$$\xi_{xy} = 0, \quad \eta_{xy} = 0;$$
+$$\xi_{y} = y, \quad \eta_{y} = 0;$$
+$$\xi_{yy} = 1, \quad \eta_{yy} = 0;$$
+$$u_{xx} = u_{\xi \xi} \cdot 0 + 2 u_{\xi \eta} \cdot 0 \cdot x + u_{\eta \eta} x^2 + u_{\xi} \cdot 0 + u_{\eta} \cdot 1 = u_{\eta \eta} x^2 + u_{\eta}$$
+$$u_{yy} = u_{\xi \xi} y^2 + 2 u_{\xi \eta}y \cdot 0 + u_{\eta \eta} \cdot 0 + u_{\xi} \cdot 1 + u_{\eta} \cdot 0 = u_{\xi \xi} y^2 + u_{\xi}$$
+
+Вычисленные выражения подставляем в \eqref{1}
+\begin{equation*}
+y^2(u_{\eta \eta} x^2 + u_{\eta}) + x^2 (u_{\xi \xi} y^2 + u_{\xi}) = 0
+\end{equation*}
+
+Раскрыв скобки получаем
+$$x^2 y^2 (u_{\eta \eta} + u_{\xi \xi}) + y^2 u_{\eta} + x^2 u_{\xi} = 0$$
+
+Делим обе части на $x^2 y^2$:
+\begin{equation}\label{2}
+u_{\eta \eta} + u_{\xi \xi} + \dfrac {1} {x^2} u_{\eta} + \dfrac {1} {y^2} u_{\xi} = 0
+\end{equation}
+
+Поскольку $x^2 = 2 \eta$ и $y^2 = 2 \xi$ из \eqref{2} получаем
+$$u_{\eta \eta} + u_{\xi \xi} + \dfrac {1} {2 \eta} u_{\eta} + \dfrac {1} {2 \xi} u_{\xi} = 0$$
+
+И окончательно:
+$$u_{\eta \eta} + u_{\xi \xi} + \dfrac {1} {2} \left ( \dfrac {u_{\eta}} {\eta}  + \dfrac {u_{\xi}} {\xi} \right ) = 0$$
+
+Ответ:
+
+Область эллиптичности
+\begin{equation*}
+\begin{cases}
+y \in (-\infty; 0) \cup (0; \infty) \\
+x \in (-\infty; 0) \cup (0; \infty)
+\end{cases}
+\end{equation*}
+
+Каноническая форма
+$$u_{\eta \eta} + u_{\xi \xi} + \dfrac {1} {2} \left ( \dfrac {u_{\eta}} {\eta}  + \dfrac {u_{\xi}} {\xi} \right ) = 0$$
+\end{document}
