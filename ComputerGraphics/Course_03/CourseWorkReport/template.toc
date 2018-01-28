@@ -1,16 +1,17 @@
 \select@language {russian}
-\contentsline {section}{Введение}{2}{section*.1}
-\contentsline {section}{\numberline {1}История развития видеокарт}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Устройство видеокарты}{4}{subsection.1.1}
-\contentsline {subsubsection}{\numberline {1.1.1}Графический процессор}{4}{subsubsection.1.1.1}
-\contentsline {subsubsection}{\numberline {1.1.2}Видеоконтроллер}{4}{subsubsection.1.1.2}
-\contentsline {subsubsection}{\numberline {1.1.3}Видео-ПЗУ}{5}{subsubsection.1.1.3}
-\contentsline {subsubsection}{\numberline {1.1.4}Видео-ОЗУ}{5}{subsubsection.1.1.4}
-\contentsline {section}{\numberline {2}Вычисления на графических процессорах}{5}{section.2}
-\contentsline {subsection}{\numberline {2.1}Разница между CPU и GPU в параллельных расчётах}{5}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Nvidia CUDA}{7}{subsection.2.2}
-\contentsline {subsection}{\numberline {2.3}AMD FireStream}{8}{subsection.2.3}
-\contentsline {section}{\numberline {3}Краткое сравнение видеокарт AMD и Nvidia}{10}{section.3}
-\contentsline {section}{\numberline {4}Применение параллельных вычислений}{11}{section.4}
-\contentsline {section}{\numberline {5}Литературные источники}{13}{section.5}
+\contentsline {section}{Введение}{3}{section*.1}
+\contentsline {section}{\numberline {1}История развития видеокарт}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Устройство видеокарты}{6}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Графический процессор}{6}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Видеоконтроллер}{6}{subsubsection.1.1.2}
+\contentsline {subsubsection}{\numberline {1.1.3}Видео-ПЗУ}{7}{subsubsection.1.1.3}
+\contentsline {subsubsection}{\numberline {1.1.4}Видео-ОЗУ}{7}{subsubsection.1.1.4}
+\contentsline {section}{\numberline {2}Вычисления на графических процессорах}{8}{section.2}
+\contentsline {subsection}{\numberline {2.1}Разница между CPU и GPU в параллельных расчётах}{8}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Nvidia CUDA}{12}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}AMD FireStream}{13}{subsection.2.3}
+\contentsline {section}{\numberline {3}Краткое сравнение видеокарт AMD и Nvidia}{16}{section.3}
+\contentsline {section}{\numberline {4}Применение параллельных вычислений}{17}{section.4}
+\contentsline {section}{\numberline {5}Заключение}{18}{section.5}
+\contentsline {section}{\numberline {6}Литературные источники}{21}{section.6}
 \pagebreak 

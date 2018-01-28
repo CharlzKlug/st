@@ -6,12 +6,20 @@
 %%%
 %%% шрифты и локализация основное
 %%%
-
+\usepackage{mathptmx}
 	\usepackage[cm-default]{fontspec}
 	\usepackage{xltxtra} % \XeLaTeX macro
 	\defaultfontfeatures{Mapping=tex-text}
 	\usepackage{polyglossia}
+
+% Указываем полуторный интервал
+        \usepackage{setspace}
+        \onehalfspacing
 	
+%        \usepackage{pscyr}
+        %\usepackage{fontspec}
+        %\usepackage{mathptmx}
+        
 	\setdefaultlanguage{russian} 	% задаем язык по умолчанию, 
 									% для правильного отображения некоторых разделов
 									% таких как Содержание, предметный указатель
@@ -27,12 +35,14 @@
 	% тут использованы DejaVu шрифты --- они есть почти на всех ОС
 	% к тому же не все шрифты формально поддерживают кириллицу (ругаются когда, их назначаешь основным)
 		
-	\setmainfont{DejaVu Serif}
-	\setsansfont{DejaVu Sans}
-	\setmonofont{DejaVu Sans Mono}
+	%\setmainfont{DejaVu Serif}
+	%\setsansfont{DejaVu Sans}
+	%\setmonofont{DejaVu Sans Mono}
 
 	\setmainfont{Liberation Serif}
-	\setsansfont{Liberation Sans}
+        %\setmainfont{Times New Roman}
+	%\setsansfont{Liberation Sans}
+        \setsansfont{Liberation Serif}
 	\setmonofont{Liberation Mono}	
 
 	%\newcommand{\setmaincyrfont}[1]{\newfontfamily{\cyrillicfont}{#1}\setmainfont{#1} }

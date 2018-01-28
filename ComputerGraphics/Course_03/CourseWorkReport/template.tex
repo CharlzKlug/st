@@ -44,7 +44,7 @@
 %%% если она поддерживает последние обновдения CTAN.
 
 
-\documentclass[unicode, 12pt, a4paper,oneside,fleqn]{article}
+\documentclass[unicode, 14pt, a4paper,oneside,fleqn]{extarticle}
 	%% Варианты []:
 		% fleqn --- сдвигает формулы влево
 
@@ -86,6 +86,7 @@
 %%%
 
 	\input{src/CG/titlepage} 	% титульный лист
+        \pagestyle{empty}
 	\tableofcontents 		% оглавление
 	\pagebreak
 
@@ -108,11 +109,14 @@
 	% пример %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	% это просто пример, который, якобы может показать основные особенности, 
 	% фичи и недостатки, 
+        \setcounter{page}{3}
+        \pagestyle{plain}
 	\input{src/CG/about.tex}
         \input{src/CG/history.tex}
         \input{src/CG/gpgpu.tex}
         \input{src/CG/compare.tex}
         \input{src/CG/usage.tex}
+        \input{src/CG/conclusion.tex}
         \input{src/CG/literature.tex}
 %        \input{src/CG/amdgpu.tex}
 %        \input{src/OOP/listing.tex}
