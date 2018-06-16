@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{enumerate}
+  \item{
+Представить ротор, дивергенцию и градиент в сферических координатах.
+
+\textit{Решение.} В сферических координатах $x$, $y$ и $z$ выражается следующим образом:
+
+$$
+\left\{
+\begin{array}{c}
+  z = r \cos{\theta} \\
+  x = r \sin{\theta} \cos{\varphi} \\
+  y = r \sin{\theta} \sin{\varphi}
+\end{array}
+\right.
+$$
+
+Коэффициенты Ламе находятся по формуле:
+
+$$H_i = \sqrt{ \left(\dfrac {\partial x} {\partial q_i} \right)^2 + \left(\dfrac {\partial y} {\partial q_i} \right)^2 + \left(\dfrac {\partial z} {\partial q_i} \right)^2}.$$
+
+То есть,
+
+$$H_r = \sqrt{ \left(\dfrac {\partial (r \sin{\theta} \cos{\varphi})} {\partial r} \right)^2 + \left(\dfrac {\partial (r \sin{\theta} \sin{\varphi})} {\partial r} \right)^2 + \left(\dfrac {\partial (r \cos{\theta})} {\partial r} \right)^2} =$$
+
+$$= \sqrt{\sin^2 {\theta} \cos^2 {\varphi} + \sin^2{\theta} \sin^2{\varphi} + \cos^2{\theta}} = \sqrt{\sin^2{\theta}(\cos^2{\varphi} + \sin^2{\varphi}) + \cos^2{\theta}} =$$
+
+$$= \sqrt{\sin^2{\theta} + \cos^2{\theta}} = \sqrt{1} = 1;$$
+
+$$H_\theta = \sqrt{ \left(\dfrac {\partial (r \sin{\theta} \cos{\varphi})} {\partial \theta} \right)^2 + \left(\dfrac {\partial (r \sin{\theta} \sin{\varphi})} {\partial \theta} \right)^2 + \left(\dfrac {\partial (r \cos{\theta})} {\partial \theta} \right)^2} =$$
+
+$$= \sqrt{r^2 \cos^2{\theta} \cos^2{\varphi} + r^2 \cos^2{\theta} \sin^2{\varphi} + r^2 \sin^2{\theta}} =$$
+$$=\sqrt{r^2(\sin^2{\theta} + (\cos^2{\varphi} + \sin^2{\varphi}) \cos^2{\theta} )} = \sqrt{r^2(\sin^2{\theta} + \cos^2{\theta})} =$$
+$$=\sqrt{r^2} = r;$$
+
+$$H_\varphi = \sqrt{ \left(\dfrac {\partial (r \sin{\theta} \cos{\varphi})} {\partial \varphi} \right)^2 + \left(\dfrac {\partial (r \sin{\theta} \sin{\varphi})} {\partial \varphi} \right)^2 + \left(\dfrac {\partial (r \cos{\theta})} {\partial \varphi} \right)^2} =$$
+$$= \sqrt{r^2 \sin^2{\theta} \sin^2{\varphi} + r^2 \sin^2{\theta} \cos^2{\varphi}}=$$
+$$=\sqrt{(\sin^2{\varphi} + \cos^2{\varphi})r^2 \sin^2{\theta}} = \sqrt{r^2 \sin^2{\theta}} = r \sin{\theta};$$
+
+Градиент в криволенейных координатах определяется таким образом:
+
+$$\operatorname{grad}\textbf{U} = \dfrac {1}{H_1} \dfrac {\partial \textbf{U}}{\partial q_1} \textbf{e}_1 + \dfrac {1}{H_2} \dfrac {\partial \textbf{U}}{\partial q_2} \textbf{e}_2 + \dfrac {1}{H_3} \dfrac {\partial \textbf{U}}{\partial q_3} \textbf{e}_3. $$
+
+Получаем:
+
+$$\operatorname{grad}\textbf{U} = \dfrac {1}{1} \dfrac {\partial \textbf{U}}{\partial r} \textbf{e}_r + \dfrac {1}{r} \dfrac {\partial \textbf{U}}{\partial \theta} \textbf{e}_\theta + \dfrac {1}{r \sin{\theta}} \dfrac {\partial \textbf{U}}{\partial \varphi} \textbf{e}_\varphi=$$
+$$= \dfrac {\partial \textbf{U}}{\partial r} \textbf{e}_r + \dfrac {1}{r} \dfrac {\partial \textbf{U}}{\partial \theta} \textbf{e}_\theta + \dfrac {1}{r \sin{\theta}} \dfrac {\partial \textbf{U}}{\partial \varphi} \textbf{e}_\varphi.$$
+
+Дивергенция в криволинейных координатах находится по формуле
+
+$$\operatorname{div}\textbf{U} = \dfrac {1}{H_1 H_2 H_3} \left( \dfrac {\partial}{\partial q_1} \left(H_2 H_3 \textbf{U}_1\right) + \dfrac {\partial}{\partial q_2} \left(H_1 H_3 \textbf{U}_2\right) + \dfrac {\partial}{\partial q_3} \left(H_1 H_2 \textbf{U}_3\right)\right).$$
+
+Подставляем значения:
+$$\operatorname{div}\textbf{U} = \dfrac {1}{r^2 \sin{\theta}} \left( \dfrac {\partial}{\partial r} \left(r^2 \textbf{U}_r \sin{\theta}\right) + \dfrac {\partial}{\partial \theta} \left(r \textbf{U}_\theta \sin{\theta}\right) + \dfrac {\partial}{\partial \varphi} \left(r\textbf{U}_\varphi\right)\right)=$$
+$$=\dfrac {1}{r^2 \sin{\theta}} \left(\sin{\theta} \cdot \dfrac {\partial}{\partial r} \left(r^2 \textbf{U}_r \right) + r \dfrac {\partial}{\partial \theta} \left(\textbf{U}_\theta \sin{\theta}\right) + r \dfrac {\partial}{\partial \varphi} \left(\textbf{U}_\varphi\right)\right) =$$
+$$=\dfrac {1}{r^2}\dfrac {\partial}{\partial r} \left(r^2 \textbf{U}_r \right) + \dfrac {1}{r \sin{\theta}} \dfrac {\partial}{\partial \theta} \left(\textbf{U}_\theta \sin{\theta}\right) + \dfrac {1}{r \sin{\theta}} \dfrac {\partial \textbf{U}_\varphi}{\partial \varphi}.$$
+Формула для ротора в криволинейных координатах:
+$$\operatorname{rot}\textbf{U} = \dfrac {1}{H_1H_2H_3}
+\begin{vmatrix}
+  H_1\textbf{e}_1 & H_2\textbf{e}_2 & H_3\textbf{e}_3 \\
+  \dfrac {\partial}{\partial q_1} & \dfrac {\partial}{\partial q_2} & \dfrac {\partial}{\partial q_3} \\
+  H_1\textbf{U}_1 & H_2\textbf{U}_2 & H_3\textbf{U}_3
+\end{vmatrix}
+$$
+Подставляем коэффициенты:
+$$\operatorname{rot}\textbf{U} = \dfrac {1}{r^2 \sin{\theta}}
+\begin{vmatrix}
+  1\textbf{e}_r & r\textbf{e}_\theta & r\textbf{e}_\varphi\sin{\theta} \\
+  \dfrac {\partial}{\partial r} & \dfrac {\partial}{\partial \theta} & \dfrac {\partial}{\partial \varphi} \\
+  1\textbf{U}_r & r\textbf{U}_r & r\textbf{U}_\varphi \sin{\theta}
+\end{vmatrix} =
+\dfrac {1}{r^2 \sin{\theta}}
+\begin{vmatrix}
+  \textbf{e}_r & r\textbf{e}_\theta & r\textbf{e}_\varphi\sin{\theta} \\
+  \dfrac {\partial}{\partial r} & \dfrac {\partial}{\partial \theta} & \dfrac {\partial}{\partial \varphi} \\
+  \textbf{U}_r & r\textbf{U}_r & r\textbf{U}_\varphi \sin{\theta}
+\end{vmatrix} =$$
+$$= \dfrac {1}{r^2 \sin{\theta}} \left( \textbf{e}_r \dfrac {\partial}{\partial \theta} \left( r \textbf{U}_\varphi \sin{\theta}  \right) + r \textbf{e}_\theta \dfrac {\partial \textbf{U}_r} {\partial \varphi} + r \textbf{e}_\varphi \sin{\theta} \cdot \dfrac {\partial}{\partial r} \left( r \textbf{U}_\theta  \right) - \right.$$
+$$\left.-r \textbf{e}_\theta \dfrac {\partial}{\partial r} \left(r\textbf{U}_\varphi\sin{\theta}\right) - \textbf{e}_r\dfrac{\partial}{\partial\varphi}\left(r\textbf{U}_\theta\right)-r\textbf{e}_\varphi\sin{\theta}\cdot\dfrac{\partial\textbf{U}_r}{\partial\theta}\right)=$$
+$$=\dfrac{r}{r^2\sin{\theta}}\left(\textbf{e}_r\left(\dfrac{\partial}{\partial\theta}\left(\textbf{U}_\varphi\sin{\theta}\right)-\dfrac{\partial\textbf{U}_\theta}{\partial\varphi}\right)+\textbf{e}_\theta\left(\dfrac{\partial\textbf{U}_r}{\partial\varphi}-\sin{\theta}\cdot\dfrac{\partial}{\partial r}\left(r\textbf{U}_\varphi\right)\right)+\right.$$
+$$\left.+\textbf{e}_\varphi\sin{\theta}\cdot\left(\dfrac{\partial}{\partial r}\left(r\textbf{U}_\theta\right)-\dfrac{\partial\textbf{U}_r}{\partial\theta}\right)\right)=$$
+$$=\dfrac{1}{r\sin{\theta}}\left(\textbf{e}_r\left(\dfrac{\partial}{\partial\theta}\left(\textbf{U}_\varphi\sin{\theta}\right)-\dfrac{\partial\textbf{U}_\theta}{\partial\varphi}\right)+\textbf{e}_\theta\left(\dfrac{\partial\textbf{U}_r}{\partial\varphi}-\sin{\theta}\cdot\dfrac{\partial}{\partial r}\left(r\textbf{U}_\varphi\right)\right)+\right.$$
+$$\left.+\textbf{e}_\varphi\sin{\theta}\cdot\left(\dfrac{\partial}{\partial r}\left(r\textbf{U}_\theta\right)-\dfrac{\partial\textbf{U}_r}{\partial\theta}\right)\right)=$$
+$$=\dfrac{\textbf{e}_r}{r\sin{\theta}}\left(\dfrac{\partial}{\partial\theta}\left(\textbf{U}_\varphi\sin{\theta}\right)-\dfrac{\partial\textbf{U}_\theta}{\partial\varphi}\right)+\dfrac{\textbf{e}_\theta}{r\sin{\theta}}\left(\dfrac{\partial\textbf{U}_r}{\partial\varphi}-\sin{\theta}\cdot\dfrac{\partial}{\partial r}\left(r\textbf{U}_\varphi\right)\right)+$$
+$$+\dfrac{\textbf{e}_\varphi}{r}\left(\dfrac{\partial}{\partial r}\left(r\textbf{U}_\theta\right)-\dfrac{\partial\textbf{U}_r}{\partial\theta}\right)$$
+  }
+\end{enumerate}
+\end{document}
+А вот этот текст уже не отобразиться - 
+так как он идет после "\end{document}"
