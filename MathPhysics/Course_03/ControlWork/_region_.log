@@ -1,0 +1,95 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=prv_ex2 2018.6.18)  18 JUN 2018 16:32
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**&prv_ex2 _region_.tex
+(./_region_.tex
+LaTeX2e <2017/01/01> patch level 3
+Babel <3.10> and hyphenation patterns for 12 language(s) loaded.
+CUSTOMISED FORMAT. Preloaded files:
+        .
+ article.cls    2014/09/29 v1.4h Standard LaTeX document class
+  size10.clo    2014/09/29 v1.4h Standard LaTeX file (size option)
+inputenc.sty    2015/03/17 v1.2c Input encoding file
+    utf8.def    2017/01/28 v1.1t UTF-8 support for inputenc
+   t1enc.dfu    2017/01/28 v1.1t UTF-8 support for inputenc
+  ot1enc.dfu    2017/01/28 v1.1t UTF-8 support for inputenc
+  omsenc.dfu    2017/01/28 v1.1t UTF-8 support for inputenc
+   babel.sty    2017/05/19 3.10 The Babel package
+russianb.ldf    2017/01/12 1.3i Russian support for the Babel system
+  t2aenc.dfu    2017/01/28 v1.1t UTF-8 support for inputenc
+ amsmath.sty    2016/11/05 v2.16a AMS math features
+ amstext.sty    2000/06/29 v2.01 AMS text
+  amsgen.sty    1999/11/30 v2.0 generic functions
+  amsbsy.sty    1999/11/29 v1.2d Bold Symbols
+  amsopn.sty    2016/03/08 v2.02 operator names
+        .
+No file _region_.aux.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 6.
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 6.
+(/usr/share/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+LaTeX Font Info:    ... okay on input line 6.
+ (/home/charlzk/.emacs.d/elpa/auctex-12.1.0/latex/preview.sty
+Package: preview 2017/04/24 12.1 (AUCTeX/preview-latex)
+ (/home/charlzk/.emacs.d/elpa/auctex-12.1.0/latex/prtightpage.def
+\PreviewBorder=\dimen113
+) (/home/charlzk/.emacs.d/elpa/auctex-12.1.0/latex/prauctex.def
+No auxiliary output files.
+
+
+\hbadness=\count100
+\hfuzz=\dimen114
+(/home/charlzk/.emacs.d/elpa/auctex-12.1.0/latex/prauctex.cfg)) (/home/charlzk/.emacs.d/elpa/auctex-12.1.0/latex/prfootnotes.def)
+\pr@snippet=\count101
+\pr@box=\box28
+\pr@output=\toks21
+
+Preview: Fontsize 10pt
+Preview: PDFoutput 1
+)  !name(ex2.tex) !offset(81) 
+! Preview: Snippet 1 started.
+<-><->
+      
+l.9 $
+     $=\dfrac{\textbf{e}_r}{r\sin{\theta}}\left(\dfrac{\partial}{\partial\th...
+Not a real error.
+
+Preview: Tightpage -32891 -32891 32891 32891
+! Preview: Snippet 1 ended.(2293775+0x22609920).
+<-><->
+      
+l.9 ...\left(r\textbf{U}_\varphi\right)\right)+-$$
+                                                  
+Not a real error.
+
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]  !name(ex2.tex) !offset(84)  ) 
+Here is how much of TeX's memory you used:
+ 242 strings out of 492238
+ 4039 string characters out of 6151366
+ 83214 words of memory out of 5000000
+ 5721 multiletter control sequences out of 15000+600000
+ 11048 words of font info for 29 fonts, out of 8000000 for 9000
+ 430 hyphenation exceptions out of 8191
+ 22i,7n,24p,398b,134s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb>
+Output written on _region_.pdf (1 page, 44073 bytes).
+PDF statistics:
+ 33 PDF objects out of 1000 (max. 8388607)
+ 23 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
