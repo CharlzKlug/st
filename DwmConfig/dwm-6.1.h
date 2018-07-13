@@ -62,9 +62,11 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "sakura", NULL };
 static const char *volup[] = { "pactl", "set-sink-volume", "0", "+10%", NULL };
 static const char *voldown[] = { "pactl", "set-sink-volume", "0", "-10%", NULL };
+static const char *volmute[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0,				XF86XK_AudioMute,		spawn,	{.v = volmute} },
 	{ 0,				XF86XK_AudioRaiseVolume,	spawn,	{.v = volup} },
 	{ 0,				XF86XK_AudioLowerVolume,	spawn,	{.v = voldown} },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
