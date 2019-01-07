@@ -1,0 +1,190 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{index}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{upquote}
+\usepackage{textcomp}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}
+\usepackage{color}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\begin{document}
+\begin{enumerate}
+\item{Методом наименьших квадратов найти апроксимирующий полином первой и второй степени:
+    
+    \begin{tabular}{|c|c|}
+      \hline
+      x & F(x) \\ \hline
+      3.0 & 4.0 \\ \hline
+      3.2 & 2.0 \\ \hline
+      3.4 & 6.0 \\ \hline
+      3.6 & 6.0 \\ \hline
+      3.8 & 3.0 \\ \hline
+      4.0 & 5.0 \\
+      \hline
+    \end{tabular}
+
+    \emph{Решение:} Для полинома первой степени ответ будем искать в виде $\varphi (x) = ax + b$. В этом случае $\dfrac {\partial \varphi} {\partial a} = x$ и $\dfrac {\partial \varphi} {\partial b} = 1$. Получаем такую систему:
+    $$
+    \begin{cases}
+      \sum \limits_{i = 0}^5 (ax_i+b - y_i)x_i = 0 \\
+      \sum \limits_{i = 0}^5 (ax_i + b - y_i) = 0
+    \end{cases}
+    \Rightarrow
+    $$
+    $$
+    \begin{cases}
+      a(9+10.24+11.56+12.96+14.44+16) + \\ + b(3.0 + 3.2 + 3.4 + 3.6 + 3.8 + 4.0) - \\ -(12 + 6.4 + 20.4 + 21.6 + 11.4 + 20) = 0 \\
+      a(3.0 + 3.2 + 3.4 + 3.6 + 3.8 + 4.0) + 5b - \\ -(4.0 + 2.0 + 6.0 + 6.0 + 3.0 + 5.0) = 0
+    \end{cases}
+    \Rightarrow
+    $$
+    $$
+    \begin{cases}
+      74.2a + 21b - 91.8 = 0 \\
+      21a + 5b - 26 = 0
+    \end{cases}
+    \Rightarrow
+    $$
+
+    $$
+    \begin{cases}
+      74.2a + 21b = 91.8 \\
+      21a + 5b = 26
+    \end{cases}
+    .
+    $$
+
+    $$
+    \Delta =
+    \left |
+      \begin{array}{cc}
+        74.2 & 21 \\
+        21 & 5
+      \end{array}
+    \right |
+    = 74.2 \cdot 5 - 21 \cdot 21 = 371 - 441 = -70.
+    $$
+
+
+    $$
+    \Delta_a =
+    \left |
+      \begin{array}{cc}
+        91.8 & 21 \\
+        26 & 5
+      \end{array}
+    \right |
+    = 91.8 \cdot 5 - 21 \cdot 26 = 459 - 546 = -87.
+    $$
+
+    $$
+    \Delta_b =
+    \left |
+      \begin{array}{cc}
+        74.2 & 91.8 \\
+        21 & 26
+      \end{array}
+    \right |
+    = 74.2 \cdot 26 - 91.8 \cdot 21 = 1929.2 - 1927.8 = 1.4;
+    $$
+
+    $$
+    a = \dfrac {\Delta_a} {\Delta} = \dfrac {-87} {-70} \approx 1.24;
+    $$
+
+    $$
+    b = \dfrac {\Delta_b} {\Delta} = \dfrac {1.4} {-70} \approx -0.02;
+    $$
+
+    \emph{Ответ:} $\varphi (x) = 1.24x - 0.02$.
+
+    Теперь найдём апроксимирующий полином второй степени. Ответ будем искать в виде $\varphi (x) = ax^2 + bx +c$.
+
+    $$
+    \begin{cases}
+      \sum \limits_{i = 0}^5 (ax_i^2+bx_i + c - y_i)x_i^2 = 0 \\
+      \sum \limits_{i = 0}^5 (ax_i^2+bx_i + c - y_i)x_i = 0 \\
+      \sum \limits_{i = 0}^5 (ax_i^2+bx_i + c - y_i) = 0 
+    \end{cases}
+    \Rightarrow
+    $$
+
+    $$
+    \begin{cases}
+      951.96a + 264.6b + 74.2c=326.92 \\
+      264.6a + 74.2b + 21c =91.8 \\
+      74.2a + 21 b + 5c =26
+    \end{cases}
+    ;
+    $$
+
+    $$
+    \Delta =
+    \left |
+      \begin{array}{ccc}
+        951.96 & 264.6 & 74.2 \\
+        264.6 & 74.2 & 21 \\
+        74.2 & 21 & 5
+      \end{array}
+    \right |
+    = -622.05;
+    $$
+
+    $$
+    \Delta_a =
+    \left |
+      \begin{array}{ccc}
+        326.92 & 264.6 & 74.2 \\
+        91.8 & 74.2 & 21 \\
+        26 & 21 & 5
+      \end{array}
+    \right |
+    = 31.92;
+    $$
+
+    $$
+    \Delta_b =
+    \left |
+      \begin{array}{ccc}
+        951.96 & 326.92 & 74.2 \\
+        264.6 & 91.8 & 21 \\
+        74.2 & 26 & 5
+      \end{array}
+    \right |
+    = -880.37;
+    $$
+
+    $$
+    \Delta_c =
+    \left |
+      \begin{array}{ccc}
+        951.96 & 264.6 & 326.92 \\
+        264.6 & 74.2 & 91.8 \\
+        74.2 & 21 & 26
+      \end{array}
+    \right |
+    = -10.8;
+    $$
+
+    $$
+    a = \dfrac {\Delta_a} {\Delta} = \dfrac {31.92} {-622.05} \approx -0.05;
+    $$
+
+    $$
+    b = \dfrac {\Delta_b} {\Delta} = \dfrac {-880.37} {-622.05} \approx 1.42;
+    $$
+
+    $$
+    c = \dfrac {\Delta_c} {\Delta} = \dfrac {-10.8} {-622.05} \approx 0.02;
+    $$
+
+    \emph{Ответ:} $\varphi (x) = -0.05x^2+1.42x+0.02$.
+
+
+    
+  }
+\end{enumerate}
+\end{document}
