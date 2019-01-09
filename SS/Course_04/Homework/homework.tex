@@ -259,6 +259,51 @@
     Получаем:
     $$\int_1^2x^3 \ln{x} dx \approx \dfrac {0.25} {3} \left ( 0 + 5.52 + 4 \cdot (1.31 + 3) + 2 \cdot (1.39) \right ) \approx 2.04.$$
     \emph{Ответ:} вычисление определённого интеграла \eqref{eq:1} с помощью формулы Симпсона даёт значение 2.04.
+  }
+\item{Решить задачу Коши для дифференциального уравнения:
+
+    $y' = 0,1(x + y^2)$, $y(0) = 1$, на отрезке $[0; 0,3]$, $h=0,1$ методом Эйлера, методом Рунге-Кутта четвёртого порядка. Данные представить в таблице.
+
+    \emph{Решение:}
+
+    Метод Эйлера:
+    $$y_i = y_{i-1} + h f(x_{i-1}, y_{i-1}).$$
+
+    Данные представлены в таблице:
+
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|}
+        \hline
+        $x_0$ & $x_1$ & $x_2$ & $x_3$ \\ \hline
+        0 & 0,1 & 0,2 & 0,3 \\ \hline
+        $y_0$ & $y_1$ & $y_2$ & $y_3$ \\ \hline
+        1 & 1,01 & 1,02 & 1,03 \\ \hline
+      \end{tabular}
+    \end{center}
+
+    Метод Рунге-Кутта четвёртого порядка:
+
+    $$
+    \begin{cases}
+      \eta_1^i = f(x_i, y_i), \\
+      \eta_2^i = f \left ( x_i + \dfrac {h} {2}, y_i + \dfrac {h} {2} \eta_1^i \right ), \\
+      \eta_3^i = f \left ( x_i + \dfrac {h} {2}, y_i + \dfrac {h} {2} \eta_2^i \right ), \\
+      \eta_4^i = f \left ( x_i + h, y_i + h \eta_3^i \right ), \\
+      \Delta y_i = \dfrac {h} {6} \left ( \eta_1^i + 2 \eta_2^i + 2 \eta_3^i + \eta_4^i \right ), \\
+      y_{i+1} = y_i + \Delta y_i.
+    \end{cases}
+    $$
+
+    Полученные результаты:
+    \begin{center}
+      \begin{tabular}{|c|c|c|c|}
+        \hline
+        $x_0$ & $x_1$ & $x_2$ & $x_3$ \\ \hline
+        0 & 0,1 & 0,2 & 0,3 \\ \hline
+        $y_0$ & $y_1$ & $y_2$ & $y_3$ \\ \hline
+        1 & 1,011 & 1,023 & 1,036 \\ \hline
+      \end{tabular}
+    \end{center}
 
   }
 \end{enumerate}
