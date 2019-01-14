@@ -1,0 +1,100 @@
+// Direction class.
+class Direction {
+    int varCount;
+    double coords[];
+
+    Direction(int n) {
+	varCount = n;
+	coords = new double[varCount];
+	makeDirection();
+    }
+
+    void makeDirection() {
+	for(int i = 0; i < varCount; i++)
+	    coords[i] = newValue();
+    }
+
+    double newValue() {
+	return Math.random() * 2 - 1;
+    }
+}
+
+// Specimen of a hive class.
+class Agent {
+    private double coordinates[];
+    private int varCount;
+    private double currentValue;
+    private Direction agentDirection;
+    
+    Agent(int n, double coords[], double valueFunction[]) {
+	varCount = n;
+	coordinates = new double[varCount];
+	for(int i = 0; i < varCount; i++)
+	    coordinates[i] = coords[i];
+	currentValue = calcValue(valueFunction);
+	agentDirection = new Direction(varCount);
+    }
+
+    void printCoordinates() {
+	for(int i = 0; i < varCount; i++)
+	    System.out.println("x[" + i + "]: " + coordinates[i]);
+    }
+
+    double calcValue(double valueFunction[]) {
+	double result = valueFunction[0];
+	for(int i = 1; i < varCount; i++) {
+	    result -= valueFunction[i] * coordinates[i-1];
+	}
+	return result;
+    }
+
+    double getCurrentValue() { return currentValue; }
+
+    void improve(double equations[][], int rows, int columns) {
+	double tempCoords[] = new double[varCount];
+	int k;
+
+	improveLoop:
+	for(k = 1; k < 100; k++) {
+	    for(int i = 0; i < varCount; i++)
+		tempCoords[i] = coordinates[i] + agentDirection.coords[i];
+	    
+	    // Minimizing function check.
+	    double newMin = equations[0][0];
+	    for(int i = 1; i < columns; i++)
+		newMin -= equations[0][i] * tempCoords[i - 1];
+	    if(newMin > currentValue) continue improveLoop;
+	    
+	    // Constraints check.
+	    for(int i = 1; i < rows; i++) {
+		double y = equations[i][0];
+		for(int j = 1; j < columns; j++)
+		    y -= equations[i][j] * tempCoords[j - 1];
+		if(y < 0) continue improveLoop;
+	    }
+	    
+	    // If all checks pass then update current state.
+	    for(int i = 0; i < varCount; i++)
+		coordinates[i] = tempCoords[i];
+	    currentValue = newMin;
+	    break improveLoop;
+	}
+    }
+}
+
+// Starting class.
+class Hivemind {
+    public static void main(String args[]) {
+	double equations[][] = {
+	    {0, -1, 2, 1},
+	    {2, 1, 1, -2},
+	    {1, 1, -1, 1},
+	    {5, 0, 1, 1},
+	    {2, 2, -1, 0}
+	};
+	double coords[] = {0, 0, 0};
+	Agent a0 = new Agent(3, coords, equations[0]);
+	a0.printCoordinates();
+	System.out.println("Value: " + a0.getCurrentValue());
+    }
+}
