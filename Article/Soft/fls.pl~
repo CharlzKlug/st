@@ -1,0 +1,5 @@
+#!/usr/bin/perl
+use strict;
+
+my @flist = glob "photo*.jpg";
+print "$_\n" for(@flist);

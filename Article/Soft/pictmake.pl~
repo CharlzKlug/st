@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+use strict;
+
+my $x = 150;
+my $y = 50;
+my $angle = 0;
+my $step = 0.01;
+
+for(my $angle = 0; $angle < 6.28; $angle += $step){
+    
+}
