@@ -1,0 +1,15 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{index}
+\usepackage{amsmath}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{upquote}
+\usepackage{textcomp}
+\usepackage[pdftex]{graphicx}
+\usepackage{pdfpages}
+\usepackage{color}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\begin{document}
+
+\end{document}
