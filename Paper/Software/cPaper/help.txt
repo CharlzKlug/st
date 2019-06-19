@@ -1,0 +1,9 @@
+$ gcc -c -Wall -Werror -fpic foo.c
+
+gcc -shared -o libfoo.so foo.o
+
+gcc -Wall -L/home/charlzk/tmp/cPaper/ -o test fl.c -lgenann -lm
+
+$ export LD_LIBRARY_PATH=/home/charlzk/tmp/cPaper/:$LD_LIBRARY_PATH
+
+$ ./test

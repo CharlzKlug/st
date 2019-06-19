@@ -71,6 +71,9 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_core_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_dbus.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_dbus_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_designer.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_designer_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_designercomponents_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_edid_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri \
@@ -114,6 +117,9 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_uiplugin.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_uitools.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_uitools_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_webkit.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_webkit_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
@@ -129,6 +135,7 @@ DIST          = /usr/lib64/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib64/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib64/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib64/qt5/mkspecs/features/spec_post.prf \
+		../wd/.qmake.stash \
 		/usr/lib64/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib64/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib64/qt5/mkspecs/features/default_pre.prf \
@@ -175,6 +182,9 @@ Makefile: ../wd/wd.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_core_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_dbus.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_dbus_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_designer.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_designer_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_designercomponents_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_edid_support_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri \
@@ -218,6 +228,9 @@ Makefile: ../wd/wd.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_theme_support_private.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_uiplugin.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_uitools.pri \
+		/usr/lib64/qt5/mkspecs/modules/qt_lib_uitools_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_webkit.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_webkit_private.pri \
 		/usr/lib64/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
@@ -233,6 +246,7 @@ Makefile: ../wd/wd.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt
 		/usr/lib64/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib64/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib64/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib64/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib64/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib64/qt5/mkspecs/features/default_pre.prf \
@@ -270,6 +284,9 @@ Makefile: ../wd/wd.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt
 /usr/lib64/qt5/mkspecs/modules/qt_lib_core_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_dbus.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_dbus_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_designer.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_designer_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_designercomponents_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_edid_support_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri:
@@ -313,6 +330,9 @@ Makefile: ../wd/wd.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt
 /usr/lib64/qt5/mkspecs/modules/qt_lib_testlib.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_testlib_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_theme_support_private.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_uiplugin.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_uitools.pri:
+/usr/lib64/qt5/mkspecs/modules/qt_lib_uitools_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_webkit.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_webkit_private.pri:
 /usr/lib64/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri:
@@ -328,6 +348,7 @@ Makefile: ../wd/wd.pro /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf /usr/lib64/qt
 /usr/lib64/qt5/mkspecs/features/qt_config.prf:
 /usr/lib64/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib64/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib64/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib64/qt5/mkspecs/features/toolchain.prf:
 /usr/lib64/qt5/mkspecs/features/default_pre.prf:
