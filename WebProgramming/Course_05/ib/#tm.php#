@@ -1,0 +1,32 @@
+<?php
+
+include 'settings.php';
+
+// Create connection
+$conn = new mysqli($server, $username, $password, "ib");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+//echo "Connected successfully\n";
+$res = $conn->query("SELECT board_name FROM boards;");
+
+for ($row_no = 0; $row_no < $res->num_rows; $row_no++) {
+    $res->data_seek ($row_no);
+    $row = $res->fetch_assoc();
+    echo "board_name = " . $row['board_name'] . "\n";
+    echo "<a href=
+}
+
+//Echo "<a href=tm.php>My Twitter</a>";
+/*
+$res = $conn->query("select * from boards;");
+for ($row_no = 0; $row_no < $res->num_rows; $row_no++) {
+    $res->data_seek($row_no);
+    $row = $res->fetch_assoc();
+    echo "board_name = " . $row['board_name'] . "\n";
+    echo "board_id = " . $row['board_id'] . "\n";
+}
+*/
+?> 

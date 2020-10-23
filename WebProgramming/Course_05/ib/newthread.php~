@@ -1,0 +1,18 @@
+<?php
+if (isset($_POST["thname"]) & isset($_POST["board_id"])) {
+    echo "Hello, There!";
+    echo "I recieved thread name: " . $_POST["thname"];
+    echo "I recieved board id: ". $_POST["board_id"];
+    include 'settings.php';
+
+    // Create connection
+    $conn = new mysqli($server, $username, $password, "ib");
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+} else {
+    echo "No data!";
+}
+?>

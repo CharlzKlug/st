@@ -1,0 +1,33 @@
+<?php
+
+include 'settings.php';
+
+// Create connection
+$conn = new mysqli($server, $username, $password, "ib");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$board_id = $_GET["board"];
+
+$conn = new mysqli($server, $username, $password, "ib");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$res = $conn->query("select * from boards where board_id=$board_id;");
+$res->data_seek(0);
+$row = $res->fetch_assoc();
+echo $row['board_name'];
+echo $row['board_description'];
+
+?>
+
+<form action="/newthread.php" method="post" enctype="multipart/form-data">
+  Thread name: <input type="text" name="thname">
+               <input type="hidden" name="board_id" value="<?php echo $row['board_id']; ?>">
+               <input type="submit" value="Submit"></form> 

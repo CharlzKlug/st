@@ -1,0 +1,7 @@
+Всякая всячина по курсовой.
+
+MariaDB [ib]> create table posts (
+    -> id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    -> message LONGTEXT,
+    -> PRIMARY KEY (id)
+    -> );

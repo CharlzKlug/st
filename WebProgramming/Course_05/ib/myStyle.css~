@@ -1,0 +1,17 @@
+
+.pic {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.message {
+    background-color: #b8b894;
+    border-color: black;
+    border-style:solid;
+    border-width: thin;
+    margin-top: 5px;
+}
+
+td {
+    vertical-align: top;
+}

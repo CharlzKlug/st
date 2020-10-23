@@ -1,0 +1,4 @@
+<form action="/newpost.php" method="post" enctype="multipart/form-data">
+  Message: <input type="text" name="message">
+  <input type="submit" value="Submit">
+</form>
