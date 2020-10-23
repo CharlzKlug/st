@@ -1,0 +1,276 @@
+\documentclass[10pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath}
+\author{Аметов Имиль, гр. М07-903}
+\title{GOST}
+
+\begin{document}
+\maketitle
+
+Задача: Захешировать сообщение
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $M =$ & 73 65 74 79 & 62 20 32 33 & 3D 68 74 67 & 6E 65 6C 20 \\
+          & 2C 65 67 61 & 73 73 65 6D & 20 73 69 20 & 73 69 68 54 \\
+  \end{tabular}
+\end{center}
+
+Решение: Задаём начальный хеш
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $H =$ & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+          & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+  \end{tabular}
+\end{center}
+
+Генерируем ключ $K_1$, для этого нужно два значения $U_1$ и $V_1$. $U_1 = H$ и $V_1 = M$. Получаем
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $U_1 =$ & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+            & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $V_1 =$ & 73 65 74 79 & 62 20 32 33 & 3D 68 74 67 & 6E 65 6C 20 \\
+            & 2C 65 67 61 & 73 73 65 6D & 20 73 69 20 & 73 69 68 54 \\
+  \end{tabular}
+\end{center}
+
+Теперь нужно сложить $U_1$ и $V_1$ с помощью операции исключающее-или, также обозначается как $\oplus$. Результат получается таким:
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $U_1 \oplus V_1 =$ & 73 65 74 79 & 62 20 32 33 & 3D 68 74 67 & 6E 65 6C 20 \\
+                       & 2C 65 67 61 & 73 73 65 6D & 20 73 69 20 & 73 69 68 54 \\
+  \end{tabular}
+\end{center}
+
+Для получения $K_1$ нужно перемешать полученную сумму. Перемешивание производится с помощью Таблицы~\ref{table_shuffle}. Здесь $s$ --- это номер байта из результата сложения, а $\varphi(s)$ --- номер байта в новом массиве, который будет содержать то, что было в байте с номером $s$ в массиве с результатом сложения.
+
+\begin{table}
+  \begin{center}
+    \caption {Перестановка для $s$}
+    \label{table_shuffle}
+    \begin{tabular}{|c|c|} \hline
+      $s$ & $\varphi(s)$ \\ \hline
+      1 & 1 \\ \hline
+      2 & 9 \\ \hline
+      3 & 17 \\ \hline
+      4 & 25 \\ \hline
+      5 & 3 \\ \hline
+      6 & 11 \\ \hline
+      7 & 19 \\ \hline
+      8 & 27 \\ \hline
+      9 & 5 \\ \hline
+      10 & 13 \\ \hline
+      11 & 21 \\ \hline
+      12 & 29 \\ \hline
+      13 & 7 \\ \hline
+      14 & 15 \\ \hline
+      15 & 23 \\ \hline
+      16 & 31 \\ \hline
+      17 & 2 \\ \hline
+      18 & 10 \\ \hline
+      19 & 18 \\ \hline
+      20 & 26 \\ \hline
+      21 & 4 \\ \hline
+      22 & 12 \\ \hline
+      23 & 20 \\ \hline
+      24 & 28 \\ \hline
+      25 & 6 \\ \hline
+      26 & 14 \\ \hline
+      27 & 22 \\ \hline
+      28 & 30 \\ \hline
+      29 & 8 \\ \hline
+      30 & 16 \\ \hline
+      31 & 24 \\ \hline
+      32 & 32 \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+Нумерация $s$ ведётся следующим образом:
+
+\begin{tabular}{|c|c|c|c|}
+  1 & 2 & 3 & 4 \\ \hline
+  73 & 65 & 74 & 79 \\ \hline
+  5 & 6 & 7 & 8 \\ \hline
+  2C & 65 & 67 & 61 \\ \hline
+\end{tabular}
+
+То есть, нужно создать новый массив из 32-х байтов и в 1-й байт записать значение 73, в 9-й байт записать 65, в 17-й байт записать 74, в 25-й байт записать 79 и так далее.
+
+В результате получим следующий массив
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $K_1 =$ & 73 3D 2C 20 & 65 68 65 73 & 74 74 67 69 & 79 67 61 20 \\
+            & 62 6E 73 73 & 20 65 73 69 & 32 6C 65 68 & 33 20 6D 54 \\
+  \end{tabular}
+\end{center}
+
+Вычисление $U_2 = A(U_1) \oplus C_2$.
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $C_2 =$ & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+            & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+  \end{tabular}
+\end{center}
+    
+Поэтому 
+\begin{center}
+  \begin{tabular}{lllll}
+    $U_2 =$ & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+            & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+  \end{tabular}
+\end{center}
+
+Вычисление $V_2$: $V_2 = A(A(V_1))$. Вычисление $A(X)$ происходит так:
+
+$$A(X) = A(X_4 || X_3 || X_2 || X_1) = (X_1 \oplus X_2) || X_4 || X_3 || X_2.$$
+
+Как будет вычисляться $A(V_1)$? Здесь $X_1 = 20736920 73696854$ и $X_2 = 2C656761 7373656D$. Складываем исключающим-или $X_1$ и $X_2$ и получаем $X_1 \oplus X_2 = 0C160E41 001A0D39$. Полученный результат помещается вместо $X_4$:
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $V_2=A(A(V_1)) =$ & 0C 16 0E 41 & 00 1A 0D 39 & 73 65 74 79 & 62 20 32 33 \\
+                      & 3D 68 74 67 & 6E 65 6C 20 & 2C 65 67 61 & 73 73 65 6D \\
+  \end{tabular}
+\end{center}
+
+Аналогично находится и $A(A(V_2))$. В результате получаем
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $V_2=A(A(V_1)) =$ & 11 0D 13 06 & 1D 16 09 4D & 0C 16 0E 41 & 00 1A 0D 39 \\
+                      & 73 65 74 79 & 62 20 32 33 & 3D 68 74 67 & 6E 65 6C 20 \\
+  \end{tabular}
+\end{center}
+
+Теперь, для получения $K_2$ нужно перемешать $A(A(V_1))$ в соответствии с Таблицей~\ref{table_shuffle}. Получаем
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $K_2 =$ & 11 0C 73 3D & 0D 16 65 68 & 13 0E 74 74 & 06 41 79 67 \\
+            & 1D 00 62 6E & 16 1A 20 65 & 09 0D 32 6C & 4D 39 33 20 \\
+  \end{tabular}
+\end{center}
+
+Вычисляем $U_3$ по формуле $U_3 = A(U_2) \oplus C_3$. Где
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $C_3 =$ & ff 00 ff ff & 00 00 00 ff & ff 00 00 ff & 00 ff ff 00 \\
+            & 00 ff 00 ff & 00 ff 00 ff & ff 00 ff 00 & ff 00 ff 00 \\
+  \end{tabular}
+\end{center}
+
+Отсюда
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $U_3 =$ & ff 00 ff ff & 00 00 00 ff & ff 00 00 ff & 00 ff ff 00 \\
+            & 00 ff 00 ff & 00 ff 00 ff & ff 00 ff 00 & ff 00 ff 00 \\
+  \end{tabular}
+\end{center}
+
+Вычисляем $V_3$ по формуле $V_3 = A(A(V_2))$. Получаем
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $A(V_2) =$ & 4e 0d 00 1e & 0c 45 5e 13 & 11 0d 13 06 & 1d 16 09 4d \\
+               & 0c 16 0e 41 & 00 1a 0d 39 & 73 65 74 79 & 62 20 32 33 \\
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $V_3=A(A(V_2)) =$ & 7f 73 7a 38 & 62 3a 3f 0a & 4e 0d 00 1e & 0c 45 5e 13 \\
+                      & 11 0d 13 06 & 1d 16 09 4d & 0c 16 0e 41 & 00 1a 0d 39 \\
+  \end{tabular}
+\end{center}
+
+Вычисляем сумму $U_3 \oplus V_3$.
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $U_3 \oplus V_3 =$ & 80 73 85 c7 & 62 3a 3f f5 & b1 0d 00 e1 & 0c ba a1 13 \\
+                       & 11 f2 13 f9 & 1d e9 09 b2 & f3 16 f1 41 & ff 1a f2 39 \\
+  \end{tabular}
+\end{center}
+
+Выполняем перемешивание
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $P(U_3 \oplus V_3) =$ & 80 b1 11 f3 & 73 0d f2 16 & 85 00 13 f1 & c7 e1 f9 41\\
+                          & 62 0c 1d ff & 3a ba e9 1a & 3f a1 09 f2 & f5 13 b2 39 \\
+  \end{tabular}
+\end{center}
+
+Таким образом мы получили $K_3$. Теперь будем вычислять $K_4$. Вычисляем $U_4 = A(U_3) \oplus C_4$.
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $A(U_3) =$ & ff ff ff ff & ff ff ff ff & ff 00 ff ff & 00 00 00 ff \\
+               & ff 00 00 ff & 00 ff ff 00 & 00 ff 00 ff & 00 ff 00 ff \\
+  \end{tabular}
+\end{center}
+
+В этом случае
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $C_4 =$ & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+            & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 & 00 00 00 00 \\
+  \end{tabular}
+\end{center}
+
+Получаем $U_4$:
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $U_4 =$ & ff ff ff ff & ff ff ff ff & ff 00 ff ff & 00 00 00 ff \\
+            & ff 00 00 ff & 00 ff ff 00 & 00 ff 00 ff & 00 ff 00 ff \\
+  \end{tabular}
+\end{center}
+
+Вычисляем $V_4 = A(A(V_3))$.
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $A(V_3) =$ & ff ff ff ff & ff ff ff ff & ff 00 ff ff & 00 00 00 ff \\
+               & ff 00 00 ff & 00 ff ff 00 & 00 ff 00 ff & 00 ff 00 ff \\
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $V_4 = A(A(V_3)) =$ & 5F 00 13 18 & 11 53 57 5E & 1D 1B 1D 47 & 1D 0C 04 74 \\
+                        & 7F 73 7A 38 & 62 3A 3F 0A & 4E 0D 00 1E & 0C 45 5E 13 \\
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $U_4 \oplus V_4 =$ & A0 FF EC E7 & EE AC A8 A1 & E2 1B E2 B8 & 1D 0C 04 8B \\
+                       & 80 73 7A C7 & 62 C5 C0 0A & 4E F2 00 E1 & 0C BA 5E EC \\
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}{lllll}
+    $K_4 = P(U_4 \oplus V_4) =$ & A0 E2 80 4E & FF 1B 73 F2 & EC E2 7A 00 & E7 B8 C7 E1 \\
+                                & EE 1D 62 0C & AC 0C C5 BA & A8 04 C0 5E & A1 8B 0A EC \\
+  \end{tabular}
+\end{center}
+
+\end{document}
