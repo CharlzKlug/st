@@ -1,0 +1,1 @@
+gnuplot -e "set terminal png; set xrange [0:0.8]; set yrange [0:0.0045]; set output \"graph.png\"; set xlabel \"Энергия, МэВ\"; set ylabel \"Скорость счёта, N/с\"; plot \"rm1.dat\" with lines;"

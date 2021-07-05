@@ -1,0 +1,8 @@
+\babel@toc {russian}{}
+\contentsline {section}{\numberline {1}Метод Корад}{3}%
+\contentsline {section}{\numberline {2}Выбор библиотеки для создания искусственной нейронной сети}{4}%
+\contentsline {section}{\numberline {3}Особенности библиотеки neuralnet}{5}%
+\contentsline {section}{\numberline {4}Описание программы}{6}%
+\contentsline {section}{\numberline {5}Описание нейросети для определения толщины загрязнённого слоя}{10}%
+\contentsline {section}{\numberline {6}Статистический анализ погрешности работы нейросети}{11}%
+\contentsline {section}{\numberline {7}Статистический анализ погрешности nnThickness}{13}%

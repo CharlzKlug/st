@@ -1,0 +1,1 @@
+charlzk@localhost ~/Projects/Radiation $ gnuplot -e "set terminal png size 10240,480; set style fill pattern; set style histogram clustered; set style data histogram; set xrange [-1:1000]; set output \"graph.png\"; plot \"output.txt\" u 1 t \"Оригинал\", \"\" u 2 t \"Предсказание\""

@@ -1,0 +1,26 @@
+trainSetNorm <- cbind (trainSetNorm, sapply (trainSetNorm [,22], function (x) {
++ if (1 == x) {return (1)}
++ return (0)
+    + }))
+
+names (trainSetNorm) [24] <- c ("r1")
+
+lf <- function (t) {
++ return (function (x) {
++ if (t == x) {return (1)}
++ return (0)
+    + })}
+
+trainSetNorm <- cbind (trainSetNorm, sapply (trainSetNorm [,22], (lf (3))))
+> trainSetNorm <- cbind (trainSetNorm, sapply (trainSetNorm [,22], (lf (4))))
+> trainSetNorm <- cbind (trainSetNorm, sapply (trainSetNorm [,22], (lf (5))))
+> trainSetNorm <- cbind (trainSetNorm, sapply (trainSetNorm [,22], (lf (6))))
+> trainSetNorm <- cbind (trainSetNorm, sapply (trainSetNorm [,22], (lf (7))))
+> trainSetNorm <- cbind (trainSetNorm, sapply (trainSetNorm [,22], (lf (8))))
+> trainSetNorm <- cbind (trainSetNorm, sapply (trainSetNorm [,22], (lf (9))))
+> trainSetNorm <- cbind (trainSetNorm, sapply (trainSetNorm [,22], (lf (10))))
+> names (trainSetNorm) [25:32] <- c ("r2", "r3", "r4", "r5", "r6", "r7", "r8", "r9", "r10")
+Предупреждение:
+В names(trainSetNorm)[25:32] <- c("r2", "r3", "r4", "r5", "r6",  :
+  число единиц для замены не является произведением длины замены
+> names (trainSetNorm) [25:33] <- c ("r2", "r3", "r4", "r5", "r6", "r7", "r8", "r9", "r10")

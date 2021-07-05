@@ -1,0 +1,198 @@
+\documentclass[12pt]{article}
+\usepackage{hyphsubst}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,ukrainian,russian]{babel}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\newcommand\aug{\fboxsep=-\fboxrule\!\!\!\fbox{\strut}\!\!\!}
+\author{Аметов Имиль}
+\title{Про то, что сделано}
+\usepackage[thinlines]{easytable}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{indentfirst} % Для отступа первого абзаца
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item {Создание тренировочного набора данных}
+
+  Для создания тренировочного набора данных используется команда
+
+  \verb|trainingSet <- mkDataFrame (5000)|
+
+  то есть создаётся кадр данных под названием \verb|trainingSet|, генерирует этот кадр данных функция под названием \verb|mkDataFrame|. Эта функция принимает в качестве аргумента целочисленное положительное число, обозначающие количество записей, которые нужно сгенерировать. Отсюда вызов команды \verb|mkDataFrame (5000)| порождает кадр данных, который можно представить в виде следующей таблицы:
+
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    $x_1$ & $x_2$ & ... & $x_{20}$ & $r$ & depth \\ \hline
+    0 & 0 & ... & 0 & 1.0 & 10 \\ \hline
+    0 & 0 & ... & 0 & 1.0 & 10 \\ \hline
+    0 & 0 & ... & 0 & 1.0 & 10 \\ \hline
+    0.005 & 0.004 & ... & $4.39 \cdot 10^{-8}$ & 0.7 & 7 \\ \hline
+  \end{tabular}
+
+  Вообще говоря, содержимое кадра данных, возвращаемого функцией \verb|mkDataFrame| каждый раз будет новым и будет отличаться от предыдущего вызова.
+
+  Значения полей $x_1$, $x_2$, $...$, $x_{20}$ являются значениями бинов, поле $r$ --- это нормализованное значение толщины незаражённого поверхностного слоя. При этом для $r$ максимальное значение равно 1 (соответствует значению поля \emph{depth} равному 10), а минимальное значение равно 0 (соответствует значению поля \emph{depth} равному 0). Поле \emph{depth} --- это толщина незаражённого слоя, измеряемая в половинах длин свободного пробега.
+
+  Текст функции \verb|mkDataFrame| следующий:
+
+\begin{verbatim}
+mkDataFrame <- function (n) {
+    tmpDF <- data.frame ()
+    for (i in (seq (1, n))) {
+        tmpDF <- rbind (tmpDF, (mk20BinsRnd ()))
+    }
+    names (tmpDF) [1:22] <- c ("x1", "x2", "x3", "x4", "x5", "x6", "x7", "x8",
+                               "x9", "x10", "x11", "x12", "x13", "x14", "x15",
+                               "x16", "x17", "x18", "x19", "x20", "r", "depth")
+    return (tmpDF)
+}
+\end{verbatim}
+
+  В строке \verb|tmpDF <- data.frame ()| происходит создание пустого кадра данных.
+
+  Наполнением кадра данных занимается цикл
+
+\begin{verbatim}
+    for (i in (seq (1, n))) {
+        tmpDF <- rbind (tmpDF, (mk20BinsRnd ()))
+    }
+\end{verbatim}
+
+  Создание очередной записи происходит в строке \verb|tmpDF <- rbind (tmpDF, (mk20BinsRnd ()))|. Созданием записи занимается функция с названием \verb|mk20BinsRnd|, со следующим текстом:
+
+\begin{verbatim}
+1. mk20BinsRnd <- function () {
+2.    myKoefs <- mlps ()
+3.    mySpectrum <- superposition (myKoefs)
+4.    bins <- getBins (20, mySpectrum [300:730])
+5.    bins <- c (bins, (firstNullsCount (myKoefs)) / 10)
+6.    bins <- c (bins, (firstNullsCount (myKoefs)))
+7.    return (bins)
+}
+\end{verbatim}
+
+  В этой функции создаётся набор \verb|myKoefs| (2-я строка) из десяти коэффициентов, эти коэффициенты используются для создания спектра \verb|mySpectrum| с помощью функции \verb|superposition (myKoefs)| (3-я строка), из этого спектра формируются 20 бинов с отбором значений на отрезке $[300;730]$ (4-я строка). К бинам добавляется нормализованная толщина незаражённого слоя (5-я строка) и ненормализованная толщина незаражённого слоя (6-я строка). В 7-й строке происходит возврат бинов.
+
+  Функция \verb|mlps| определена следующим образом:
+
+\begin{verbatim}
+mlps <- function () {
+    return (mkCoefs())
+}
+\end{verbatim}
+
+  То есть, происходит вызов функции \verb|mkCoefs| с телом
+
+\begin{verbatim}
+1. mkCoefs <- function() {
+2.    a1 <- sample (0:10, 1)
+3.    a2 <- sample (-5:10, 1)
+4.    a3 <- sample (1:3, 1)
+5.    rf <- function (x) {
+6.        a1 / (exp (abs (((x - a2) / a3)^3)))
+7.    }
+8.    return (round (rf (1:10)))
+9. }
+\end{verbatim}
+
+  В функции \verb|mkCoefs| создаются три случайные значения $a_1$ (на отрезке $[0; 10]$), $a_2$ (на отрезке $[-5; 10]$ и $a_3$ (на отрезке $[1;3]$). В строках 5-7 происходит создание функции-замыкания \verb|rf|, которую математически можно описать как
+
+  $$f(x) = a_1 e^{- \left | {\frac {x - a_2} {a_3}} \right |^3}.$$
+
+  В строке 8 эта функция применяется на вектор-последовательность (1, 2, 3, 4, 5, 6, 7, 8, 9, 10) и полученная последовательность возвращается из функции.
+
+  Тело функции \verb|superposition| задано таким образом:
+
+\begin{verbatim}
+1. superposition <- function (koeffs) {
+2.     result <- rm01 * koeffs [1] + rm02 * koeffs [2] +
+3.         rm03 * koeffs [3] + rm04 * koeffs [4] +
+4.         rm05 * koeffs [5] + rm06 * koeffs [6] +
+5.         rm07 * koeffs [7] + rm08 * koeffs [8] +
+6.         rm09 * koeffs [9] + rm10 * koeffs [10]
+7.     return (result)
+}
+\end{verbatim}
+
+  Эта функция получает аргумент-вектор из десяти коэффициентов \verb|koeffs|, умножает эти коэффициенты на векторы \verb|rm01|, \verb|rm02| и так далее, до вектора \verb|rm10| (эти векторы получены с помощью программы <<Корад>>). И возвращает сумму этих векторов. Полученный вектор представляет собой спектр.
+
+  Вернёмся к функции \verb|mk20BinsRnd|, а именно к 4-й строке \newline \verb|bins <- getBins (20, mySpectrum [300:730])|. Здесь происходит вызов функции \verb|getBins|. Функция \verb|getBins| служит для разделения значений спектра с индексами от 300 до 730 на 20 бинов.
+
+  Текст функции \verb|getBins|:
+
+\begin{verbatim}
+1. getBins <- function (n, vctr) {
+2.     tmp <- c ()
+3.     len <- length (vctr)
+4.     group <- len / n
+5.     for (i in (seq (1, len, by = group))) {
+6.         tmp <- c (tmp, mean (vctr [i : (i + group - 1)]))
+7.     }
+8.     return (tmp)
+}
+\end{verbatim}
+
+  В строках 5 и 6 функции \verb|mk20BinsRnd| формируются нормализованная и ненормализованная толщина незаражённого вещества. Под этой толщей находится источник радиоактивного излучения.
+
+\item{Тренировка нейросети}
+
+  Перед тренировкой нейросети нужно загрузить библиотеку командой
+
+  \verb|library (neuralnet)|
+
+  Нейросеть тренируется следующей командой:
+
+\begin{verbatim}
+nn <- neuralnet (r ~ x1 + x2 + x3 + x4 + x5 + x6 + 
+                 x7 + x8 + x9 + x10 + x11 + x12 + 
+                 x13 + x14 + x15 + x16 + x17 + x18 + 
+                 x19 + x20, data = trainingSet, 
+                 act.fct = "logistic", linear.output = F)
+\end{verbatim}
+
+\item{Создание тестового набора данных}
+
+  Тестовый набор данных формируется аналогично учебному набору, но с числом записей равным тысяче.
+
+\begin{verbatim}
+testSet <- mkDataFrame (1000)
+\end{verbatim}
+
+\item{Создание кадра данных с нормализованными значениями толщины незаражённого вещества (первая колонка) и со значениями толщины незаражённого вещества вычисленное нейросетью (вторая колонка).}
+
+\begin{verbatim}
+comparison.dataframe <- cbind (testSet [, 21], 
+                               compute (nn, 
+                                        testSet [, 1:20])$net.result)
+\end{verbatim}
+
+\item{Сохранение кадра данных \verb|comparison.dataframe| в файл \verb|output.txt|.}
+
+  Для сохранения кадра данных \verb|comparison.dataframe| в файл \verb|output.txt|. Применяется команда
+
+\begin{verbatim}
+write.table (comparison.dataframe, file = "output.txt", 
+             append = FALSE, sep = "\t", row.names = FALSE, 
+             col.names = FALSE)
+\end{verbatim}
+
+\item{Формирование картинки на основе данных из файла \verb|output.txt|.}
+
+  Для формирования картинки была применена программа \verb|gnuplot| с такой программой:
+
+\begin{verbatim}
+gnuplot -e "set terminal png size 10240,480; set style fill pattern; 
+            set style histogram clustered; set style data histogram; 
+            set xrange [-1:1000]; set output \"graph.png\"; 
+            plot \"output.txt\" u 1 t \"Оригинал\", 
+                           \"\" u 2 t \"Предсказание\""
+\end{verbatim}
+
+  Исходные данные обозначены незаштрихованным столбцом, а значения, вычисленные нейросетью --- заштрихованным столбцом.
+\end{enumerate}
+
+\end{document}
